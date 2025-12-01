@@ -1,103 +1,152 @@
 # Bootstrap Theme
 
-Tema moderno de WordPress basado en Bootstrap 5.3, con compatibilidad completa con WooCommerce, configuración avanzada vía ACF Pro y más de 40 bloques Gutenberg para construir interfaces profesionales, accesibles y de alto rendimiento.
+Tema moderno de WordPress basado en Bootstrap 5.3, con integración completa de WooCommerce, configuración avanzada con ACF Pro y un set de bloques Gutenberg para construir sitios accesibles y de alto rendimiento.
 
-Versión actual: 1.6.4 · Estado: Estable · Última actualización: 2025-12-01
+Versión: 1.6.4 · Estado: Estable · Última actualización: 2025-12-01
 
-En el administrador, la documentación integrada está disponible en `Herramientas > Documentación del Tema`.
+Documentación integrada: `Herramientas > Documentación del Tema`.
 
----
+![WordPress](https://img.shields.io/badge/WordPress-5.0%2B-21759B)
+![PHP](https://img.shields.io/badge/PHP-7.4%2B-777BB3)
+![Bootstrap](https://img.shields.io/badge/Bootstrap-5.3-7952B3)
+![WooCommerce](https://img.shields.io/badge/WooCommerce-4.0%2B-96588A)
+![License](https://img.shields.io/badge/License-GPL%20v2%2B-2ea44f)
 
-## Descripción del proyecto
+## Tabla de contenido
 
-- WordPress theme construido sobre Bootstrap 5.3 con estilos y scripts locales.
-- Integración WooCommerce lista para producción: plantillas personalizadas y bloques de carrito/checkout.
-- Configuración centralizada con ACF Pro (opciones generales, personalización visual, extras y performance).
-- Módulos de optimización: cache inteligente, carga condicional de assets, lazy loading y preloads críticos.
-- Internacionalización lista: `es_CL` y `pt_BR` incluidos; `Text Domain: bootstrap-theme`.
+- [Descripción](#descripción)
+- [Requisitos](#requisitos)
+- [Instalación](#instalación)
+- [Configuración](#configuración)
+- [Uso](#uso)
+- [Estructura del proyecto](#estructura-del-proyecto)
+- [Scripts de desarrollo](#scripts-de-desarrollo)
+- [Contribución](#contribución)
+- [Licencia](#licencia)
+- [Estado](#estado)
+- [Solución de problemas](#solución-de-problemas)
+- [Changelog resumido](#changelog-resumido)
 
-Principales componentes:
-- 40+ bloques Gutenberg que cubren layout, navegación, contenido, feedback y componentes WooCommerce.
-- Sistema de tipografía con Google Fonts y variables CSS nativas de Bootstrap.
-- Helpers para opciones (`bootstrap_theme_get_*_option[_cached]`) y utilidades de performance.
+## Descripción
 
-## Requisitos de instalación
+- Tema con estilos y scripts locales basados en Bootstrap 5.3.
+- Integración WooCommerce: plantillas personalizadas y bloques para carrito/checkout.
+- Configuración central con ACF Pro: Generales, Personalización, WooCommerce y Extras.
+- Optimización incluida: cache, carga condicional, lazy loading y preloads críticos.
+- Internacionalización: `es_CL` y `pt_BR` (`Text Domain: bootstrap-theme`).
 
-- `PHP` 7.4 o superior (compatible 8.x)
-- `WordPress` 5.0 o superior
-- `ACF Pro` 6.0 o superior (requerido)
+## Requisitos
+
+- `PHP` 7.4+ (compatible 8.x)
+- `WordPress` 5.0+
+- `ACF Pro` 6.0+ (requerido)
 - `WooCommerce` 4.0+ (opcional)
 - `Composer` (para `twbs/bootstrap`)
-- `Node.js` y `npm` (para compilar SCSS con `sass`)
+- `Node.js` + `npm` (para compilar SCSS con `sass`)
 
-Versiones de dependencias clave:
-- `twbs/bootstrap` `^5.3.2` (Composer)
-- `sass` `^1.93.x` (npm)
+Dependencias clave:
+- `twbs/bootstrap` `^5.3.2`
+- `sass` `^1.93.x`
 
-## Instrucciones de configuración
+## Instalación
 
-1) Instalar el tema
-- Clonar en `wp-content/themes/bootstrap-theme` y activar desde `Apariencia > Temas`.
+- Clonar en `wp-content/themes/bootstrap-theme`.
+- Activar en `Apariencia > Temas`.
+- Ejecutar `composer install` y `npm install`.
+- Compilar estilos: `npm run build-css` (o `npm run watch-css`).
 
-2) Dependencias y build
-- `composer install`
-- `npm install`
-- Compilar estilos: `npm run build-css` (o `npm run watch-css` en desarrollo)
+## Configuración
 
-3) ACF Pro
-- Instalar y activar ACF Pro.
-- Abrir `Apariencia > Configuración del Tema` y revisar las pestañas: Generales, Personalización, WooCommerce, Extras.
+- ACF Pro: instalar y activar.
+- Revisar `Apariencia > Configuración del Tema` (Generales, Personalización, WooCommerce, Extras).
+- Performance recomendada en `Extras > Performance y SEO`: Cache, Lazy Loading, Precargar Fuentes y Compresión.
+- WooCommerce Performance: activar toggles según necesidad (scripts condicionales, fragmentos, cache de queries).
+- Fuentes: seleccionar familias para cuerpo y títulos; el tema genera URL y variables CSS.
 
-4) Opciones recomendadas de performance
-- En `Extras > Performance y SEO` habilitar: Cache, Lazy Loading, Precarga de fuentes y Compresión.
-- En `WooCommerce > Performance` activar los toggles según el caso (scripts condicionales, fragmentos, cache de queries).
+## Uso
 
-5) Fuentes (Google Fonts)
-- Seleccionar familia para cuerpo y títulos; el tema generará la URL optimizada y variables CSS sin recompilar SCSS.
-
-## Guía de uso
-
-Bloques Gutenberg (selección):
 - Layout: `bs-container`, `bs-row`, `bs-column`.
 - Navegación: `bs-navbar`, `bs-breadcrumb`, `bs-pagination`, `bs-offcanvas`, `bs-tabs`.
 - Contenido: `bs-card`, `bs-carousel`, `bs-accordion`, `bs-modal`, `bs-list-group`.
 - Feedback: `bs-alert`, `bs-progress`, `bs-spinner`, `bs-toast`, `bs-tooltip`.
 - WooCommerce: `bs-cart`, `bs-wc-products`, `bs-shipping-methods`, `bs-checkout-custom-fields`.
 
-Ejemplos rápidos:
-- Construir layout responsive: usar `bs-container` → `bs-row` → `bs-column` con tamaños por breakpoint.
-- Carrito en páginas: insertar `bs-cart`; el checkout se sincroniza automáticamente en cambios de cantidad.
-- Campos de checkout: gestionar desde ACF (mostrar/ocultar, patrones de validación y autoformato).
+Ejemplos:
+- Layout responsive: `bs-container` → `bs-row` → `bs-column`.
+- Carrito: insertar `bs-cart`; el checkout se sincroniza al cambiar cantidades.
+- Checkout: gestionar campos y validaciones desde ACF (incluye autoformato y regex).
 
-Plantillas y overrides:
-- Plantillas WooCommerce personalizadas en `woocommerce/` y `template-parts/woocommerce/`.
-- Cabeceras y pies en `template-parts/headers/*` y `template-parts/footers/*` con opciones ACF.
+## Estructura del proyecto
+
+```
+bootstrap-theme/
+├─ assets/
+│  ├─ css/
+│  ├─ js/
+│  └─ scss/
+├─ blocks/
+│  ├─ bs-*/ (bloques Gutenberg)
+│  ├─ blocks.php
+│  ├─ blocks-editor.css
+│  └─ blocks-frontend.css
+├─ inc/
+│  ├─ admin/
+│  ├─ performance/
+│  ├─ frontend/
+│  └─ woocommerce-functions.php
+├─ languages/
+├─ template-parts/
+│  ├─ headers/
+│  ├─ footers/
+│  └─ woocommerce/
+├─ woocommerce/ (templates)
+├─ functions.php
+├─ style.css
+├─ composer.json
+└─ package.json
+```
+
+## Scripts de desarrollo
+
+- `npm run build-css` · Compila SCSS a `assets/css/theme.css` (minificado)
+- `npm run watch-css` · Compilación continua
+- `npm run dev-css` · Build expandido con source map
 
 ## Contribución
 
-- Abrir issues y PRs siguiendo WordPress Coding Standards y buenas prácticas de PHP.
-- Mantener compatibilidad: `PHP 7.4+`, `WP 5.0+`, `ACF Pro 6+`, `WC 4.0+`.
-- Ejecutar builds locales: `composer install`, `npm install`, `npm run build-css`.
-- Estilo de código: evitar inline CSS/JS en plantillas; usar `wp_enqueue_*` y utilidades del tema.
-- Internacionalización: usar `__()`/`_e()` y actualizar `languages/*.po` cuando corresponda.
+- Seguir WordPress Coding Standards y buenas prácticas PHP.
+- Compatibilidad: `PHP 7.4+`, `WP 5.0+`, `ACF Pro 6+`, `WC 4.0+`.
+- Builds locales: `composer install`, `npm install`, `npm run build-css`.
+- Evitar CSS/JS inline; usar `wp_enqueue_*` y utilidades del tema.
+- Internacionalización: `__()`/`_e()` y actualización de `languages/*.po`.
 
 ## Licencia
 
-- Licencia del tema: `GPL v2 or later`.
-- Composer: `GPL-2.0-or-later` en `composer.json`.
-- Paquetes de terceros mantienen sus propias licencias.
+- `GPL v2 or later`.
+- Composer: `GPL-2.0-or-later` (ver `composer.json`).
 
-## Estado del proyecto
+## Estado
 
-- Versión: `1.6.4` (ver `style.css`)
-- Bootstrap: `^5.3.2` local via Composer
-- Sass: `^1.93.x`
-- Idiomas: `es_CL`, `pt_BR`
-- Módulos activos: ACF Pro Options, Performance, Bloques Gutenberg, Integración WooCommerce
+- Versión: `1.6.4` (ver `style.css`).
+- Bootstrap: `^5.3.2` local via Composer.
+- Sass: `^1.93.x`.
+- Idiomas: `es_CL`, `pt_BR`.
 
-Para documentación extensa (optimización, cache, changelog y detalles por versión) continúa en la siguiente sección.
+## Solución de problemas
 
----
+- ACF Pro faltante: instalar y activar ACF Pro; luego revisar `Apariencia > Configuración del Tema`.
+- Bloques no visibles: abrir consola y verificar errores; confirmar que los `editor.js` de los bloques existen en `blocks/`.
+- Fuentes no cargan: en `Personalización > Tipografía`, re-seleccionar fuentes; limpiar cache desde el admin si está habilitado.
+- Estilos no aplican: compilar SCSS con `npm run build-css` y verificar `assets/css/theme.css` en el frontend.
+- WooCommerce desactivado: los bloques y templates WooCommerce se ocultan; activar el plugin para habilitarlos.
+
+## Changelog resumido
+
+- 1.5.8 (2025-11-06): Validación y autoformato de campos de checkout (regex, pattern, JS/PH P), ejemplos y funciones nuevas.
+- 1.5.7 (2025-10-30): Fix galería de productos variables (eventos WooCommerce, mantiene Fancybox y estilos).
+- 1.5.6 (2025-10-27): Hook prioritario y validación de stock por variación en carrito.
+
+Para detalles completos del changelog y documentación avanzada (cache, optimización, controles de stock), usa la documentación integrada en el admin o revisa las secciones técnicas del código.
 
 
 ### 1.5.8 — 2025-11-06
