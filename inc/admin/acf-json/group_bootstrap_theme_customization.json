@@ -1,0 +1,830 @@
+{
+    "key": "group_bootstrap_theme_customization",
+    "title": "Personalización del Tema",
+    "fields": [
+        {
+            "key": "field_color_scheme",
+            "label": "Esquema de Colores",
+            "name": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_customization_color_scheme",
+            "label": "Esquema de Color del Sitio",
+            "name": "customization_color_scheme",
+            "type": "select",
+            "instructions": "Selecciona el esquema de color general del sitio",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "100",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "light": "Claro ☀️",
+                "dark": "Oscuro 🌙",
+                "auto": "Automático 🔄"
+            },
+            "default_value": "auto",
+            "allow_null": 0,
+            "multiple": 0,
+            "ui": 0,
+            "return_format": "value",
+            "ajax": 0,
+            "placeholder": ""
+        },
+        {
+            "key": "field_customization_primary_color",
+            "label": "Color Primario",
+            "name": "customization_primary_color",
+            "type": "color_picker",
+            "instructions": "Color principal del tema (botones, enlaces, etc.)",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "25",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "#0d6efd",
+            "enable_opacity": 0,
+            "return_format": "string"
+        },
+        {
+            "key": "field_customization_secondary_color",
+            "label": "Color Secundario",
+            "name": "customization_secondary_color",
+            "type": "color_picker",
+            "instructions": "Color secundario del tema",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "25",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "#6c757d",
+            "enable_opacity": 0,
+            "return_format": "string"
+        },
+        {
+            "key": "field_customization_success_color",
+            "label": "Color de Éxito",
+            "name": "customization_success_color",
+            "type": "color_picker",
+            "instructions": "Color para mensajes de éxito",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "25",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "#198754",
+            "enable_opacity": 0,
+            "return_format": "string"
+        },
+        {
+            "key": "field_customization_danger_color",
+            "label": "Color de Peligro",
+            "name": "customization_danger_color",
+            "type": "color_picker",
+            "instructions": "Color para mensajes de error",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "25",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "#dc3545",
+            "enable_opacity": 0,
+            "return_format": "string"
+        },
+        {
+            "key": "field_customization_warning_color",
+            "label": "Color de Advertencia",
+            "name": "customization_warning_color",
+            "type": "color_picker",
+            "instructions": "Color para mensajes de advertencia",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "25",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "#ffc107",
+            "enable_opacity": 0,
+            "return_format": "string"
+        },
+        {
+            "key": "field_customization_info_color",
+            "label": "Color de Información",
+            "name": "customization_info_color",
+            "type": "color_picker",
+            "instructions": "Color para mensajes informativos",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "25",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "#0dcaf0",
+            "enable_opacity": 0,
+            "return_format": "string"
+        },
+        {
+            "key": "field_customization_link_color",
+            "label": "Color de Enlaces",
+            "name": "customization_link_color",
+            "type": "color_picker",
+            "instructions": "Color de los enlaces del sitio",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "25",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "#0d6efd",
+            "enable_opacity": 0,
+            "return_format": "string"
+        },
+        {
+            "key": "field_customization_border_color",
+            "label": "Color de Bordes",
+            "name": "customization_border_color",
+            "type": "color_picker",
+            "instructions": "Color predeterminado de bordes",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "25",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "#dee2e6",
+            "enable_opacity": 0,
+            "return_format": "string"
+        },
+        {
+            "key": "field_customization_light_color",
+            "label": "Color Claro",
+            "name": "customization_light_color",
+            "type": "color_picker",
+            "instructions": "Color de fondo claro",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "25",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "#f8f9fa",
+            "enable_opacity": 0,
+            "return_format": "string"
+        },
+        {
+            "key": "field_customization_light_gradient",
+            "label": "Usar Gradiente",
+            "name": "customization_light_gradient",
+            "type": "true_false",
+            "instructions": "Activar gradiente para fondo claro",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "25",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui": 1,
+            "ui_on_text": "Sí",
+            "ui_off_text": "No"
+        },
+        {
+            "key": "field_customization_light_color_secondary",
+            "label": "Color Claro Secundario",
+            "name": "customization_light_color_secondary",
+            "type": "color_picker",
+            "instructions": "Segundo color para gradiente",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_customization_light_gradient",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "25",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "#ffffff",
+            "enable_opacity": 0,
+            "return_format": "string"
+        },
+        {
+            "key": "field_customization_light_gradient_direction",
+            "label": "Dirección del Gradiente",
+            "name": "customization_light_gradient_direction",
+            "type": "select",
+            "instructions": "Dirección del gradiente claro",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_customization_light_gradient",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "25",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "to bottom": "Vertical (arriba a abajo)",
+                "to top": "Vertical (abajo a arriba)",
+                "to right": "Horizontal (izquierda a derecha)",
+                "to left": "Horizontal (derecha a izquierda)",
+                "135deg": "Diagonal (↘)",
+                "45deg": "Diagonal (↗)"
+            },
+            "default_value": "to bottom",
+            "allow_null": 0,
+            "multiple": 0,
+            "ui": 0,
+            "return_format": "value",
+            "ajax": 0,
+            "placeholder": ""
+        },
+        {
+            "key": "field_customization_dark_color",
+            "label": "Color Oscuro",
+            "name": "customization_dark_color",
+            "type": "color_picker",
+            "instructions": "Color de fondo oscuro",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "25",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "#212529",
+            "enable_opacity": 0,
+            "return_format": "string"
+        },
+        {
+            "key": "field_customization_dark_gradient",
+            "label": "Usar Gradiente",
+            "name": "customization_dark_gradient",
+            "type": "true_false",
+            "instructions": "Activar gradiente para fondo oscuro",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "25",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui": 1,
+            "ui_on_text": "Sí",
+            "ui_off_text": "No"
+        },
+        {
+            "key": "field_customization_dark_color_secondary",
+            "label": "Color Oscuro Secundario",
+            "name": "customization_dark_color_secondary",
+            "type": "color_picker",
+            "instructions": "Segundo color para gradiente",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_customization_dark_gradient",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "25",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "#000000",
+            "enable_opacity": 0,
+            "return_format": "string"
+        },
+        {
+            "key": "field_customization_dark_gradient_direction",
+            "label": "Dirección del Gradiente",
+            "name": "customization_dark_gradient_direction",
+            "type": "select",
+            "instructions": "Dirección del gradiente oscuro",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_customization_dark_gradient",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "25",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "to bottom": "Vertical (arriba a abajo)",
+                "to top": "Vertical (abajo a arriba)",
+                "to right": "Horizontal (izquierda a derecha)",
+                "to left": "Horizontal (derecha a izquierda)",
+                "135deg": "Diagonal (↘)",
+                "45deg": "Diagonal (↗)"
+            },
+            "default_value": "to bottom",
+            "allow_null": 0,
+            "multiple": 0,
+            "ui": 0,
+            "return_format": "value",
+            "ajax": 0,
+            "placeholder": ""
+        },        
+        {
+            "key": "field_typography_tab",
+            "label": "Tipografía",
+            "name": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_google_fonts_body",
+            "label": "Fuente para el Cuerpo del Texto",
+            "name": "google_fonts_body",
+            "type": "select",
+            "instructions": "Selecciona la fuente principal para el texto del cuerpo",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "": "-- Usar fuente del tema --",
+                "Roboto": "Roboto",
+                "Open Sans": "Open Sans",
+                "Lato": "Lato",
+                "Montserrat": "Montserrat",
+                "Source Sans Pro": "Source Sans Pro",
+                "Raleway": "Raleway",
+                "Poppins": "Poppins",
+                "Nunito": "Nunito",
+                "Ubuntu": "Ubuntu",
+                "Inter": "Inter",
+                "Work Sans": "Work Sans",
+                "Fira Sans": "Fira Sans",
+                "Noto Sans": "Noto Sans",
+                "PT Sans": "PT Sans",
+                "Quicksand": "Quicksand"
+            },
+            "default_value": "",
+            "allow_null": 1,
+            "multiple": 0,
+            "ui": 1,
+            "ajax": 0,
+            "return_format": "value",
+            "placeholder": "Buscar fuente..."
+        },
+        {
+            "key": "field_google_fonts_headings",
+            "label": "Fuente para Títulos",
+            "name": "google_fonts_headings",
+            "type": "select",
+            "instructions": "Selecciona la fuente para títulos (H1, H2, H3, etc.)",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "": "-- Usar misma fuente del cuerpo --",
+                "Roboto": "Roboto",
+                "Open Sans": "Open Sans",
+                "Lato": "Lato",
+                "Montserrat": "Montserrat",
+                "Source Sans Pro": "Source Sans Pro",
+                "Raleway": "Raleway",
+                "Poppins": "Poppins",
+                "Nunito": "Nunito",
+                "Ubuntu": "Ubuntu",
+                "Inter": "Inter",
+                "Work Sans": "Work Sans",
+                "Fira Sans": "Fira Sans",
+                "Noto Sans": "Noto Sans",
+                "PT Sans": "PT Sans",
+                "Quicksand": "Quicksand",
+                "Playfair Display": "Playfair Display",
+                "Merriweather": "Merriweather",
+                "Crimson Text": "Crimson Text",
+                "Libre Baskerville": "Libre Baskerville",
+                "Dancing Script": "Dancing Script",
+                "Lobster": "Lobster",
+                "Pacifico": "Pacifico"
+            },
+            "default_value": "",
+            "allow_null": 1,
+            "multiple": 0,
+            "ui": 1,
+            "ajax": 0,
+            "return_format": "value",
+            "placeholder": "Buscar fuente..."
+        },
+        {
+            "key": "field_google_fonts_weights",
+            "label": "Pesos de Fuente a Cargar",
+            "name": "google_fonts_weights",
+            "type": "checkbox",
+            "instructions": "Selecciona los pesos que necesitas para las fuentes seleccionadas",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "100",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "300": "Light (300)",
+                "400": "Regular (400)",
+                "500": "Medium (500)",
+                "600": "Semi Bold (600)",
+                "700": "Bold (700)"
+            },
+            "allow_custom": 0,
+            "default_value": ["400", "700"],
+            "layout": "horizontal",
+            "toggle": 0,
+            "return_format": "value",
+            "save_custom": 0
+        },
+        {
+            "key": "field_customization_google_fonts_manual",
+            "label": "Google Fonts Manual",
+            "name": "customization_google_fonts_manual",
+            "type": "text",
+            "instructions": "URL manual de Google Fonts (opcional, si prefieres usar tu propia URL)",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "100",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_customization_body_font",
+            "label": "Fuente del Cuerpo",
+            "name": "customization_body_font",
+            "type": "text",
+            "instructions": "Familia de fuentes para el texto del cuerpo",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif",
+            "placeholder": "Inter, system-ui, sans-serif",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_customization_heading_font",
+            "label": "Fuente de Títulos",
+            "name": "customization_heading_font",
+            "type": "text",
+            "instructions": "Familia de fuentes para los títulos (h1, h2, h3, etc.)",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "inherit",
+            "placeholder": "'Inter', sans-serif",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_customization_base_font_size",
+            "label": "Tamaño Base de Fuente",
+            "name": "customization_base_font_size",
+            "type": "number",
+            "instructions": "Tamaño base de fuente en píxeles",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": 16,
+            "placeholder": "",
+            "prepend": "",
+            "append": "px",
+            "min": 12,
+            "max": 24,
+            "step": 1
+        },
+        {
+            "key": "field_header_tab",
+            "label": "Header",
+            "name": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0
+        },
+            {
+                "key": "field_header_reference_image",
+                "label": "Referencia Visual - Headers",
+                "name": "",
+                "type": "message",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "message": "<div style=\"text-align: center; margin: 20px 0;\">\n\t\t\t\t\t<h4>📋 Ejemplos de Headers Bootstrap 5.3<\/h4>\n\t\t\t\t\t<img src=\"https:\/\/getbootstrap.com\/docs\/5.3\/assets\/img\/examples\/headers.png\" alt=\"Bootstrap Headers Examples\" style=\"width: 100%; max-width: 800px; height: auto; border: 1px solid #ddd; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);\">\n\t\t\t\t\t<p style=\"margin-top: 10px; font-size: 14px; color: #666;\">\n\t\t\t\t\t\t<a href=\"https:\/\/getbootstrap.com\/docs\/5.3\/examples\/headers\/\" target=\"_blank\" style=\"color: #0d6efd;\">\n\t\t\t\t\t\t\t🔗 Ver ejemplos en vivo en Bootstrap Docs\n\t\t\t\t\t\t<\/a>\n\t\t\t\t\t<\/p>\n\t\t\t\t<\/div>",
+                "new_lines": "",
+                "esc_html": 0
+            },
+        {
+            "key": "field_customization_header_style",
+            "label": "Estilo de Header",
+            "name": "header_style",
+            "type": "select",
+            "instructions": "Selecciona el estilo de header basado en los ejemplos de Bootstrap",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "100",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "simple": "Simple Header",
+                "centered": "Navegación Centrada",
+                "with-buttons": "Header con Botones",
+                "dark": "Header Oscuro",
+                "with-avatar": "Header con Avatar",
+                "compact-dropdown": "Dropdown Compacto",
+                "double": "Header Doble",
+                "iconized": "Header con Iconos"
+            },
+            "default_value": "simple",
+            "allow_null": 0,
+            "multiple": 0,
+            "ui": 0,
+            "return_format": "value",
+            "ajax": 0,
+            "placeholder": ""
+        },
+        {
+            "key": "field_customization_header_background",
+            "label": "Fondo del Header",
+            "name": "customization_header_background",
+            "type": "color_picker",
+            "instructions": "Color de fondo del header",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "#ffffff",
+            "enable_opacity": 1,
+            "return_format": "string"
+        },
+        {
+            "key": "field_customization_header_text_color",
+            "label": "Color de Texto del Header",
+            "name": "customization_header_text_color",
+            "type": "color_picker",
+            "instructions": "Color del texto en el header",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "#000000",
+            "enable_opacity": 0,
+            "return_format": "string"
+        },
+        {
+            "key": "field_customization_breadcrumb_style",
+            "label": "Estilo de Breadcrumbs",
+            "name": "customization_breadcrumb_style",
+            "type": "select",
+            "instructions": "Selecciona el estilo de breadcrumbs basado en ejemplos de Bootstrap",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "default": "Breadcrumb Estándar",
+                "breadcrumb-slash": "Separador con Slash (/)",
+                "breadcrumb-arrow": "Separador con Flecha (>)",
+                "breadcrumb-bullet": "Separador con Bullet (•)",
+                "breadcrumb-custom": "Separador Personalizado",
+                "breadcrumb-card": "Breadcrumb en Card",
+                "breadcrumb-bg-light": "Fondo Claro",
+                "breadcrumb-no-background": "Sin Fondo"
+            },
+            "default_value": "default",
+            "allow_null": 0,
+            "multiple": 0,
+            "ui": 0,
+            "return_format": "value",
+            "ajax": 0,
+            "placeholder": ""
+        },
+        {
+            "key": "field_footer_tab",
+            "label": "Footer",
+            "name": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0
+        },
+            {
+                "key": "field_footer_reference_image",
+                "label": "Referencia Visual - Footers",
+                "name": "",
+                "type": "message",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "message": "<div style=\"text-align: center; margin: 20px 0;\">\n\t\t\t\t\t<h4>📋 Ejemplos de Footers Bootstrap 5.3<\/h4>\n\t\t\t\t\t<img src=\"https:\/\/getbootstrap.com\/docs\/5.3\/assets\/img\/examples\/footers.png\" alt=\"Bootstrap Footers Examples\" style=\"width: 100%; max-width: 800px; height: auto; border: 1px solid #ddd; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);\">\n\t\t\t\t\t<p style=\"margin-top: 10px; font-size: 14px; color: #666;\">\n\t\t\t\t\t\t<a href=\"https:\/\/getbootstrap.com\/docs\/5.3\/examples\/footers\/\" target=\"_blank\" style=\"color: #0d6efd;\">\n\t\t\t\t\t\t\t🔗 Ver ejemplos en vivo en Bootstrap Docs\n\t\t\t\t\t\t<\/a>\n\t\t\t\t\t<\/p>\n\t\t\t\t<\/div>",
+                "new_lines": "",
+                "esc_html": 0
+            },
+        {
+            "key": "field_customization_footer_style",
+            "label": "Estilo de Footer",
+            "name": "customization_footer_style",
+            "type": "select",
+            "instructions": "Selecciona el estilo de footer basado en ejemplos de Bootstrap",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "100",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "default": "Footer Estándar",
+                "footer-simple": "Footer Simple",
+                "footer-with-columns": "Footer con Columnas",
+                "footer-with-icons": "Footer con Iconos Sociales",
+                "footer-with-newsletter": "Footer con Newsletter",
+                "footer-minimal": "Footer Minimalista",
+                "footer-dark": "Footer Oscuro",
+                "footer-sticky": "Footer Pegajoso"
+            },
+            "default_value": "default",
+            "allow_null": 0,
+            "multiple": 0,
+            "ui": 0,
+            "return_format": "value",
+            "ajax": 0,
+            "placeholder": ""
+        },
+        {
+            "key": "field_customization_footer_background",
+            "label": "Fondo del Footer",
+            "name": "customization_footer_background",
+            "type": "color_picker",
+            "instructions": "Color de fondo del footer",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "#f8f9fa",
+            "enable_opacity": 1,
+            "return_format": "string"
+        },
+        {
+            "key": "field_customization_footer_text_color",
+            "label": "Color de Texto del Footer",
+            "name": "customization_footer_text_color",
+            "type": "color_picker",
+            "instructions": "Color del texto en el footer",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "#6c757d",
+            "enable_opacity": 0,
+            "return_format": "string"
+        }        
+    ],
+    "location": [
+        [
+            {
+                "param": "options_page",
+                "operator": "==",
+                "value": "bootstrap-theme-options-customization"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "Opciones de personalización visual del tema"
+}

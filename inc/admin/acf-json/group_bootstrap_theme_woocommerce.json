@@ -1,0 +1,837 @@
+{
+  "key": "group_bootstrap_theme_woocommerce",
+  "title": "WooCommerce del Tema",
+  "fields": [
+    {
+      "key": "field_wc_hide_categories_tab",
+      "label": "Extras",
+      "name": "",
+      "type": "tab",
+      "placement": "top",
+      "endpoint": 0
+    },
+    {
+      "key": "field_woocommerce_strict_stock_categories",
+      "label": "Categorías con control de stock estricto",
+      "name": "woocommerce_strict_stock_categories",
+      "type": "taxonomy",
+      "taxonomy": "product_cat",
+      "field_type": "multi_select",
+      "add_term": 0,
+      "save_terms": 0,
+      "load_terms": 0,
+      "return_format": "id",
+      "instructions": "Selecciona las categorías de productos que tendrán control de stock estricto (validación avanzada para evitar overselling). Los productos virtuales y bundles siempre están excluidos de este control."
+    },
+    {
+      "key": "field_stock_control_messages_divider",
+      "label": "Mensajes de Control de Stock",
+      "name": "",
+      "type": "message",
+      "message": "Configura los mensajes que se mostrarán a los usuarios cuando el sistema de control de stock estricto detecte situaciones especiales.",
+      "new_lines": "wpautop",
+      "esc_html": 0
+    },
+    {
+      "key": "field_stock_msg_product_in_other_carts",
+      "label": "Mensaje: Producto en otros carritos",
+      "name": "stock_msg_product_in_other_carts",
+      "type": "textarea",
+      "default_value": "Lo sentimos, \"%s\" está siendo procesado por otro usuario. Por favor, intenta de nuevo en unos minutos.",
+      "new_lines": "",
+      "rows": 2,
+      "instructions": "Mensaje cuando un producto con stock limitado está siendo procesado por otro usuario. Use %s para el nombre del producto."
+    },
+    {
+      "key": "field_stock_msg_insufficient_stock",
+      "label": "Mensaje: Stock insuficiente",
+      "name": "stock_msg_insufficient_stock",
+      "type": "textarea",
+      "default_value": "Lo sentimos, no hay suficiente stock de \"%s\". Solo quedan %d unidades disponibles.",
+      "new_lines": "",
+      "rows": 2,
+      "instructions": "Mensaje cuando no hay suficiente stock. Use %s para nombre y %d para cantidad disponible."
+    },
+    {
+      "key": "field_stock_msg_checkout_insufficient",
+      "label": "Mensaje: Stock insuficiente en checkout",
+      "name": "stock_msg_checkout_insufficient",
+      "type": "textarea",
+      "default_value": "Lo sentimos, \"%s\" ya no tiene suficiente stock. Stock disponible: %d. Por favor, actualiza tu carrito.",
+      "new_lines": "",
+      "rows": 2,
+      "instructions": "Mensaje durante el checkout cuando el stock cambió. Use %s para nombre y %d para stock disponible."
+    },
+    {
+      "key": "field_woocommerce_hidden_categories",
+      "label": "Categorías a ocultar en el buscador",
+      "name": "woocommerce_hidden_categories",
+      "type": "taxonomy",
+      "taxonomy": "product_cat",
+      "field_type": "multi_select",
+      "add_term": 0,
+      "save_terms": 0,
+      "load_terms": 0,
+      "return_format": "id",
+      "instructions": "Selecciona las categorías de producto que NO deben aparecer en el buscador de la tienda."
+    },
+    {
+      "key": "field_wc_general_tab",
+      "label": "General",
+      "name": "",
+      "type": "tab",
+      "placement": "top",
+      "endpoint": 0
+    },
+    {
+
+      "key": "field_woocommerce_enable_custom_styles",
+      "label": "Habilitar estilos WooCommerce del tema",
+      "name": "woocommerce_enable_custom_styles",
+      "type": "true_false",
+      "ui": 1,
+      "ui_on_text": "Sí",
+      "ui_off_text": "No",
+      "default_value": 1,
+      "instructions": "Activa los estilos WooCommerce provistos por el tema"
+    },
+    {
+      "key": "field_woocommerce_show_cart_icon",
+      "label": "Mostrar icono carrito en el menú",
+      "name": "woocommerce_show_cart_icon",
+      "type": "true_false",
+      "ui": 1,
+      "ui_on_text": "Sí",
+      "ui_off_text": "No",
+      "default_value": 1,
+      "instructions": "Mostrar el icono del carrito de compras en el menú de navegación"
+    },
+    {
+      "key": "field_woocommerce_cart_icon_action",
+      "label": "Acción del botón del carrito",
+      "name": "woocommerce_cart_icon_action",
+      "type": "select",
+      "choices": {
+        "offcanvas": "Abrir offcanvas lateral",
+        "cart": "Ir a página del carrito",
+        "checkout": "Ir a página de checkout"
+      },
+      "default_value": "offcanvas",
+      "allow_null": 0,
+      "multiple": 0,
+      "ui": 0,
+      "return_format": "value",
+      "instructions": "Define qué sucede al hacer clic en el icono del carrito en el menú",
+      "conditional_logic": [
+        [
+          {
+            "field": "field_woocommerce_show_cart_icon",
+            "operator": "==",
+            "value": "1"
+          }
+        ]
+      ]
+    },
+    {
+      "key": "field_woocommerce_show_related_products",
+      "label": "Mostrar productos relacionados",
+      "name": "woocommerce_show_related_products",
+      "type": "true_false",
+      "ui": 1,
+      "ui_on_text": "Sí",
+      "ui_off_text": "No",
+      "default_value": 1,
+      "instructions": "Mostrar la sección de productos relacionados en la página del producto individual"
+    },
+    {
+      "key": "field_woocommerce_show_product_navigation",
+      "label": "Mostrar navegación entre productos",
+      "name": "woocommerce_show_product_navigation",
+      "type": "true_false",
+      "ui": 1,
+      "ui_on_text": "Sí",
+      "ui_off_text": "No",
+      "default_value": 1,
+      "instructions": "Mostrar la navegación \"Producto anterior/siguiente\" en la página del producto individual"
+    },
+    {
+      "key": "field_wc_catalog_tab",
+      "label": "Catálogo",
+      "name": "",
+      "type": "tab",
+      "placement": "top",
+      "endpoint": 0
+    },
+    {
+      "key": "field_woocommerce_catalog_show_search",
+      "label": "Mostrar buscador en catálogo",
+      "name": "woocommerce_catalog_show_search",
+      "type": "true_false",
+      "ui": 1,
+      "ui_on_text": "Sí",
+      "ui_off_text": "No",
+      "default_value": 1,
+      "instructions": "Agrega un buscador junto al orden del catálogo en la tienda."
+    },
+    {
+      "key": "field_woocommerce_products_per_row",
+      "label": "Productos por fila",
+      "name": "woocommerce_products_per_row",
+      "type": "number",
+      "default_value": 4,
+      "min": 1,
+      "max": 12,
+      "step": 1,
+      "instructions": "Número de productos por fila (1-12 según sistema de columnas Bootstrap)",
+      "wrapper": { "width": "50" }
+    },
+    {
+      "key": "field_woocommerce_products_per_row_mobile",
+      "label": "Productos por fila (mobile)",
+      "name": "woocommerce_products_per_row_mobile",
+      "type": "number",
+      "default_value": 2,
+      "min": 1,
+      "max": 6,
+      "step": 1,
+      "instructions": "Número de productos por fila en pantallas pequeñas (mobile). Recomendado: 1 o 2. Usa valores que dividan 12 (1,2,3,4,6).",
+      "wrapper": { "width": "50" }
+    },
+    {
+      "key": "field_woocommerce_products_per_page",
+      "label": "Productos por página",
+      "name": "woocommerce_products_per_page",
+      "type": "number",
+      "default_value": 12,
+      "min": 1,
+      "max": 100,
+      "step": 1
+    },
+    {
+      "key": "field_woocommerce_default_orderby",
+      "label": "Ordenar productos por",
+      "name": "woocommerce_default_orderby",
+      "type": "select",
+      "choices": {
+        "menu_order": "Orden del menú (predeterminado)",
+        "title": "Nombre del producto",
+        "date": "Fecha de creación",
+        "modified": "Última modificación",
+        "price": "Precio",
+        "popularity": "Popularidad",
+        "rating": "Calificación",
+        "sku": "SKU",
+        "rand": "Aleatorio"
+      },
+      "default_value": "menu_order",
+      "allow_null": 0,
+      "multiple": 0,
+      "ui": 0,
+      "return_format": "value",
+      "instructions": "Selecciona cómo se ordenarán los productos por defecto en la tienda",
+      "wrapper": { "width": "50" }
+    },
+    {
+      "key": "field_woocommerce_default_order",
+      "label": "Orden",
+      "name": "woocommerce_default_order",
+      "type": "select",
+      "choices": {
+        "ASC": "Ascendente (A-Z, menor a mayor)",
+        "DESC": "Descendente (Z-A, mayor a menor)"
+      },
+      "default_value": "ASC",
+      "allow_null": 0,
+      "multiple": 0,
+      "ui": 0,
+      "return_format": "value",
+      "instructions": "Dirección del ordenamiento",
+      "wrapper": { "width": "50" }
+    },
+    {
+      "key": "field_wc_badges_tab",
+      "label": "Badges",
+      "name": "",
+      "type": "tab",
+      "placement": "top",
+      "endpoint": 0
+    },
+    {
+      "key": "field_woocommerce_show_sale_badge",
+      "label": "Mostrar badge de oferta",
+      "name": "woocommerce_show_sale_badge",
+      "type": "true_false",
+      "ui": 1,
+      "default_value": 1
+    },
+    {
+      "key": "field_woocommerce_show_featured_badge",
+      "label": "Mostrar badge destacado",
+      "name": "woocommerce_show_featured_badge",
+      "type": "true_false",
+      "ui": 1,
+      "default_value": 1
+    },
+    {
+      "key": "field_woocommerce_show_stock_badge",
+      "label": "Mostrar badge sin stock",
+      "name": "woocommerce_show_stock_badge",
+      "type": "true_false",
+      "ui": 1,
+      "default_value": 1
+    },
+    {
+      "key": "field_wc_checkout_fields_tab",
+      "label": "Campos del Checkout",
+      "name": "",
+      "type": "tab",
+      "placement": "top",
+      "endpoint": 0
+    },
+    {
+      "key": "field_wc_checkout_info",
+      "label": "AVISO",
+      "name": "",
+      "type": "message",
+      "message": "<b>Nota:</b> Solo funciona con el checkout clasico de Woocommerce.",
+      "new_lines": "wpautop",
+      "esc_html": 0
+    },
+    {
+      "key": "field_wc_checkout_default_fields_divider",
+      "label": "Campos Predeterminados del Checkout",
+      "name": "",
+      "type": "message",
+      "message": "Controla la visibilidad de los campos estándar de WooCommerce en el checkout. Desmarca los campos que deseas ocultar.",
+      "new_lines": "wpautop",
+      "esc_html": 0
+    },
+    {
+      "key": "field_wc_checkout_billing_fields",
+      "label": "Campos de Facturación (Billing)",
+      "name": "woocommerce_checkout_billing_fields",
+      "type": "checkbox",
+      "layout": "vertical",
+      "wrapper": { "width": "50" },
+      "choices": {
+        "billing_first_name": "Nombre",
+        "billing_last_name": "Apellido",
+        "billing_company": "Nombre de la empresa",
+        "billing_country": "País",
+        "billing_address_1": "Dirección línea 1",
+        "billing_address_2": "Dirección línea 2",
+        "billing_city": "Ciudad",
+        "billing_state": "Provincia/Estado",
+        "billing_postcode": "Código postal",
+        "billing_phone": "Teléfono",
+        "billing_email": "Correo electrónico"
+      },
+      "default_value": [
+        "billing_first_name",
+        "billing_last_name",
+        "billing_company",
+        "billing_country",
+        "billing_address_1",
+        "billing_address_2",
+        "billing_city",
+        "billing_state",
+        "billing_postcode",
+        "billing_phone",
+        "billing_email"
+      ],
+      "instructions": "Selecciona los campos que deseas MOSTRAR en la sección de facturación"
+    },
+    {
+      "key": "field_wc_checkout_shipping_fields",
+      "label": "Campos de Envío (Shipping)",
+      "name": "woocommerce_checkout_shipping_fields",
+      "type": "checkbox",
+      "layout": "vertical",
+      "wrapper": { "width": "50" },
+      "choices": {
+        "shipping_first_name": "Nombre",
+        "shipping_last_name": "Apellido",
+        "shipping_company": "Nombre de la empresa",
+        "shipping_country": "País",
+        "shipping_address_1": "Dirección línea 1",
+        "shipping_address_2": "Dirección línea 2",
+        "shipping_city": "Ciudad",
+        "shipping_state": "Provincia/Estado",
+        "shipping_postcode": "Código postal"
+      },
+      "default_value": [
+        "shipping_first_name",
+        "shipping_last_name",
+        "shipping_company",
+        "shipping_country",
+        "shipping_address_1",
+        "shipping_address_2",
+        "shipping_city",
+        "shipping_state",
+        "shipping_postcode"
+      ],
+      "instructions": "Selecciona los campos que deseas MOSTRAR en la sección de envío"
+    },
+    {
+      "key": "field_wc_checkout_order_fields",
+      "label": "Campos de Pedido (Order)",
+      "name": "woocommerce_checkout_order_fields",
+      "type": "checkbox",
+      "layout": "vertical",
+      "choices": {
+        "order_comments": "Notas del pedido"
+      },
+      "default_value": [
+        "order_comments"
+      ],
+      "instructions": "Selecciona los campos que deseas MOSTRAR en la sección de notas del pedido"
+    },
+    {
+      "key": "field_wc_checkout_required_toggle",
+      "label": "Requeridos de los campos predeterminados",
+      "name": "",
+      "type": "message",
+      "message": "Puedes hacer opcionales los campos predeterminados del checkout. El Email y el Nombre siempre serán obligatorios.",
+      "new_lines": "wpautop",
+      "esc_html": 0,
+      "wrapper": { "width": "50" }
+    },
+    {
+      "key": "field_woocommerce_checkout_defaults_optional",
+      "label": "Hacer opcionales los campos predeterminados (excepto Email y Nombre)",
+      "name": "woocommerce_checkout_defaults_optional",
+      "type": "true_false",
+      "ui": 1,
+      "ui_on_text": "Sí",
+      "ui_off_text": "No",
+      "default_value": 0,
+      "wrapper": { "width": "50" }
+    },
+    {
+      "key": "field_wc_checkout_fields_info",
+      "label": "Campos Personalizados del Checkout",
+      "name": "",
+      "type": "message",
+      "message": "Agrega o elimina campos personalizados en el formulario de checkout de WooCommerce. Los campos se pueden aplicar a las secciones: Billing (Facturación), Shipping (Envío) u Order (Pedido).",
+      "new_lines": "wpautop",
+      "esc_html": 0
+    },    
+    {
+      "key": "field_wc_checkout_custom_fields",
+      "label": "Campos del Checkout",
+      "name": "woocommerce_checkout_custom_fields",
+      "type": "repeater",
+      "layout": "table",
+      "button_label": "Agregar Campo",
+      "min": 0,
+      "max": 0,
+      "collapsed": "field_wc_checkout_field_label",
+      "sub_fields": [
+        {
+          "key": "field_wc_checkout_field_enabled",
+          "label": "Habilitar campo",
+          "name": "enabled",
+          "type": "true_false",
+          "ui": 1,
+          "ui_on_text": "Sí",
+          "ui_off_text": "No",
+          "default_value": 1,
+          "parent": "field_wc_checkout_custom_fields"
+        },
+        {
+          "key": "field_wc_checkout_field_section",
+          "label": "Sección",
+          "name": "section",
+          "type": "select",
+          "choices": {
+            "billing": "Billing (Facturación)",
+            "shipping": "Shipping (Envío)",
+            "order": "Order (Notas del pedido)"
+          },
+          "default_value": "billing",
+          "allow_null": 0,
+          "multiple": 0,
+          "ui": 0,
+          "return_format": "value",
+          "parent": "field_wc_checkout_custom_fields"
+        },
+        {
+          "key": "field_wc_checkout_field_name",
+          "label": "Nombre del campo (slug)",
+          "name": "field_name",
+          "type": "text",
+          "required": 1,
+          "instructions": "Nombre único sin espacios (ej: dni, numero_interno). No uses caracteres especiales.",
+          "parent": "field_wc_checkout_custom_fields"
+        },
+        {
+          "key": "field_wc_checkout_field_label",
+          "label": "Etiqueta (Label)",
+          "name": "label",
+          "type": "text",
+          "required": 1,
+          "instructions": "Texto que verá el usuario (ej: DNI/RUT, Número de departamento)",
+          "parent": "field_wc_checkout_custom_fields"
+        },
+        {
+          "key": "field_wc_checkout_field_type",
+          "label": "Tipo de campo",
+          "name": "field_type",
+          "type": "select",
+          "choices": {
+            "text": "Text (Texto)",
+            "textarea": "Textarea (Área de texto)",
+            "email": "Email",
+            "tel": "Tel (Teléfono)",
+            "number": "Number (Número)",
+            "select": "Select (Selector)",
+            "checkbox": "Checkbox",
+            "radio": "Radio"
+          },
+          "default_value": "text",
+          "allow_null": 0,
+          "multiple": 0,
+          "ui": 0,
+          "return_format": "value",
+          "parent": "field_wc_checkout_custom_fields"
+        },
+        {
+          "key": "field_wc_checkout_field_placeholder",
+          "label": "Placeholder",
+          "name": "placeholder",
+          "type": "text",
+          "instructions": "Texto de ejemplo dentro del campo (opcional)",
+          "parent": "field_wc_checkout_custom_fields"
+        },
+        {
+          "key": "field_wc_checkout_field_options",
+          "label": "Opciones (para select/radio)",
+          "name": "options",
+          "type": "textarea",
+          "rows": 3,
+          "instructions": "Una opción por línea. Formato: valor|Texto (ej: opcion1|Opción 1). Solo para tipos select o radio.",
+          "conditional_logic": [
+            [
+              {
+                "field": "field_wc_checkout_field_type",
+                "operator": "==",
+                "value": "select"
+              }
+            ],
+            [
+              {
+                "field": "field_wc_checkout_field_type",
+                "operator": "==",
+                "value": "radio"
+              }
+            ]
+          ],
+          "parent": "field_wc_checkout_custom_fields"
+        },
+        {
+          "key": "field_wc_checkout_field_required",
+          "label": "Campo obligatorio",
+          "name": "required",
+          "type": "true_false",
+          "ui": 1,
+          "ui_on_text": "Sí",
+          "ui_off_text": "No",
+          "default_value": 0,
+          "parent": "field_wc_checkout_custom_fields"
+        },
+        {
+          "key": "field_wc_checkout_field_validation_pattern",
+          "label": "Patrón de Validación (Regex)",
+          "name": "validation_pattern",
+          "type": "text",
+          "instructions": "Regex para validar el campo. Ej: ^\\d{1,2}\\.\\d{3}\\.\\d{3}-[\\dkK]$ para RUT chileno",
+          "placeholder": "^[A-Za-z0-9]+$",
+          "parent": "field_wc_checkout_custom_fields"
+        },
+        {
+          "key": "field_wc_checkout_field_format_pattern",
+          "label": "Patrón de Auto-formato",
+          "name": "format_pattern",
+          "type": "text",
+          "instructions": "Patrón de formato automático. Predefinidos: rut, phone, telefono, uppercase, lowercase, capitalize, numbers, letters. O regex personalizado: buscar|reemplazar",
+          "placeholder": "rut",
+          "parent": "field_wc_checkout_custom_fields"
+        },
+        {
+          "key": "field_wc_checkout_field_class",
+          "label": "Clases CSS",
+          "name": "class",
+          "type": "select",
+          "choices": {
+            "form-row-wide": "Ancho completo",
+            "form-row-first": "Primera mitad",
+            "form-row-last": "Segunda mitad"
+          },
+          "default_value": "form-row-wide",
+          "allow_null": 0,
+          "multiple": 1,
+          "ui": 1,
+          "return_format": "value",
+          "parent": "field_wc_checkout_custom_fields"
+        },
+        {
+          "key": "field_wc_checkout_field_priority",
+          "label": "Prioridad (orden)",
+          "name": "priority",
+          "type": "number",
+          "default_value": 100,
+          "min": 1,
+          "max": 999,
+          "step": 1,
+          "instructions": "Orden en que aparece el campo (menor número = más arriba)",
+          "parent": "field_wc_checkout_custom_fields"
+        }
+      ]
+    },
+    {
+      "key": "field_wc_performance_tab",
+      "label": "Performance",
+      "name": "",
+      "type": "tab",
+      "placement": "top",
+      "endpoint": 0
+    },
+    {
+      "key": "field_wc_performance_message",
+      "label": "Optimizaciones de WooCommerce",
+      "name": "",
+      "type": "message",
+      "message": "<p><strong>Optimiza el rendimiento de WooCommerce</strong> deshabilitando características que no uses y optimizando consultas pesadas.</p><p class=\"description\">⚠️ Algunos cambios requieren probar en un entorno de pruebas primero.</p>",
+      "new_lines": "wpautop",
+      "esc_html": 0
+    },
+    {
+      "key": "field_wc_disable_scripts",
+      "label": "Deshabilitar Scripts No Utilizados",
+      "name": "wc_disable_scripts",
+      "type": "checkbox",
+      "choices": {
+        "select2": "Select2 (selectores avanzados)",
+        "prettyphoto": "prettyPhoto (lightbox legacy)",
+        "zoom": "Zoom de imágenes",
+        "photoswipe": "PhotoSwipe (lightbox)",
+        "flexslider": "FlexSlider (slider de imágenes)"
+      },
+      "default_value": ["prettyphoto"],
+      "instructions": "Deshabilita scripts de WooCommerce que no uses. Selecciona solo lo que estés seguro de no necesitar.",
+      "layout": "vertical"
+    },
+    {
+      "key": "field_wc_optimize_cart_fragments",
+      "label": "Optimizar Cart Fragments",
+      "name": "wc_optimize_cart_fragments",
+      "type": "true_false",
+      "ui": 1,
+      "ui_on_text": "Activado",
+      "ui_off_text": "Desactivado",
+      "default_value": 0,
+      "instructions": "Deshabilita la actualización automática del carrito en páginas donde no es necesario (reduce requests AJAX)."
+    },
+    {
+      "key": "field_wc_cart_fragments_pages",
+      "label": "Páginas donde mantener Cart Fragments",
+      "name": "wc_cart_fragments_pages",
+      "type": "checkbox",
+      "conditional_logic": [
+        [
+          {
+            "field": "field_wc_optimize_cart_fragments",
+            "operator": "==",
+            "value": "1"
+          }
+        ]
+      ],
+      "choices": {
+        "shop": "Tienda",
+        "product": "Productos individuales",
+        "cart": "Carrito",
+        "checkout": "Checkout"
+      },
+      "default_value": ["cart", "checkout"],
+      "instructions": "Selecciona en qué páginas mantener la actualización automática del carrito.",
+      "layout": "vertical"
+    },
+    {
+      "key": "field_wc_cache_queries",
+      "label": "Cache de Queries de WooCommerce",
+      "name": "wc_cache_queries",
+      "type": "true_false",
+      "ui": 1,
+      "ui_on_text": "Activado",
+      "ui_off_text": "Desactivado",
+      "default_value": 0,
+      "instructions": "Cachea consultas pesadas de WooCommerce (term counts, variaciones, atributos). Mejora significativamente el rendimiento."
+    },
+    {
+      "key": "field_wc_cache_duration",
+      "label": "Duración del Cache (horas)",
+      "name": "wc_cache_duration",
+      "type": "number",
+      "conditional_logic": [
+        [
+          {
+            "field": "field_wc_cache_queries",
+            "operator": "==",
+            "value": "1"
+          }
+        ]
+      ],
+      "default_value": 12,
+      "min": 1,
+      "max": 168,
+      "step": 1,
+      "instructions": "Duración del cache en horas (1-168). Recomendado: 12 horas."
+    },
+    {
+      "key": "field_wc_optimize_product_queries",
+      "label": "Optimizar Product Queries",
+      "name": "wc_optimize_product_queries",
+      "type": "true_false",
+      "ui": 1,
+      "ui_on_text": "Activado",
+      "ui_off_text": "Desactivado",
+      "default_value": 0,
+      "instructions": "Optimiza consultas de productos limitando campos y usando no_found_rows cuando sea posible."
+    },
+    {
+      "key": "field_wc_disable_reviews",
+      "label": "Deshabilitar Reviews",
+      "name": "wc_disable_reviews",
+      "type": "true_false",
+      "ui": 1,
+      "ui_on_text": "Deshabilitado",
+      "ui_off_text": "Habilitado",
+      "default_value": 0,
+      "instructions": "Deshabilita completamente el sistema de reviews si no lo usas."
+    },
+    {
+      "key": "field_wc_disable_rest_api",
+      "label": "Limitar REST API de WooCommerce",
+      "name": "wc_disable_rest_api",
+      "type": "true_false",
+      "ui": 1,
+      "ui_on_text": "Limitada",
+      "ui_off_text": "Completa",
+      "default_value": 0,
+      "instructions": "Limita endpoints de REST API de WooCommerce que no uses (mejora seguridad y reduce carga)."
+    },
+    {
+      "key": "field_wc_lazy_load_related",
+      "label": "Lazy Load de Productos Relacionados",
+      "name": "wc_lazy_load_related",
+      "type": "true_false",
+      "ui": 1,
+      "ui_on_text": "Activado",
+      "ui_off_text": "Desactivado",
+      "default_value": 0,
+      "instructions": "Carga productos relacionados, upsells y cross-sells solo cuando el usuario hace scroll hasta ellos. Reduce queries iniciales y mejora LCP."
+    },
+    {
+      "key": "field_wc_maintenance_tab",
+      "label": "Mantenimiento",
+      "name": "",
+      "type": "tab",
+      "placement": "top",
+      "endpoint": 0
+    },
+    {
+      "key": "field_woocommerce_default_stock_restore",
+      "label": "Stock por defecto para restauración",
+      "name": "woocommerce_default_stock_restore",
+      "type": "number",
+      "default_value": 10,
+      "min": 0,
+      "step": 1,
+      "instructions": "Cantidad de stock que se asignará a productos sin stock que no estén asociados a ningún pedido cuando uses la herramienta de restauración."
+    },
+    {
+      "key": "field_woocommerce_maintenance_actions",
+      "label": "Herramientas de Mantenimiento",
+      "name": "",
+      "type": "message",
+      "message": "<p><strong>Accede a las herramientas de mantenimiento desde:</strong></p><p><a href=\"admin.php?page=bootstrap-theme-woocommerce-maintenance\" class=\"button button-primary\">Ir a Mantenimiento WooCommerce</a></p><p>Aquí podrás:</p><ul><li>✅ Restaurar stock de productos sin pedidos asociados</li><li>✅ Limpiar carritos abandonados</li><li>✅ Liberar reservas de stock antiguas</li><li>📋 <strong>Ver logs de WooCommerce</strong> (útil para monitorear optimizaciones de Performance)</li></ul>",
+      "new_lines": "wpautop",
+      "esc_html": 0
+    },
+    {
+      "key": "field_wc_test_products_tab",
+      "label": "Productos de Prueba",
+      "name": "",
+      "type": "tab",
+      "placement": "top",
+      "endpoint": 0
+    },
+    {
+      "key": "field_woocommerce_test_products_count",
+      "label": "Cantidad de productos a crear",
+      "name": "woocommerce_test_products_count",
+      "type": "number",
+      "default_value": 10,
+      "min": 1,
+      "max": 50,
+      "step": 1,
+      "instructions": "Número de productos de prueba que se crearán"
+    },
+    {
+      "key": "field_woocommerce_test_product_types",
+      "label": "Tipos de productos a crear",
+      "name": "woocommerce_test_product_types",
+      "type": "checkbox",
+      "choices": {
+        "simple": "Productos simples",
+        "variable": "Productos variables",
+        "downloadable": "Productos descargables",
+        "virtual": "Productos virtuales"
+      },
+      "default_value": ["simple", "variable"],
+      "instructions": "Selecciona los tipos de productos que se crearán"
+    },
+    {
+      "key": "field_woocommerce_test_categories",
+      "label": "Categorías para productos de prueba",
+      "name": "woocommerce_test_categories",
+      "type": "taxonomy",
+      "taxonomy": "product_cat",
+      "field_type": "multi_select",
+      "add_term": 1,
+      "save_terms": 0,
+      "load_terms": 0,
+      "return_format": "id",
+      "instructions": "Selecciona las categorías donde se crearán los productos de prueba. Se creará automáticamente una categoría 'Prueba'."
+    },
+    {
+      "key": "field_woocommerce_test_generate_images",
+      "label": "Generar imágenes de productos",
+      "name": "woocommerce_test_generate_images",
+      "type": "true_false",
+      "ui": 1,
+      "ui_on_text": "Sí",
+      "ui_off_text": "No",
+      "default_value": 1,
+      "instructions": "Crear imágenes placeholder automáticamente para los productos de prueba"
+    }
+  ],
+  "location": [
+    [
+      {
+        "param": "options_page",
+        "operator": "==",
+        "value": "bootstrap-theme-options-woocommerce"
+      }
+    ]
+  ],
+  "menu_order": 0,
+  "position": "normal",
+  "style": "default",
+  "label_placement": "top",
+  "instruction_placement": "label",
+  "hide_on_screen": "",
+  "active": true,
+  "description": "Opciones de integración WooCommerce del tema",
+  "modified": 1730938800
+}

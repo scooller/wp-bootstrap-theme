@@ -1,0 +1,271 @@
+/**
+ * Estilos para el control de stock avanzado
+ * Mejora la experiencia visual de las alertas y notificaciones de stock
+ */
+
+/* Contenedor principal de alertas de stock */
+.stock-warning,
+.stock-notification,
+.realtime-stock-info {
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    font-weight: 500;
+}
+
+/* Alertas de stock crítico */
+.stock-warning.alert-warning {
+    background-color: #fff3cd;
+    border-color: #ffeaa7;
+    color: #856404;
+}
+
+.stock-warning.alert-danger {
+    background-color: #f8d7da;
+    border-color: #f1556c;
+    color: #721c24;
+}
+
+/* Animación de pulso para stock crítico */
+.stock-warning.alert-warning {
+    animation: stockPulse 2s ease-in-out infinite;
+}
+
+@keyframes stockPulse {
+    0% { opacity: 1; }
+    50% { opacity: 0.8; }
+    100% { opacity: 1; }
+}
+
+/* Botones en estado de carga */
+.btn.loading {
+    position: relative;
+    color: transparent !important;
+}
+
+.btn.loading::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 16px;
+    height: 16px;
+    margin: -8px 0 0 -8px;
+    border: 2px solid transparent;
+    border-top-color: currentColor;
+    border-radius: 50%;
+    animation: btnSpin 1s linear infinite;
+}
+
+@keyframes btnSpin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Estados de botones de añadir al carrito */
+.single_add_to_cart_button.btn-danger {
+    transition: all 0.3s ease;
+}
+
+.single_add_to_cart_button.btn-danger:hover {
+    background-color: #dc3545;
+    border-color: #dc3545;
+}
+
+/* Notificaciones flotantes */
+.stock-notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1060;
+    max-width: 400px;
+    animation: slideInFromRight 0.3s ease-out;
+}
+
+@keyframes slideInFromRight {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* Información de stock en tiempo real */
+.realtime-stock-info .alert {
+    margin-bottom: 0;
+    font-size: 0.9rem;
+    padding: 0.75rem 1rem;
+}
+
+.realtime-stock-info .alert-info {
+    background-color: #e7f3ff;
+    border-color: #b8daff;
+    color: #004085;
+}
+
+/* Advertencias de cantidad */
+.quantity-warning {
+    font-size: 0.85rem;
+    padding: 0.5rem 0.75rem;
+}
+
+/* Badges de productos en listados */
+.product-badges {
+    z-index: 10;
+}
+
+.product-badges .badge {
+    font-size: 0.7rem;
+    padding: 0.3em 0.6em;
+    font-weight: 600;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+}
+
+.sale-badge {
+    background: linear-gradient(45deg, #dc3545, #ff6b6b) !important;
+}
+
+.featured-badge {
+    background: linear-gradient(45deg, #ffc107, #ffed4e) !important;
+    color: #212529 !important;
+}
+
+.out-of-stock-badge {
+    background: linear-gradient(45deg, #6c757d, #95a5a6) !important;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .stock-notification {
+        top: 10px;
+        right: 10px;
+        left: 10px;
+        max-width: none;
+    }
+    
+    .realtime-stock-info .alert {
+        font-size: 0.8rem;
+        padding: 0.5rem 0.75rem;
+    }
+    
+    .product-badges {
+        margin: 0.5rem;
+    }
+    
+    .product-badges .badge {
+        font-size: 0.6rem;
+        padding: 0.25em 0.5em;
+    }
+}
+
+/* Estados adicionales para formularios */
+.variations_form.stock-checking {
+    opacity: 0.7;
+    pointer-events: none;
+}
+
+.variations_form.stock-unavailable {
+    position: relative;
+}
+
+.variations_form.stock-unavailable::before {
+    content: "Stock no disponible";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(248, 249, 250, 0.9);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    color: #6c757d;
+    z-index: 10;
+    border-radius: 8px;
+}
+
+/* Mejoras para campos de cantidad */
+.quantity input.qty {
+    min-width: 70px;
+    text-align: center;
+}
+
+.quantity .input-group {
+    max-width: 150px;
+}
+
+/* Loading overlay para productos individuales */
+.product-loading-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 20;
+    border-radius: 8px;
+}
+
+.product-loading-overlay .spinner {
+    width: 40px;
+    height: 40px;
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid #007bff;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Estilos para mensajes de WooCommerce personalizados */
+.woocommerce-message.stock-message {
+    background-color: #d1ecf1;
+    border-color: #bee5eb;
+    color: #0c5460;
+    border-left: 4px solid #17a2b8;
+}
+
+.woocommerce-error.stock-error {
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+    color: #721c24;
+    border-left: 4px solid #dc3545;
+}
+
+/* Iconos de estado */
+.stock-icon-warning {
+    color: #ffc107;
+    filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.2));
+}
+
+.stock-icon-danger {
+    color: #dc3545;
+    filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.2));
+}
+
+.stock-icon-success {
+    color: #28a745;
+    filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.2));
+}
+
+/* Animación de éxito para cuando se añade al carrito */
+@keyframes addToCartSuccess {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+.btn.add-to-cart-success {
+    animation: addToCartSuccess 0.3s ease-in-out;
+    background-color: #28a745 !important;
+    border-color: #28a745 !important;
+}

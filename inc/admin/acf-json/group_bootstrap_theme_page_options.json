@@ -1,0 +1,205 @@
+{
+    "key": "group_bootstrap_theme_page_options",
+    "title": "Opciones de Página",
+    "fields": [
+        {
+            "key": "field_page_display_options",
+            "label": "Opciones de Visualización",
+            "name": "",
+            "type": "tab",
+            "placement": "top"
+        },
+        {
+            "key": "field_page_override",
+            "label": "Sobrescribir opciónes globales",
+            "name": "page_override",
+            "type": "true_false",
+            "instructions": "Activa para sobrescribir la opción global en esta página.",
+            "wrapper": { "width": "100" },
+            "default_value": 0,
+            "ui": 1
+        },
+        {
+            "key": "field_page_show_title",
+            "label": "Mostrar Título de Página",
+            "name": "page_show_title",
+            "type": "true_false",
+            "instructions": "Mostrar u ocultar el título de esta página (tiene prioridad sobre la opción general).",
+            "wrapper": { "width": "100" },
+            "default_value": 1,
+            "ui": 1,
+            "conditional_logic": [
+                [
+                    { "field": "field_page_override", "operator": "==", "value": "1" }
+                ]
+            ]
+        },        
+        {
+            "key": "field_page_show_breadcrumbs",
+            "label": "Mostrar Breadcrumbs",
+            "name": "page_show_breadcrumbs",
+            "type": "true_false",
+            "instructions": "Mostrar u ocultar los breadcrumbs en esta página (tiene prioridad sobre la opción general).",
+            "wrapper": { "width": "100" },
+            "default_value": 1,
+            "ui": 1,
+            "conditional_logic": [
+                [
+                    { "field": "field_page_override", "operator": "==", "value": "1" }
+                ]
+            ]
+        },        
+        {
+            "key": "field_page_show_sidebar",
+            "label": "Mostrar Sidebar",
+            "name": "page_show_sidebar",
+            "type": "true_false",
+            "instructions": "Mostrar u ocultar el sidebar en esta página (tiene prioridad sobre la opción general).",
+            "wrapper": { "width": "100" },
+            "default_value": 1,
+            "ui": 1,
+            "conditional_logic": [
+                [
+                    { "field": "field_page_override", "operator": "==", "value": "1" }
+                ]
+            ]
+        },
+        {
+            "key": "field_page_show_meta_date",
+            "label": "Mostrar Meta: Fecha",
+            "name": "page_show_meta_date",
+            "type": "true_false",
+            "instructions": "Mostrar u ocultar la fecha de publicación en esta página/entrada (tiene prioridad sobre la opción general).",
+            "wrapper": { "width": "100" },
+            "default_value": 1,
+            "ui": 1,
+            "conditional_logic": [
+                [
+                    { "field": "field_page_override", "operator": "==", "value": "1" }
+                ]
+            ]
+        },        
+        {
+            "key": "field_page_show_meta_author",
+            "label": "Mostrar Meta: Autor",
+            "name": "page_show_meta_author",
+            "type": "true_false",
+            "instructions": "Mostrar u ocultar el autor en esta página/entrada (tiene prioridad sobre la opción general).",
+            "wrapper": { "width": "100" },
+            "default_value": 1,
+            "ui": 1,
+            "conditional_logic": [
+                [
+                    { "field": "field_page_override", "operator": "==", "value": "1" }
+                ]
+            ]
+        },
+        {
+            "key": "field_page_hero_text",
+            "label": "Texto Hero (Imagen Destacada)",
+            "name": "page_hero_text",
+            "type": "wysiwyg",
+            "instructions": "Texto que aparecerá sobre la imagen destacada cuando se use como fondo hero. Solo se muestra si la página tiene imagen destacada.",
+            "wrapper": { "width": "100" },
+            "default_value": "",
+            "tabs": "all",
+            "toolbar": "full",
+            "media_upload": 0,
+            "delay": 0
+        },
+        {
+            "key": "field_page_custom_title",
+            "label": "Título Personalizado",
+            "name": "page_custom_title",
+            "type": "text",
+            "instructions": "Título personalizado para esta página (opcional)",
+            "wrapper": { "width": "100" },
+            "placeholder": "Deja vacío para usar el título de la página",
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_page_show_title",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ]
+        },
+        {
+            "key": "field_page_layout_options",
+            "label": "Opciones de Layout",
+            "name": "",
+            "type": "tab",
+            "placement": "top"
+        },
+        {
+            "key": "field_page_header_style",
+            "label": "Estilo de Header (Override)",
+            "name": "page_header_style",
+            "type": "select",
+            "instructions": "Sobrescribir el estilo de header solo para esta página",
+            "wrapper": { "width": "50" },
+            "choices": {
+                "": "-- Usar configuración global --",
+                "simple": "Simple Header",
+                "centered": "Navegación Centrada",
+                "with-buttons": "Header con Botones",
+                "dark": "Header Oscuro",
+                "with-avatar": "Header con Avatar",
+                "compact-dropdown": "Dropdown Compacto",
+                "double": "Header Doble",
+                "iconized": "Header con Iconos"
+            },
+            "default_value": "",
+            "allow_null": 1,
+            "multiple": 0,
+            "ui": 0,
+            "return_format": "value",
+            "ajax": 0,
+            "placeholder": ""
+        },
+        {
+            "key": "field_page_container_width",
+            "label": "Ancho del Contenedor (Override)",
+            "name": "page_container_width",
+            "type": "select",
+            "instructions": "Sobrescribir el ancho del contenedor solo para esta página",
+            "wrapper": { "width": "50" },
+            "choices": {
+                "": "-- Usar configuración global --",
+                "container": "Estándar (1140px)",
+                "container-sm": "Pequeño (540px)",
+                "container-md": "Mediano (720px)",
+                "container-lg": "Grande (960px)",
+                "container-xl": "Extra Grande (1140px)",
+                "container-xxl": "XXL (1320px)",
+                "container-fluid": "Ancho Completo"
+            },
+            "default_value": "",
+            "allow_null": 1
+        },
+        {
+            "key": "field_page_full_width",
+            "label": "Página de Ancho Completo",
+            "name": "page_full_width",
+            "type": "true_false",
+            "instructions": "Hacer que esta página ocupe todo el ancho disponible (sin sidebar)",
+            "wrapper": { "width": "50" },
+            "default_value": 0,
+            "ui": 1
+        }
+    ],
+    "location": [
+        [
+            { "param": "post_type", "operator": "==", "value": "page" }
+        ],
+        [
+            { "param": "post_type", "operator": "==", "value": "post" }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "side",
+    "style": "default",
+    "active": true,
+    "description": "Opciones por página que sobrescriben la configuración general."
+}

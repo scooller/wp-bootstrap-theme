@@ -1,0 +1,26 @@
+/* Loader styles */
+#site-loader {
+  position: fixed;
+  z-index: 9999;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.4s;
+}
+#site-loader .spinner {
+  width: 3rem;
+  height: 3rem;
+  border: 0.4rem solid #e0e0e0;
+  border-top: 0.4rem solid #007bff;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+#site-loader.loaded {
+  opacity: 0;
+  pointer-events: none;
+}
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}

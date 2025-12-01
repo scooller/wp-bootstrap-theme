@@ -1,0 +1,546 @@
+{
+    "key": "group_bootstrap_theme_extras",
+    "title": "Extras del Tema",
+    "fields": [
+        {
+            "key": "field_social_media_tab",
+            "label": "Redes Sociales",
+            "name": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_extras_facebook_url",
+            "label": "Facebook URL",
+            "name": "extras_facebook_url",
+            "type": "url",
+            "instructions": "URL completa de tu página de Facebook",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "https://facebook.com/tupagina"
+        },
+        {
+            "key": "field_extras_twitter_url",
+            "label": "Twitter/X URL",
+            "name": "extras_twitter_url",
+            "type": "url",
+            "instructions": "URL completa de tu perfil de Twitter/X",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "https://twitter.com/tuperfil"
+        },
+        {
+            "key": "field_extras_instagram_url",
+            "label": "Instagram URL",
+            "name": "extras_instagram_url",
+            "type": "url",
+            "instructions": "URL completa de tu perfil de Instagram",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "https://instagram.com/tuperfil"
+        },
+        {
+            "key": "field_extras_linkedin_url",
+            "label": "LinkedIn URL",
+            "name": "extras_linkedin_url",
+            "type": "url",
+            "instructions": "URL completa de tu perfil de LinkedIn",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "https://linkedin.com/in/tuperfil"
+        },
+        {
+            "key": "field_extras_youtube_url",
+            "label": "YouTube URL",
+            "name": "extras_youtube_url",
+            "type": "url",
+            "instructions": "URL completa de tu canal de YouTube",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "https://youtube.com/c/tucanal"
+        },
+        {
+            "key": "field_extras_tiktok_url",
+            "label": "TikTok URL",
+            "name": "extras_tiktok_url",
+            "type": "url",
+            "instructions": "URL completa de tu perfil de TikTok",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "https://tiktok.com/@tuperfil"
+        },
+        {
+            "key": "field_extras_social_custom_links",
+            "label": "Redes Sociales Personalizadas",
+            "name": "extras_social_custom_links",
+            "type": "repeater",
+            "instructions": "Agrega redes sociales adicionales. Usa clases FontAwesome para el ícono (por ejemplo: fab fa-threads, fa-brands fa-spotify, fa-solid fa-globe).",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "100",
+                "class": "",
+                "id": ""
+            },
+            "collapsed": "field_extras_social_custom_links_name",
+            "min": 0,
+            "max": 0,
+            "layout": "table",
+            "button_label": "+ Agregar red",
+            "sub_fields": [
+                {
+                    "key": "field_extras_social_custom_links_name",
+                    "label": "Nombre",
+                    "name": "name",
+                    "type": "text",
+                    "instructions": "Nombre visible/etiqueta (p.ej., Threads, Spotify)",
+                    "required": 1,
+                    "wrapper": {"width": "25", "class": "", "id": ""},
+                    "default_value": "",
+                    "placeholder": "Nombre de la red"
+                },
+                {
+                    "key": "field_extras_social_custom_links_url",
+                    "label": "URL",
+                    "name": "url",
+                    "type": "url",
+                    "instructions": "Enlace completo a tu perfil o página",
+                    "required": 1,
+                    "wrapper": {"width": "45", "class": "", "id": ""},
+                    "default_value": "",
+                    "placeholder": "https://..."
+                },
+                {
+                    "key": "field_extras_social_custom_links_icon",
+                    "label": "Ícono FontAwesome",
+                    "name": "icon",
+                    "type": "text",
+                    "instructions": "Clase(s) del ícono (p.ej., fab fa-threads o fa-brands fa-spotify)",
+                    "required": 1,
+                    "wrapper": {"width": "30", "class": "", "id": ""},
+                    "default_value": "fab fa-globe",
+                    "placeholder": "fab fa-threads"
+                }
+            ]
+        },
+        {
+            "key": "field_analytics_tab",
+            "label": "Analytics y Scripts",
+            "name": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_extras_google_analytics_id",
+            "label": "Google Analytics ID",
+            "name": "extras_google_analytics_id",
+            "type": "text",
+            "instructions": "ID de Google Analytics (GA4: G-XXXXXXXXXX o Universal: UA-XXXXXXXX-X)",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "G-XXXXXXXXXX",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_extras_google_tag_manager_id",
+            "label": "Google Tag Manager ID",
+            "name": "extras_google_tag_manager_id",
+            "type": "text",
+            "instructions": "ID de Google Tag Manager (GTM-XXXXXXX)",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "GTM-XXXXXXX",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_extras_facebook_pixel_id",
+            "label": "Facebook Pixel ID",
+            "name": "extras_facebook_pixel_id",
+            "type": "text",
+            "instructions": "ID del píxel de Facebook",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "123456789012345",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_extras_custom_head_scripts",
+            "label": "Scripts Personalizados (Head)",
+            "name": "extras_custom_head_scripts",
+            "type": "textarea",
+            "instructions": "Código JavaScript personalizado para insertar en el <head>",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "<script>\n// Tu código JavaScript aquí\n</script>",
+            "maxlength": "",
+            "rows": 8,
+            "new_lines": ""
+        },
+        {
+            "key": "field_extras_custom_footer_scripts",
+            "label": "Scripts Personalizados (Footer)",
+            "name": "extras_custom_footer_scripts",
+            "type": "textarea",
+            "instructions": "Código JavaScript personalizado para insertar antes del cierre del </body>",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "<script>\n// Tu código JavaScript aquí\n</script>",
+            "maxlength": "",
+            "rows": 8,
+            "new_lines": ""
+        },
+        {
+            "key": "field_performance_tab",
+            "label": "Performance y SEO",
+            "name": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_extras_enable_cache",
+            "label": "Habilitar Cache",
+            "name": "extras_enable_cache",
+            "type": "true_false",
+            "instructions": "Activar sistema de cache para opciones ACF y CSS personalizado. Reduce queries y mejora velocidad de carga.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "25",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 1,
+            "ui": 1,
+            "ui_on_text": "Sí",
+            "ui_off_text": "No"
+        },
+        {
+            "key": "field_extras_enable_lazy_loading",
+            "label": "Habilitar Lazy Loading",
+            "name": "extras_enable_lazy_loading",
+            "type": "true_false",
+            "instructions": "Cargar imágenes de forma diferida para mejorar performance",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "25",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 1,
+            "ui": 1,
+            "ui_on_text": "Sí",
+            "ui_off_text": "No"
+        },
+        {
+            "key": "field_extras_enable_preload_fonts",
+            "label": "Precargar Fuentes",
+            "name": "extras_enable_preload_fonts",
+            "type": "true_false",
+            "instructions": "Precargar fuentes web para mejorar velocidad de carga",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "25",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 1,
+            "ui": 1,
+            "ui_on_text": "Sí",
+            "ui_off_text": "No"
+        },
+        {
+            "key": "field_extras_enable_css_compression",
+            "label": "Comprimir CSS",
+            "name": "extras_enable_css_compression",
+            "type": "true_false",
+            "instructions": "Minificar y comprimir archivos CSS del tema",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui": 1,
+            "ui_on_text": "Sí",
+            "ui_off_text": "No"
+        },
+        {
+            "key": "field_extras_enable_js_compression",
+            "label": "Comprimir JS",
+            "name": "extras_enable_js_compression",
+            "type": "true_false",
+            "instructions": "Minificar y concatenar archivos JavaScript (puede causar conflictos con plugins que usan jQuery/jQuery UI)",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui": 1,
+            "ui_on_text": "Sí",
+            "ui_off_text": "No"
+        },
+        {
+            "key": "field_extras_meta_description",
+            "label": "Meta Descripción por Defecto",
+            "name": "extras_meta_description",
+            "type": "textarea",
+            "instructions": "Descripción meta por defecto para páginas sin descripción específica",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "Descripción atractiva de tu sitio web para motores de búsqueda",
+            "maxlength": 160,
+            "rows": 3,
+            "new_lines": ""
+        },
+        {
+            "key": "field_extras_meta_keywords",
+            "label": "Palabras Clave Meta",
+            "name": "extras_meta_keywords",
+            "type": "text",
+            "instructions": "Palabras clave separadas por comas (opcional, no muy importante para SEO moderno)",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "palabra1, palabra2, palabra3",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_maintenance_tab",
+            "label": "Mantenimiento",
+            "name": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_extras_maintenance_mode",
+            "label": "Modo Mantenimiento",
+            "name": "extras_maintenance_mode",
+            "type": "true_false",
+            "instructions": "Activar página de mantenimiento para visitantes (los administradores pueden seguir accediendo)",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "33",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui": 1,
+            "ui_on_text": "Activado",
+            "ui_off_text": "Desactivado"
+        },
+        {
+            "key": "field_extras_maintenance_message",
+            "label": "Mensaje de Mantenimiento",
+            "name": "extras_maintenance_message",
+            "type": "wysiwyg",
+            "instructions": "Mensaje a mostrar durante el mantenimiento",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_extras_maintenance_mode",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "67",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "<p>Estamos realizando mejoras en nuestro sitio. <strong>Volveremos pronto</strong>.</p>",
+            "tabs": "all",
+            "toolbar": "full",
+            "media_upload": 1,
+            "delay": 0
+            },
+            {
+                "key": "field_content_settings_tab",
+                "label": "Configuración de Contenido",
+                "name": "",
+                "type": "tab",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "placement": "top",
+                "endpoint": 0
+            },
+            {
+                "key": "field_extras_show_related_posts",
+                "label": "Mostrar Entradas Relacionadas",
+                "name": "extras_show_related_posts",
+                "type": "true_false",
+                "instructions": "Mostrar entradas relacionadas en la página de single post",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "50",
+                    "class": "",
+                    "id": ""
+                },
+                "message": "",
+                "default_value": 1,
+                "ui": 1,
+                "ui_on_text": "",
+                "ui_off_text": ""
+            }
+    ],
+    "location": [
+        [
+            {
+                "param": "options_page",
+                "operator": "==",
+                "value": "bootstrap-theme-options-extras"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "Opciones adicionales y extras del tema"
+}

@@ -1,0 +1,191 @@
+/**
+ * Composite Products - Dynamic Pricing Styles
+ * Mejora visual para precios que cambian dinámicamente
+ * 
+ * @package Bootstrap_Theme
+ * @since 1.2.2
+ */
+
+/* Ocultar precio de rango inicial en productos compuestos */
+.product-type-composite .summary .price.composite-price-placeholder {
+    opacity: 0 !important;
+    height: 0;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+}
+
+/* Ocultar precios adicionales que genera WooCommerce Composite Products */
+.composite_price,
+.composite_data .composite_price {
+    display: none !important;
+}
+
+/* Mostrar solo nuestro precio calculado */
+.summary .price:not(.composite-price-placeholder) {
+    display: block !important;
+}
+
+/* Ocultar mensajes de error de composite que son falsos positivos */
+.woocommerce-error li:has(a[href*="Mochila"]),
+.woocommerce-error:has(a[href*="visitando"]) {
+    display: none !important;
+}
+
+/* Precio actualizado dinámicamente */
+.price.price-updated {
+    transition: all 0.3s ease;
+    animation: priceUpdate 0.5s ease;
+}
+
+@keyframes priceUpdate {
+    0% {
+        opacity: 0.5;
+        transform: scale(0.95);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.05);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Precio en verde cuando es actualizado */
+.price.price-updated .woocommerce-Price-amount {
+    color: #28a745 !important;
+    font-weight: 600;
+}
+
+/* Precio regular tachado */
+.price.price-updated del .woocommerce-Price-amount {
+    color: #6c757d !important;
+    font-weight: 400;
+}
+
+/* Precio de oferta destacado */
+.price.price-updated ins {
+    background-color: rgba(40, 167, 69, 0.1);
+    padding: 4px 8px;
+    border-radius: 4px;
+    text-decoration: none;
+}
+
+/* Indicador de "precio calculando" */
+.price.calculating {
+    position: relative;
+    opacity: 0.6;
+}
+
+.price.calculating::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: -25px;
+    width: 16px;
+    height: 16px;
+    margin-top: -8px;
+    border: 2px solid #0d6efd;
+    border-radius: 50%;
+    border-top-color: transparent;
+    animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Contenedor de precio en productos compuestos */
+.composite_price {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin: 1rem 0;
+    padding: 1rem;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    border-left: 4px solid #0d6efd;
+}
+
+/* Badge para indicar precio variable */
+.price-variable-badge {
+    display: inline-block;
+    margin-left: 8px;
+    padding: 4px 8px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: #fff;
+    background-color: #6c757d;
+    border-radius: 4px;
+    vertical-align: middle;
+}
+
+/* Mejorar visibilidad en móvil */
+@media (max-width: 768px) {
+    .composite_price {
+        font-size: 1.25rem;
+        padding: 0.75rem;
+    }
+    
+    .price.price-updated {
+        font-size: 1.25rem;
+    }
+}
+
+/* Precio total destacado */
+.composite_data .composite_price,
+.summary .price.composite-total {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* Separador visual para componentes del composite */
+.composite_component {
+    border-bottom: 1px solid #dee2e6;
+    padding-bottom: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.composite_component:last-child {
+    border-bottom: none;
+}
+
+/* Título del componente */
+.component_title {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: #212529;
+    margin-bottom: 1rem;
+}
+
+/* Precio individual de cada componente */
+.component_price {
+    font-size: 1rem;
+    color: #6c757d;
+    margin-top: 0.5rem;
+}
+
+/* Resaltar cambios de precio */
+.price-change-highlight {
+    background-color: rgba(255, 193, 7, 0.2);
+    padding: 2px 6px;
+    border-radius: 3px;
+    transition: background-color 0.5s ease;
+}
+
+/* Mensaje de "precio desde" */
+.price-from-label {
+    font-size: 0.875rem;
+    color: #6c757d;
+    font-weight: 400;
+    margin-right: 4px;
+}
+
+/* Estado de carga para variaciones */
+.variations_form.loading {
+    opacity: 0.6;
+    pointer-events: none;
+}

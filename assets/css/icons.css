@@ -1,0 +1,61 @@
+/* FontAwesome SVG Icons Styles */
+.icon {
+    width: 1em;
+    height: 1em;
+    fill: currentColor;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.icon-sm {
+    width: 0.875em;
+    height: 0.875em;
+}
+
+.icon-lg {
+    width: 1.25em;
+    height: 1.25em;
+}
+
+.icon-xl {
+    width: 1.5em;
+    height: 1.5em;
+}
+
+.icon-2xl {
+    width: 2em;
+    height: 2em;
+}
+
+/* Icon colors */
+.icon-primary {
+    fill: var(--bs-primary);
+}
+
+.icon-secondary {
+    fill: var(--bs-secondary);
+}
+
+.icon-success {
+    fill: var(--bs-success);
+}
+
+.icon-danger {
+    fill: var(--bs-danger);
+}
+
+.icon-warning {
+    fill: var(--bs-warning);
+}
+
+.icon-info {
+    fill: var(--bs-info);
+}
+
+.icon-light {
+    fill: var(--bs-light);
+}
+
+.icon-dark {
+    fill: var(--bs-dark);
+}

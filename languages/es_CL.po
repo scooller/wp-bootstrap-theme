@@ -1,0 +1,483 @@
+# Copyright (C) 2025 scooller
+# This file is distributed under the GPL v2 or later.
+# Default language: Spanish (Chile) - es_CL
+msgid ""
+msgstr ""
+"Project-Id-Version: Bootstrap Theme 1.5.7\n"
+"Report-Msgid-Bugs-To: https://scooller.bio\n"
+"POT-Creation-Date: 2025-11-04 00:00+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2025-11-04 00:00+0000\n"
+"Last-Translator: scooller <contact@scooller.bio>\n"
+"Language-Team: Spanish (Chile)\n"
+"Language: es_CL\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit\n"
+"X-Domain: bootstrap-theme\n"
+
+#: functions.php:34
+msgid "Primary"
+msgstr "Principal"
+
+#: functions.php:35
+msgid "Footer"
+msgstr "Pie de página"
+
+#: functions.php:95
+msgid "Sidebar"
+msgstr "Barra lateral"
+
+#: functions.php:96
+msgid "Add widgets here."
+msgstr "Agrega widgets aquí."
+
+#: functions.php:105
+msgid "Footer 1"
+msgstr "Pie de página 1"
+
+#: functions.php:107
+msgid "Add widgets here for the first footer column."
+msgstr "Agrega widgets aquí para la primera columna del pie de página."
+
+#: functions.php:116
+msgid "Footer 2"
+msgstr "Pie de página 2"
+
+#: functions.php:118
+msgid "Add widgets here for the second footer column."
+msgstr "Agrega widgets aquí para la segunda columna del pie de página."
+
+#: functions.php:127
+msgid "Footer 3"
+msgstr "Pie de página 3"
+
+#: functions.php:129
+msgid "Add widgets here for the third footer column."
+msgstr "Agrega widgets aquí para la tercera columna del pie de página."
+
+#: header.php:24
+msgid "Skip to content"
+msgstr "Saltar al contenido"
+
+#: header.php:56 Headers
+msgid "Toggle navigation"
+msgstr "Alternar navegación"
+
+#: header.php:74
+msgid "Your cart is empty."
+msgstr "Tu carrito está vacío."
+
+#: footer.php:43
+#, c-format
+msgid ". Theme: %1$s by %2$s."
+msgstr ". Tema: %1$s por %2$s."
+
+#: template-parts/content-none.php:14
+msgid "Nothing here"
+msgstr "No hay nada aquí"
+
+#: template-parts/content-none.php:18
+#, c-format
+msgid ""
+"Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
+msgstr "¿Listo para publicar tu primera entrada? <a href=\"%1$s\">Comienza aquí</a>."
+
+#: template-parts/content-none.php:31
+msgid ""
+"Sorry, but nothing matched your search terms. Please try again with some "
+"different keywords."
+msgstr "Lo siento, pero no encontramos coincidencias con tus términos de búsqueda. Por favor intenta nuevamente con diferentes palabras clave."
+
+#: template-parts/content-none.php:39
+msgid ""
+"It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps "
+"searching can help."
+msgstr "Parece que no podemos encontrar lo que buscas. Quizás buscar pueda ayudar."
+
+#: template-parts/hero.php:15
+msgid "Welcome to Our Website"
+msgstr "Bienvenido a Nuestro Sitio Web"
+
+#: template-parts/hero.php:20
+msgid "This is a beautiful WordPress theme built with Bootstrap 5.3"
+msgstr "Este es un hermoso tema de WordPress construido con Bootstrap 5.3"
+
+#: template-parts/hero.php:26
+msgid "Learn More"
+msgstr "Aprende Más"
+
+#: template-parts/hero.php:35
+msgid "Shop Now"
+msgstr "Compra Ahora"
+
+#: template-parts/hero.php:44
+msgid "Hero Image"
+msgstr "Imagen Principal"
+
+#: template-parts/pagination.php:13
+msgid "Posts pagination"
+msgstr "Paginación de entradas"
+
+#: template-parts/pagination.php:17
+msgid "&laquo; Previous Posts"
+msgstr "&laquo; Entradas Anteriores"
+
+#: template-parts/pagination.php:24
+msgid "Next Posts &raquo;"
+msgstr "Siguientes Entradas &raquo;"
+
+#: template-parts/woocommerce/cart.php:18
+msgid "Shopping Cart"
+msgstr "Carrito de Compras"
+
+#: template-parts/woocommerce/cart.php:23
+msgid "Your cart is empty"
+msgstr "Tu carrito está vacío"
+
+#: template-parts/woocommerce/cart.php:24
+msgid "Looks like you haven't added anything to your cart yet."
+msgstr "Parece que aún no has agregado nada a tu carrito."
+
+#: template-parts/woocommerce/cart.php:27
+msgid "Continue Shopping"
+msgstr "Continuar Comprando"
+
+#: template-parts/woocommerce/cart.php:36
+msgid "Cart Summary"
+msgstr "Resumen del Carrito"
+
+#: template-parts/woocommerce/cart-dropdown.php:18
+msgid "Cart Items"
+msgstr "Artículos del Carrito"
+
+#: template-parts/woocommerce/cart-dropdown.php:42
+msgid "Total: "
+msgstr "Total: "
+
+#: template-parts/woocommerce/cart-dropdown.php:47 blocks/bs-cart/block.php:163
+msgid "View Cart"
+msgstr "Ver Carrito"
+
+#: template-parts/woocommerce/cart-dropdown.php:50 blocks/bs-cart/block.php:167
+msgid "Checkout"
+msgstr "Pagar"
+
+#: template-parts/woocommerce/product-loop.php:24
+msgid "Sale!"
+msgstr "¡Oferta!"
+
+#: search.php:23
+#, c-format
+msgid "Search Results for: %s"
+msgstr "Resultados de búsqueda para: %s"
+
+#: template-parts/content-search.php:47
+msgid "Read More"
+msgstr "Leer Más"
+
+#: inc/woocommerce-functions.php:165
+msgid "Shop Sidebar"
+msgstr "Barra Lateral de Tienda"
+
+#: inc/woocommerce-functions.php:167
+msgid "Add widgets here to appear on shop pages."
+msgstr "Agrega widgets aquí para aparecer en las páginas de la tienda."
+
+#: blocks/bs-cart/editor.js:13
+msgid "Bootstrap Shopping Cart"
+msgstr "Carrito de Compras Bootstrap"
+
+#: blocks/bs-cart/editor.js:14
+msgid "Display WooCommerce shopping cart with automatic checkout updates"
+msgstr "Mostrar carrito de compras WooCommerce con actualizaciones automáticas de pago"
+
+#: blocks/bs-cart/editor.js:17
+msgid "cart"
+msgstr "carrito"
+
+#: blocks/bs-cart/editor.js:18
+msgid "woocommerce"
+msgstr "woocommerce"
+
+#: blocks/bs-cart/editor.js:19
+msgid "shopping"
+msgstr "compras"
+
+#: blocks/bs-cart/editor.js:32
+msgid "Cart Settings"
+msgstr "Configuración del Carrito"
+
+#: blocks/bs-cart/editor.js:33
+msgid "Show Empty Cart Message"
+msgstr "Mostrar Mensaje de Carrito Vacío"
+
+#: blocks/bs-cart/editor.js:38
+msgid "Show Totals"
+msgstr "Mostrar Totales"
+
+#: blocks/bs-cart/editor.js:42
+msgid "Show Cart & Checkout Buttons"
+msgstr "Mostrar Botones de Carrito y Pago"
+
+#: blocks/bs-cart/editor.js:54
+msgid "Shopping cart preview (displays on frontend)"
+msgstr "Vista previa del carrito de compras (se muestra en el frontend)"
+
+#: blocks/bs-cart/editor.js:56
+msgid "Shopping Cart Block"
+msgstr "Bloque de Carrito de Compras"
+
+#: blocks/bs-cart/editor.js:59
+msgid "This block displays the WooCommerce shopping cart on the frontend."
+msgstr "Este bloque muestra el carrito de compras de WooCommerce en el frontend."
+
+#: blocks/bs-cart/editor.js:62
+msgid "The cart will appear here when visitors add products."
+msgstr "El carrito aparecerá aquí cuando los visitantes agreguen productos."
+
+#: blocks/bs-cart/editor.js:66
+msgid "Empty message"
+msgstr "Mensaje vacío"
+
+#: blocks/bs-cart/editor.js:69
+msgid "Show totals"
+msgstr "Mostrar totales"
+
+#: blocks/bs-cart/editor.js:72
+msgid "Show buttons"
+msgstr "Mostrar botones"
+
+#: blocks/bs-cart/block.php:18
+msgid "WooCommerce is not active"
+msgstr "WooCommerce no está activo"
+
+#: blocks/bs-cart/block.php:63
+msgid "Your cart is currently empty"
+msgstr "Tu carrito está actualmente vacío"
+
+#: blocks/bs-cart/block.php:71
+msgid "Product"
+msgstr "Producto"
+
+#: blocks/bs-cart/block.php:72
+msgid "Qty"
+msgstr "Cant."
+
+#: blocks/bs-cart/block.php:73
+msgid "Price"
+msgstr "Precio"
+
+#: blocks/bs-cart/block.php:84
+msgid "No image"
+msgstr "Sin imagen"
+
+#: blocks/bs-cart/block.php:111
+msgid "Remove"
+msgstr "Eliminar"
+
+#: blocks/bs-cart/block.php:126
+msgid "Subtotal:"
+msgstr "Subtotal:"
+
+#: blocks/bs-cart/block.php:136
+msgid "Tax:"
+msgstr "Impuesto:"
+
+#: blocks/bs-cart/block.php:146
+msgid "Total:"
+msgstr "Total:"
+
+#: inc/woocommerce-functions.php:1676
+msgid "Stock"
+msgstr "Stock"
+
+#: inc/woocommerce-functions.php:1713
+msgid "En stock"
+msgstr "En stock"
+
+#: inc/woocommerce-functions.php:1715
+msgid "Agotado"
+msgstr "Agotado"
+
+#: 404.php
+msgid "¡Oops! Página no encontrada"
+msgstr "¡Oops! Página no encontrada"
+
+msgid ""
+"Lo sentimos, pero la página que buscas no existe. Es posible que haya sido "
+"movida, eliminada o que hayas escrito mal la dirección."
+msgstr "Lo sentimos, pero la página que buscas no existe. Es posible que haya sido movida, eliminada o que hayas escrito mal la dirección."
+
+msgid "Volver al Inicio"
+msgstr "Volver al Inicio"
+
+msgid "Intenta buscar lo que necesitas:"
+msgstr "Intenta buscar lo que necesitas:"
+
+msgid "Volver Atrás"
+msgstr "Volver Atrás"
+
+msgid "O puedes revisar nuestras últimas entradas:"
+msgstr "O puedes revisar nuestras últimas entradas:"
+
+#: functions.php
+msgid ""
+"Este tema requiere Advanced Custom Fields (ACF) para funcionar correctamente."
+msgstr "Este tema requiere Advanced Custom Fields (ACF) para funcionar correctamente."
+
+msgid ""
+"Este tema requiere Advanced Custom Fields PRO para funcionar correctamente. "
+"La versión gratuita no es suficiente."
+msgstr "Este tema requiere Advanced Custom Fields PRO para funcionar correctamente. La versión gratuita no es suficiente."
+
+msgid "Icono FontAwesome (ej: fa-home)"
+msgstr "Icono FontAwesome (ej: fa-home)"
+
+msgid "Ver todos los iconos FontAwesome"
+msgstr "Ver todos los iconos FontAwesome"
+
+msgid "Mostrar como botón Bootstrap"
+msgstr "Mostrar como botón Bootstrap"
+
+msgid "Estilo de botón Bootstrap"
+msgstr "Estilo de botón Bootstrap"
+
+msgid "(Sin estilo)"
+msgstr "(Sin estilo)"
+
+msgid ""
+"Please set up a menu in Appearance → Menus and assign it to the \"Primary\" "
+"location."
+msgstr "Por favor configura un menú en Apariencia → Menús y asígnalo a la ubicación \"Primary\"."
+
+msgid "Open Shopping Cart"
+msgstr "Abrir Carrito de Compras"
+
+msgid "View Shopping Cart"
+msgstr "Ver Carrito de Compras"
+
+msgid "Logout"
+msgstr "Cerrar Sesión"
+
+msgid "Dashboard"
+msgstr "Panel"
+
+msgid "Login"
+msgstr "Iniciar Sesión"
+
+msgid "Sign-up"
+msgstr "Registrarse"
+
+msgid "Loading..."
+msgstr "Cargando..."
+
+msgid "Por:"
+msgstr "Por:"
+
+msgid "Páginas del contenido"
+msgstr "Páginas del contenido"
+
+msgid "Products"
+msgstr "Productos"
+
+msgid "Other Content"
+msgstr "Otro Contenido"
+
+#: single.php
+msgid "Navegación entre entradas"
+msgstr "Navegación entre entradas"
+
+msgid "Entrada anterior"
+msgstr "Entrada anterior"
+
+msgid "Siguiente entrada"
+msgstr "Siguiente entrada"
+
+msgid "Entradas relacionadas"
+msgstr "Entradas relacionadas"
+
+msgid "Leer más"
+msgstr "Leer más"
+
+#: test-page.php
+msgid "¡Tema Bootstrap Funcionando!"
+msgstr "¡Tema Bootstrap Funcionando!"
+
+msgid ""
+"Si puedes ver este mensaje con estilos de Bootstrap, significa que el tema "
+"está cargando correctamente."
+msgstr "Si puedes ver este mensaje con estilos de Bootstrap, significa que el tema está cargando correctamente."
+
+msgid "Los estilos CSS de Bootstrap 5.3 se están aplicando correctamente."
+msgstr "Los estilos CSS de Bootstrap 5.3 se están aplicando correctamente."
+
+msgid "Nombre"
+msgstr "Nombre"
+
+#: template-parts
+msgid "Entradas Anteriores"
+msgstr "Entradas Anteriores"
+
+msgid "Siguientes Entradas"
+msgstr "Siguientes Entradas"
+
+msgid "Sin Comentarios"
+msgstr "Sin Comentarios"
+
+msgid "1 Comentario"
+msgstr "1 Comentario"
+
+msgid "%s Comentarios"
+msgstr "%s Comentarios"
+
+msgid "No hay nada aquí"
+msgstr "No hay nada aquí"
+
+msgid ""
+"Lo siento, pero no encontramos coincidencias con tus términos de búsqueda."
+msgstr "Lo siento, pero no encontramos coincidencias con tus términos de búsqueda."
+
+msgid "Parece que no podemos encontrar lo que buscas."
+msgstr "Parece que no podemos encontrar lo que buscas."
+
+msgid "¿Listo para publicar tu primera entrada?"
+msgstr "¿Listo para publicar tu primera entrada?"
+
+msgid "Comienza aquí"
+msgstr "Comienza aquí"
+
+msgid "Buscar..."
+msgstr "Buscar..."
+
+#: WooCommerce
+msgid "Cerrar"
+msgstr "Cerrar"
+
+msgid "Featured"
+msgstr "Destacado"
+
+msgid "Out of Stock"
+msgstr "Agotado"
+
+msgid "Suscribirse al boletín"
+msgstr "Suscribirse al boletín"
+
+msgid "Suscribirse"
+msgstr "Suscribirse"
+
+msgid "¡Gracias por suscribirte!"
+msgstr "¡Gracias por suscribirte!"
+
+msgid "Ya estás suscripto"
+msgstr "Ya estás suscrito"
+
+msgid "Email inválido"
+msgstr "Email inválido"
+
+msgid "Tu dirección de email"
+msgstr "Tu dirección de email"
+
+msgid "Dirección de email"
+msgstr "Dirección de email"

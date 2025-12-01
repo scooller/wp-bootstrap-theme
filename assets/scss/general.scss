@@ -1,0 +1,285 @@
+// Bootstrap Theme - General SCSS
+// This file imports Bootstrap and defines minimal custom styles
+
+// Import Bootstrap using @use (preferred in Dart Sass)
+// To override variables, configure via `with (...)` before using as *
+// Example:
+// @use "../../vendor/twbs/bootstrap/scss/bootstrap" with (
+//   $primary: #0d6efd,
+//   $secondary: #6c757d
+// );
+@use "../../vendor/twbs/bootstrap/scss/bootstrap" as *;
+
+// Custom variables (override Bootstrap defaults here if needed)
+// $primary: #007bff;
+// $secondary: #6c757d;
+
+ul.nav li.menu-item .btn{
+    margin-left: .5rem;
+    margin-right: .5rem;
+}
+#menu-general{
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+.btn-menu-collapse{
+    font-size: 3rem;
+    line-height: 3rem;
+}
+.card-img, .card-img-top{
+    overflow: hidden;
+}
+.smooth-shadow{
+    /* https://smoothshadows.com/#djEsMSw1LDAuMDgsMjQsMzIsMCwjMDMwNzEyLCNmM2Y0ZjYsI2ZmZmZmZiwy */
+    box-shadow: 0px 1px 1px rgba(3, 7, 18, 0.02),
+    0px 5px 4px rgba(3, 7, 18, 0.03),
+    0px 12px 9px rgba(3, 7, 18, 0.05),
+    0px 20px 15px rgba(3, 7, 18, 0.06),
+    0px 32px 24px rgba(3, 7, 18, 0.08);
+}
+.hard-shawdow{
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+.inner-shadow{
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+}
+.float-shadow{
+    box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
+}
+
+.shadow-effect2{
+    display: inline-block;
+    transition: all 0.3s ease;
+    transform: scale(1);
+    
+    &:hover{
+        transform: scale(1.03);
+        transition: all 0.3s ease;
+        img{
+            box-shadow: rgba(0, 0, 0, 0.15) 0px 15px 25px, rgba(0, 0, 0, 0.05) 0px 5px 10px;
+        }
+    }
+    img{
+        display: block; // Elimina espacio extra debajo de la imagen
+        box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
+        background-color: #fff;
+    }
+}
+#product-thumbnails .product-image-fancybox img.img-fluid{
+    transform: scale(1);
+    filter: grayscale(1);
+    transition: all 0.3s ease;
+    &:hover{
+        transform: scale(0.95);
+        filter: grayscale(0);
+        transition: all 0.3s ease;
+    }
+}
+#product-main-image-link{
+    img#product-main-image{
+        max-width:100%;
+        object-fit:contain;
+        height: 60vh;
+    }
+}
+// Custom styles will be added here only when strictly necessary
+.added_to_cart{
+    margin-left: 1rem;
+}
+.woocommerce div.product p.price del, .woocommerce div.product span.price del{
+    font-size: 1rem;
+}
+.input-group{
+    .input-group-text,.input-text{
+        background-color: var(--wc-form-color-background,#fff);
+        border: var(--wc-form-border-width) solid var(--wc-form-border-color);
+        border-radius: var(--wc-form-border-radius);
+        color: var(--wc-form-color-text,#000);
+    }
+}
+
+// WooCommerce Product Gallery styles
+.woocommerce-product-gallery {
+    position: relative;
+    margin-bottom: 1rem;
+    
+    .flex-viewport {
+        max-width: 100%;
+        overflow: hidden;
+        
+        .woocommerce-product-gallery__image {
+            img {
+                width: 100%;
+                height: auto;
+                max-height: 420px;
+                object-fit: cover;
+                border-radius: 1rem;
+            }
+        }
+    }
+    
+    .flex-control-thumbs {
+        margin-top: 1rem;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.5rem;
+        list-style: none;
+        padding: 0;
+        
+        li {
+            width: 72px;
+            height: 72px;
+            cursor: pointer;
+            
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                border-radius: 0.5rem;
+                opacity: 0.7;
+                transition: opacity 0.3s ease;
+                
+                &:hover, &.flex-active {
+                    opacity: 1;
+                }
+            }
+        }
+    }
+}
+.woocommerce-order-details{
+    td.woocommerce-table__product-total, tfoot tr td, th.woocommerce-table__product-table{
+        text-align: right;
+    }
+}
+.woocommerce-order-downloads{
+    th.download-file, td.download-file{
+        text-align: left;
+    }
+}
+.woocommerce ul.order_details{
+    display: flex;
+    justify-content: center;
+    li{
+        text-align: center;
+        margin: 0;
+        padding: 0 2rem;
+    }
+}
+.woocommerce-order{
+    section{
+        border-top: 2px solid var(--bs-gray-300);
+        padding-top: 1rem;
+    }
+}
+.woocommerce-notice.woocommerce-notice--success{
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 3rem;
+    margin-top: 2rem;
+}
+.products.row .item-product .card{
+    transition: all .3s ease-in-out;
+    transform: scale(1);
+    &:hover{
+        transform: scale(1.03);
+        transition: all .3s ease-in-out;
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    }
+}
+.woocommerce:where(body:not(.woocommerce-uses-block-theme)) div.product p.price, .woocommerce:where(body:not(.woocommerce-uses-block-theme)) div.product span.price{
+    font-size: var(--bs-body-font-size)!important;
+}
+.woocommerce form .form-row .input-checkbox{
+    display: inline-block!important;
+}
+body.woocommerce-checkout.woocommerce-order-received{
+    article .entry-content .row .col.carrito{
+        display: none!important;
+    }
+}
+body.wp-singular.single{
+    article.product{
+        &.outofstock{
+            a.product-image-fancybox{
+                img.img-fluid{
+                    // black and white filter for out of stock products
+                    filter: grayscale(100%);
+                    transition: filter .3s ease-in;
+                }
+                &:hover{
+                    img.img-fluid{
+                        filter: none;
+                        transition: filter .3s ease-out;
+                    }
+                }
+            }
+        }
+    }
+}
+.woocommerce-error::before, .woocommerce-info::before, .woocommerce-message::before{
+    display: none!important;
+}
+ul.products li.product{
+    &.outofstock{
+        a.woocommerce-LoopProduct-link{
+            img.attachment-woocommerce_thumbnail{
+                // black and white filter for out of stock products
+                filter: grayscale(100%);
+                transition: filter .3s ease-in;
+            }
+            &:hover{
+                img.attachment-woocommerce_thumbnail{
+                    filter: none;
+                    transition: filter .3s ease-out;
+                }
+            }
+        }
+    }
+}
+
+// Skeleton shimmer (global)
+@keyframes bt-skeleton-shimmer { to { transform: translateX(100%); } }
+.skeleton {
+    position: relative;
+    overflow: hidden;
+    border-radius: .375rem; // 6px
+    background-color: rgba(255,255,255,.08);
+}
+.skeleton::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    transform: translateX(-100%);
+    background-image: linear-gradient(90deg, transparent, rgba(255,255,255,.22), transparent);
+    animation: bt-skeleton-shimmer 1.25s infinite;
+}
+// Width utilities
+//only desktop and up
+@media (min-width: 768px) {
+    .w-md-100{
+        width: 100% !important;
+    }
+    .w-md-auto{
+        width: auto !important;
+    }    
+}
+
+// Light theme contrast
+[data-bs-theme="light"] {
+    .skeleton { background-color: rgba(0,0,0,.07); }
+    .skeleton::after { background-image: linear-gradient(90deg, transparent, rgba(0,0,0,.11), transparent); }
+}
+@media (max-width: 576px) {
+    .collapse, .collapsing {
+        ul.nav {
+            flex-direction: column;
+            li.menu-item {
+                margin-bottom: .5rem;
+            }
+        }
+    }
+    button.cart-toggle{
+        font-size: 2rem;
+    }
+}

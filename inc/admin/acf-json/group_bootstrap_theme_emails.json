@@ -1,0 +1,67 @@
+{
+  "key": "group_bootstrap_theme_emails",
+  "title": "Emails",
+  "fields": [
+    {
+      "key": "field_newsletter_sender_name",
+      "label": "Nombre del Remitente",
+      "name": "newsletter_sender_name",
+      "type": "text",
+      "instructions": "Nombre que aparecerá como remitente en los emails del newsletter.",
+      "required": 1
+    },
+    {
+      "key": "field_newsletter_reply_to",
+      "label": "Correo de Respuesta",
+      "name": "newsletter_reply_to",
+      "type": "email",
+      "instructions": "Correo que recibirá las respuestas de los suscriptores.",
+      "required": 1
+    },
+    {
+      "key": "field_newsletter_success_message",
+      "label": "Mensaje de Éxito (WYSIWYG)",
+      "name": "newsletter_success_message",
+      "type": "wysiwyg",
+      "instructions": "Mensaje que verá el usuario tras suscribirse exitosamente.",
+      "required": 1
+    },
+    {
+      "key": "field_newsletter_custom_html",
+      "label": "Personalización del Newsletter (WYSIWYG)",
+      "name": "newsletter_custom_html",
+      "type": "wysiwyg",
+      "instructions": "Contenido HTML del newsletter que se enviará a los suscriptores.",
+      "required": 0
+    },
+    {
+      "key": "field_newsletter_subscribers_tab",
+      "label": "Suscriptores",
+      "name": "newsletter_subscribers_tab",
+      "type": "tab",
+      "placement": "top"
+    },
+    {
+      "key": "field_newsletter_download_csv",
+      "label": "Descargar CSV de Suscriptores",
+      "name": "newsletter_download_csv",
+      "type": "button",
+      "instructions": "Descarga la lista de suscriptores en formato CSV.",
+      "required": 0
+    }
+  ],
+  "location": [
+    [
+      {
+  "param": "options_page",
+  "operator": "==",
+  "value": "bootstrap-theme-options-emails"
+      }
+    ]
+  ],
+  "menu_order": 10,
+  "position": "normal",
+  "style": "default",
+  "active": true,
+  "description": "Configuración de emails y newsletter."
+}

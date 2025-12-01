@@ -1,0 +1,694 @@
+{
+    "key": "group_bootstrap_theme_general_options",
+    "title": "Opciones Generales",
+    "fields": [
+        {
+            "key": "field_logo_settings",
+            "label": "Configuración del Logo",
+            "name": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_custom_logo",
+            "label": "Logo Personalizado",
+            "name": "custom_logo",
+            "type": "image",
+            "instructions": "Sube un logo personalizado para tu sitio web. Tamaño recomendado: 250x250px",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array",
+            "preview_size": "medium",
+            "library": "all",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": "jpg,jpeg,png,webp,svg"
+        },
+        {
+            "key": "field_logo_height",
+            "label": "Altura del Logo",
+            "name": "logo_height",
+            "type": "number",
+            "instructions": "Altura del logo en píxeles",
+            "required": 0,
+
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "25",
+                "class": "",
+                "id": ""
+            },
+            "default_value": 50,
+            "placeholder": "",
+            "prepend": "",
+            "append": "px",
+            "min": 20,
+            "max": 970,
+            "step": ""
+        },
+        {
+            "key": "field_logo_mobile_height",
+            "label": "Altura del Logo en Mobile",
+            "name": "logo_mobile_height",
+            "type": "number",
+            "instructions": "Altura del logo en dispositivos móviles (píxeles)",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "25",
+                "class": "",
+                "id": ""
+            },
+            "default_value": 32,
+            "placeholder": "",
+            "prepend": "",
+            "append": "px",
+            "min": 20,
+            "max": 500,
+            "step": ""
+        },
+        {
+            "key": "field_site_settings",
+            "label": "Configuración del Sitio",
+            "name": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_site_tagline",
+            "label": "Eslogan del Sitio",
+            "name": "site_tagline",
+            "type": "text",
+            "instructions": "Un eslogan descriptivo para tu sitio web",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "Tu eslogan aquí",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_contact_email",
+            "label": "Email de Contacto",
+            "name": "contact_email",
+            "type": "email",
+            "instructions": "Email principal de contacto",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "contacto@sitio.com",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_phone_number",
+            "label": "Número de Teléfono",
+            "name": "phone_number",
+            "type": "text",
+            "instructions": "Número de teléfono principal",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "+1 234 567 8900",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_address",
+            "label": "Dirección",
+            "name": "address",
+            "type": "textarea",
+            "instructions": "Dirección física del negocio",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "123 Calle Principal, Ciudad, País",
+            "maxlength": "",
+            "rows": 3,
+            "new_lines": "br"
+        },
+        {
+            "key": "field_layout_settings",
+            "label": "Configuración del Layout",
+            "name": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_show_page_titles",
+            "label": "Mostrar Títulos de Página",
+            "name": "show_page_titles",
+            "type": "true_false",
+            "instructions": "Mostrar el título en páginas y posts por defecto (puede ser sobrescrito por página).",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "33",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 1,
+            "ui": 1,
+            "ui_on_text": "Sí",
+            "ui_off_text": "No"
+        },
+        {
+            "key": "field_show_meta_date",
+            "label": "Mostrar Fecha (Meta)",
+            "name": "show_meta_date",
+            "type": "true_false",
+            "instructions": "Mostrar la fecha de publicación (puede ser sobrescrito por página).",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "33",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 1,
+            "ui": 1,
+            "ui_on_text": "Sí",
+            "ui_off_text": "No"
+        },
+        {
+            "key": "field_show_meta_author",
+            "label": "Mostrar Autor (Meta)",
+            "name": "show_meta_author",
+            "type": "true_false",
+            "instructions": "Mostrar el autor de la publicación (puede ser sobrescrito por página).",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "33",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 1,
+            "ui": 1,
+            "ui_on_text": "Sí",
+            "ui_off_text": "No"
+        },
+        {
+            "key": "field_container_width",
+            "label": "Ancho del Contenedor",
+            "name": "container_width",
+            "type": "select",
+            "instructions": "Selecciona el ancho máximo del contenedor principal",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "33",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "container": "Estándar (1140px)",
+                "container-sm": "Pequeño (540px)",
+                "container-md": "Mediano (720px)",
+                "container-lg": "Grande (960px)",
+                "container-xl": "Extra Grande (1140px)",
+                "container-xxl": "XXL (1320px)",
+                "container-fluid": "Ancho Completo"
+            },
+            "default_value": "container",
+            "allow_null": 0,
+            "multiple": 0,
+            "ui": 0,
+            "return_format": "value",
+            "ajax": 0,
+            "placeholder": ""
+        },
+        {
+            "key": "field_enable_breadcrumbs",
+            "label": "Habilitar Breadcrumbs",
+            "name": "enable_breadcrumbs",
+            "type": "true_false",
+            "instructions": "Mostrar navegación de migas de pan",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "33",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 1,
+            "ui": 1,
+            "ui_on_text": "Sí",
+            "ui_off_text": "No"
+        },
+        {
+            "key": "field_enable_search",
+            "label": "Habilitar Búsqueda",
+            "name": "enable_search",
+            "type": "true_false",
+            "instructions": "Mostrar formulario de búsqueda en el header",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "33",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 1,
+            "ui": 1,
+            "ui_on_text": "Sí",
+            "ui_off_text": "No"
+        },
+        {
+            "key": "field_show_navigation_menu",
+            "label": "Mostrar Menú de Navegación",
+            "name": "show_navigation_menu",
+            "type": "true_false",
+            "instructions": "Mostrar el menú de navegación principal en el header",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 1,
+            "ui": 1,
+            "ui_on_text": "Mostrar",
+            "ui_off_text": "Ocultar"
+        },
+        {
+            "key": "field_show_sidebar",
+            "label": "Mostrar Sidebar/Aside",
+            "name": "show_sidebar",
+            "type": "true_false",
+            "instructions": "Mostrar la barra lateral (aside) en las páginas",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 1,
+            "ui": 1,
+            "ui_on_text": "Mostrar",
+            "ui_off_text": "Ocultar"
+        },
+        
+            {
+                "key": "field_404_settings",
+                "label": "Página 404",
+                "name": "",
+                "type": "tab",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "placement": "top",
+                "endpoint": 0
+            },
+            {
+                "key": "field_404_title",
+                "label": "Título de Error",
+                "name": "404_title",
+                "type": "text",
+                "instructions": "Título que se mostrará en la página 404",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "50",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "¡Oops! Página no encontrada",
+                "placeholder": "",
+                "prepend": "",
+                "append": "",
+                "maxlength": ""
+            },
+            {
+                "key": "field_404_message",
+                "label": "Mensaje de Error",
+                "name": "404_message",
+                "type": "wysiwyg",
+                "instructions": "Mensaje descriptivo que se mostrará en la página 404 (con formato)",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "100",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "Lo sentimos, pero la página que buscas no existe. Es posible que haya sido movida, eliminada o que hayas escrito mal la dirección.",
+                "tabs": "all",
+                "toolbar": "full",
+                "media_upload": 1,
+                "delay": 1
+            },
+            {
+                "key": "field_404_image",
+                "label": "Imagen de Error",
+                "name": "404_image",
+                "type": "image",
+                "instructions": "Imagen opcional para mostrar en la página 404. Si no se configura, se mostrará un icono por defecto.",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "50",
+                    "class": "",
+                    "id": ""
+                },
+                "return_format": "array",
+                "preview_size": "medium",
+                "library": "all",
+                "min_width": "",
+                "min_height": "",
+                "min_size": "",
+                "max_width": "",
+                "max_height": "",
+                "max_size": "",
+                "mime_types": "jpg,jpeg,png,webp,svg"
+            },
+            {
+                "key": "field_404_home_button_text",
+                "label": "Texto del Botón de Inicio",
+                "name": "404_home_button_text",
+                "type": "text",
+                "instructions": "Texto del botón que lleva a la página de inicio",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "50",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "Volver al Inicio",
+                "placeholder": "",
+                "prepend": "",
+                "append": "",
+                "maxlength": ""
+            },
+            {
+                "key": "field_404_show_search",
+                "label": "Mostrar Búsqueda",
+                "name": "404_show_search",
+                "type": "true_false",
+                "instructions": "Mostrar formulario de búsqueda en la página 404",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "33",
+                    "class": "",
+                    "id": ""
+                },
+                "message": "",
+                "default_value": 1,
+                "ui": 1,
+                "ui_on_text": "",
+                "ui_off_text": ""
+            },
+            {
+                "key": "field_404_show_home_button",
+                "label": "Mostrar Botón de Inicio",
+                "name": "404_show_home_button",
+                "type": "true_false",
+                "instructions": "Mostrar botón que lleva a la página de inicio",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "33",
+                    "class": "",
+                    "id": ""
+                },
+                "message": "",
+                "default_value": 1,
+                "ui": 1,
+                "ui_on_text": "",
+                "ui_off_text": ""
+            },
+            {
+                "key": "field_404_show_recent_posts",
+                "label": "Mostrar Entradas Recientes",
+                "name": "404_show_recent_posts",
+                "type": "true_false",
+                "instructions": "Mostrar las 3 entradas más recientes en la página 404",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "33",
+                    "class": "",
+                    "id": ""
+                },
+                "message": "",
+                "default_value": 1,
+                "ui": 1,
+                "ui_on_text": "",
+                "ui_off_text": ""
+            },
+            {
+                "key": "field_403_settings",
+                "label": "Página 403",
+                "name": "",
+                "type": "tab",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "placement": "top",
+                "endpoint": 0
+            },
+            {
+                "key": "field_403_message",
+                "label": "Mensaje de Error 403",
+                "name": "403_message",
+                "type": "wysiwyg",
+                "instructions": "Mensaje descriptivo que se mostrará en la página 403 (con formato)",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "100",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "No tienes permiso para acceder a esta página o recurso.",
+                "tabs": "all",
+                "toolbar": "full",
+                "media_upload": 1,
+                "delay": 1
+            },
+            {
+                "key": "field_alert_message_tab",
+                "label": "Mensaje de Alerta",
+                "name": "",
+                "type": "tab",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "placement": "top",
+                "endpoint": 0
+            },
+            {
+                "key": "field_show_alert_message",
+                "label": "Mostrar Mensaje de Alerta",
+                "name": "show_alert_message",
+                "type": "true_false",
+                "instructions": "Activar para mostrar un mensaje de alerta en la parte superior del sitio (sobre el header)",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "100",
+                    "class": "",
+                    "id": ""
+                },
+                "message": "Sí, mostrar mensaje de alerta",
+                "default_value": 0,
+                "ui": 1,
+                "ui_on_text": "Sí",
+                "ui_off_text": "No"
+            },
+            {
+                "key": "field_alert_message",
+                "label": "Contenido del Mensaje",
+                "name": "alert_message",
+                "type": "textarea",
+                "instructions": "Mensaje a mostrar. Puedes usar HTML y shortcodes (ej: [flip_timer date=\"2025-12-31 23:59:59\" show=\"dhms\" show_text=\"false\"])",
+                "required": 0,
+                "conditional_logic": [
+                    [
+                        {
+                            "field": "field_show_alert_message",
+                            "operator": "==",
+                            "value": "1"
+                        }
+                    ]
+                ],
+                "wrapper": {
+                    "width": "100",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "🎉 ¡Gran Descuento! Termina en [flip_timer date=\"2025-12-31 23:59:59\" show=\"dhms\" show_text=\"false\"]",
+                "placeholder": "",
+                "maxlength": "",
+                "rows": 3,
+                "new_lines": ""
+            },
+            {
+                "key": "field_alert_type",
+                "label": "Tipo de Alerta (Estilo Bootstrap)",
+                "name": "alert_type",
+                "type": "select",
+                "instructions": "Selecciona el color de la alerta según Bootstrap 5",
+                "required": 0,
+                "conditional_logic": [
+                    [
+                        {
+                            "field": "field_show_alert_message",
+                            "operator": "==",
+                            "value": "1"
+                        }
+                    ]
+                ],
+                "wrapper": {
+                    "width": "50",
+                    "class": "",
+                    "id": ""
+                },
+                "choices": {
+                    "primary": "Primario (Azul)",
+                    "secondary": "Secundario (Gris)",
+                    "success": "Éxito (Verde)",
+                    "danger": "Peligro (Rojo)",
+                    "warning": "Advertencia (Amarillo)",
+                    "info": "Información (Celeste)",
+                    "light": "Claro",
+                    "dark": "Oscuro"
+                },
+                "default_value": "primary",
+                "allow_null": 0,
+                "multiple": 0,
+                "ui": 0,
+                "return_format": "value",
+                "ajax": 0,
+                "placeholder": ""
+            },
+            {
+                "key": "field_alert_dismissible",
+                "label": "Permitir Cerrar Alerta",
+                "name": "alert_dismissible",
+                "type": "true_false",
+                "instructions": "Si está activado, se mostrará un botón X para cerrar la alerta",
+                "required": 0,
+                "conditional_logic": [
+                    [
+                        {
+                            "field": "field_show_alert_message",
+                            "operator": "==",
+                            "value": "1"
+                        }
+                    ]
+                ],
+                "wrapper": {
+                    "width": "50",
+                    "class": "",
+                    "id": ""
+                },
+                "message": "Sí, permitir cerrar",
+                "default_value": 1,
+                "ui": 1,
+                "ui_on_text": "Sí",
+                "ui_off_text": "No"
+            }
+    ],
+    "location": [
+        [
+            {
+                "param": "options_page",
+                "operator": "==",
+                "value": "bootstrap-theme-options-general"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "Configuraciones generales del tema Bootstrap"
+}
