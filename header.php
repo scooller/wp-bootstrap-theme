@@ -47,6 +47,10 @@ if ( class_exists( 'WooCommerce' ) ) {
 		$header_style = 'simple'; // Valor por defecto
 	}
 
+	// Obtener la posición del header
+	$header_position = bootstrap_theme_get_customization_option( 'customization_header_position' );
+	$header_position_class = ! empty( $header_position ) ? ' ' . esc_attr( $header_position ) : '';
+
 	// Cargar el template part correcto basado en el header_style
 	$header_file = 'template-parts/headers/' . $header_style;
 	
@@ -59,11 +63,11 @@ if ( class_exists( 'WooCommerce' ) ) {
 	// Incluir el contenedor si es necesario para ciertos headers
 	$container_headers = array( 'simple', 'centered', 'with-buttons' );
 	?>
-	<div class="site-header">
+	<div class="site-header<?php echo $header_position_class; ?>">
 	<?php
 	if ( in_array( $header_style, $container_headers ) ) :
 		?>
-		<div class="site-header <?php echo esc_attr( bootstrap_theme_get_option('container_width') ); ?>">
+		<div class="<?php echo esc_attr( bootstrap_theme_get_option('container_width') ); ?>">
 			<?php get_template_part( $header_file ); ?>
 		</div>
 		<?php

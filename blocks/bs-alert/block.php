@@ -29,11 +29,15 @@ function bootstrap_theme_render_bs_alert_block($attributes, $content, $block) {
     // Add custom CSS classes from Advanced panel
     $classes = bootstrap_theme_add_custom_classes($classes, $attributes, $block);
     
+    // Get animation data attributes
+    $animation_attrs = '';
+    if (function_exists('bootstrap_theme_get_animation_attributes')) {
+        $animation_attrs = bootstrap_theme_get_animation_attributes($attributes, $block);
+    }
+
     $class_string = implode(' ', array_unique($classes));
-    
-    $output = '<div class="' . esc_attr($class_string) . '" role="alert">';
-    
-    if (!empty($heading)) {
+
+    $output = '<div class="' . esc_attr($class_string) . '" role="alert"' . $animation_attrs . '>';    if (!empty($heading)) {
         $output .= '<h4 class="alert-heading">' . esc_html($heading) . '</h4>';
     }
     
@@ -79,6 +83,34 @@ function bootstrap_theme_register_bs_alert_block() {
             'className' => array(
                 'type' => 'string',
                 'default' => ''
+            ),
+            'aosAnimation' => array(
+                'type' => 'string',
+                'default' => ''
+            ),
+            'aosDelay' => array(
+                'type' => 'number',
+                'default' => 0
+            ),
+            'aosDuration' => array(
+                'type' => 'number',
+                'default' => 800
+            ),
+            'aosEasing' => array(
+                'type' => 'string',
+                'default' => 'ease-in-out-cubic'
+            ),
+            'aosOnce' => array(
+                'type' => 'boolean',
+                'default' => false
+            ),
+            'aosMirror' => array(
+                'type' => 'boolean',
+                'default' => true
+            ),
+            'aosAnchorPlacement' => array(
+                'type' => 'string',
+                'default' => 'top-bottom'
             )
         )
     ));

@@ -155,7 +155,13 @@ function bootstrap_theme_render_bs_wc_products_block($attributes, $content, $blo
         $wrap_classes = bootstrap_theme_add_custom_classes($wrap_classes, $attributes, $block);
     } elseif (!empty($attributes['className'])) {
         $wrap_classes[] = $attributes['className'];
-    }	
+    }
+
+    // Get animation data attributes
+    $animation_attrs = '';
+    if (function_exists('bootstrap_theme_get_animation_attributes')) {
+        $animation_attrs = bootstrap_theme_get_animation_attributes($attributes, $block);
+    }
 
     // Build ordering choices
     $orderby_choices = array(
@@ -170,13 +176,16 @@ function bootstrap_theme_render_bs_wc_products_block($attributes, $content, $blo
         'rand'       => __('Aleatorio', 'bootstrap-theme'),
     );
 
-    // Inject animation styles
+    // Inject animation styles for AOS
     wp_add_inline_style('woocommerce-layout', '
-        .wow {
-            animation-duration: 0.8s;
-            animation-fill-mode: both;
+        [data-aos] {
+            opacity: 0;
         }
-        .animate__flipInX {
+        .aos-animate {
+            opacity: 1;
+            animation-duration: 0.8s;
+        }
+        [data-aos="flip-left"] {
             animation-name: flipInX;
         }
         @keyframes flipInX {
@@ -222,7 +231,7 @@ function bootstrap_theme_render_bs_wc_products_block($attributes, $content, $blo
 
     ob_start();
     ?>
-    <div class="woocommerce <?php echo esc_attr(implode(' ', array_unique($wrap_classes))); ?>">
+    <div class="woocommerce <?php echo esc_attr(implode(' ', array_unique($wrap_classes))); ?>"<?php echo $animation_attrs; ?>>
         <!-- Toolbar: Result count + Search + Ordering -->
         <div class="woocommerce-toolbar d-flex justify-content-between align-items-center mb-4">
             <p class="woocommerce-result-count" role="alert" aria-relevant="all" aria-hidden="false">
@@ -347,6 +356,34 @@ function bootstrap_theme_register_bs_wc_products_block() {
             'onlyInStock'      => array('type' => 'boolean', 'default' => false),
             'categories'       => array('type' => 'array',    'default' => array(), 'items' => array('type' => 'number')),
             'className'        => array('type' => 'string',  'default' => ''),
+            'aosAnimation' => array(
+                'type' => 'string',
+                'default' => ''
+            ),
+            'aosDelay' => array(
+                'type' => 'number',
+                'default' => 0
+            ),
+            'aosDuration' => array(
+                'type' => 'number',
+                'default' => 800
+            ),
+            'aosEasing' => array(
+                'type' => 'string',
+                'default' => 'ease-in-out-cubic'
+            ),
+            'aosOnce' => array(
+                'type' => 'boolean',
+                'default' => false
+            ),
+            'aosMirror' => array(
+                'type' => 'boolean',
+                'default' => true
+            ),
+            'aosAnchorPlacement' => array(
+                'type' => 'string',
+                'default' => 'top-bottom'
+            ),
         ),
         'supports' => array(
             'className' => true,

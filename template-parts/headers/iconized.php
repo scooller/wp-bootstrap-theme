@@ -11,7 +11,7 @@ $dashboard_url = function_exists('wc_get_account_endpoint_url') ? wc_get_account
     <div class="px-3 py-2 text-bg-dark border-bottom">
         <div class="container">
             <div class="d-flex flex-wrap align-items-center justify-content-between justify-content-lg-start">
-                <a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="d-flex align-items-center h-100 my-2 my-lg-0 me-lg-auto text-white text-decoration-none wow animate__fadeIn">
+                <a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="d-flex align-items-center h-100 my-2 my-lg-0 me-lg-auto text-white text-decoration-none" data-aos="fade-in">
                     <?php echo bootstrap_theme_get_responsive_logo(); ?>
                 </a>
 

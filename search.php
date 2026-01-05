@@ -77,7 +77,7 @@ get_header();
 										$woocommerce_product_animation_delay = 0;
 									}
 									?>
-									<li class="item-product col wow animate__flipInX" data-wow-delay="<?php echo esc_attr( $delay_seconds ); ?>s">
+									<li class="item-product col" data-aos="flip-left" data-aos-delay="<?php echo esc_attr( intval( $delay_seconds * 100 ) ); ?>">
 										<div <?php wc_product_class( 'card h-100 text-center smooth-shadow', $product ); ?>>
 											<?php do_action( 'woocommerce_before_shop_loop_item' ); ?>
 

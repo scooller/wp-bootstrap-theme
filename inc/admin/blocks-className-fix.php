@@ -35,7 +35,16 @@ function bootstrap_theme_add_custom_classes($classes, $attributes, $block) {
 }
 
 /**
- * Función helper para obtener data attributes de animación
+ * Función helper para obtener data attributes de animación AOS
+ * 
+ * Soporta opciones de configuración AOS:
+ * - aosAnimation: tipo de animación (fade-up, fade-down, flip-left, etc)
+ * - aosDelay: delay en ms (0-3000)
+ * - aosDuration: duración en ms (100-3000)
+ * - aosEasing: easing function (linear, ease-in-quad, ease-out-quad, etc)
+ * - aosOnce: animar solo una vez (true/false)
+ * - aosMirror: repetir cuando se scrollea hacia arriba (true/false)
+ * - aosAnchorPlacement: posición del anclaje (top-bottom, center-bottom, bottom-center, etc)
  * 
  * @param array $attributes Atributos del bloque
  * @param WP_Block $block Objeto del bloque
@@ -44,20 +53,48 @@ function bootstrap_theme_add_custom_classes($classes, $attributes, $block) {
 function bootstrap_theme_get_animation_attributes($attributes, $block) {
     $data_attrs = '';
     
-    // Verificar si hay delay
-    $wowDelay = $attributes['wowDelay'] ?? ($block->attributes['wowDelay'] ?? '');
-    if (!empty($wowDelay)) {
-        // Asegurar que tenga 's' al final
-        $delay = strpos($wowDelay, 's') !== false ? $wowDelay : $wowDelay . 's';
-        $data_attrs .= ' data-wow-delay="' . esc_attr($delay) . '"';
-    }
-    
-    // Verificar si hay duration
-    $wowDuration = $attributes['wowDuration'] ?? ($block->attributes['wowDuration'] ?? '');
-    if (!empty($wowDuration)) {
-        // Asegurar que tenga 's' al final
-        $duration = strpos($wowDuration, 's') !== false ? $wowDuration : $wowDuration . 's';
-        $data_attrs .= ' data-wow-duration="' . esc_attr($duration) . '"';
+    // Verificar si hay animación AOS
+    $aosAnimation = $attributes['aosAnimation'] ?? ($block->attributes['aosAnimation'] ?? '');
+    if (!empty($aosAnimation)) {
+        $data_attrs .= ' data-aos="' . esc_attr($aosAnimation) . '"';
+        
+        // Delay en milisegundos
+        $aosDelay = $attributes['aosDelay'] ?? ($block->attributes['aosDelay'] ?? '');
+        if (!empty($aosDelay) && $aosDelay > 0) {
+            $data_attrs .= ' data-aos-delay="' . esc_attr($aosDelay) . '"';
+        }
+        
+        // Duration en milisegundos
+        $aosDuration = $attributes['aosDuration'] ?? ($block->attributes['aosDuration'] ?? '');
+        if (!empty($aosDuration) && $aosDuration > 0) {
+            $data_attrs .= ' data-aos-duration="' . esc_attr($aosDuration) . '"';
+        }
+        
+        // Easing
+        $aosEasing = $attributes['aosEasing'] ?? ($block->attributes['aosEasing'] ?? '');
+        if (!empty($aosEasing)) {
+            $data_attrs .= ' data-aos-easing="' . esc_attr($aosEasing) . '"';
+        }
+        
+        // Once (animar una sola vez)
+        $aosOnce = $attributes['aosOnce'] ?? ($block->attributes['aosOnce'] ?? false);
+        if ($aosOnce) {
+            $data_attrs .= ' data-aos-once="true"';
+        }
+        
+        // Mirror (repetir en scroll hacia arriba)
+        $aosMirror = $attributes['aosMirror'] ?? ($block->attributes['aosMirror'] ?? true);
+        if ($aosMirror) {
+            $data_attrs .= ' data-aos-mirror="true"';
+        } else {
+            $data_attrs .= ' data-aos-mirror="false"';
+        }
+        
+        // Anchor Placement
+        $aosAnchorPlacement = $attributes['aosAnchorPlacement'] ?? ($block->attributes['aosAnchorPlacement'] ?? '');
+        if (!empty($aosAnchorPlacement)) {
+            $data_attrs .= ' data-aos-anchor-placement="' . esc_attr($aosAnchorPlacement) . '"';
+        }
     }
     
     return $data_attrs;

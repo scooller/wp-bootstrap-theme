@@ -40,12 +40,16 @@ function bootstrap_theme_render_bs_button_group_block($attributes, $content, $bl
     
     // Add custom CSS classes from Advanced panel
     $classes = bootstrap_theme_add_custom_classes($classes, $attributes, $block);
-    
+
+    // Get animation data attributes
+    $animation_attrs = '';
+    if (function_exists('bootstrap_theme_get_animation_attributes')) {
+        $animation_attrs = bootstrap_theme_get_animation_attributes($attributes, $block);
+    }
+
     $class_string = implode(' ', array_unique($classes));
-    
-    $output = '<div class="' . esc_attr($class_string) . '" role="group" aria-label="' . esc_attr__('Button group', 'bootstrap-theme') . '">';
-    
-    foreach ($buttons as $button) {
+
+    $output = '<div class="' . esc_attr($class_string) . '" role="group" aria-label="' . esc_attr__('Button group', 'bootstrap-theme') . '"' . $animation_attrs . '>';    foreach ($buttons as $button) {
         $text = $button['text'] ?? '';
         $variant = $button['variant'] ?? 'btn-outline-primary';
         $link = $button['link'] ?? '';
@@ -101,6 +105,34 @@ function bootstrap_theme_register_bs_button_group_block() {
             'className' => array(
                 'type' => 'string',
                 'default' => ''
+            ),
+            'aosAnimation' => array(
+                'type' => 'string',
+                'default' => ''
+            ),
+            'aosDelay' => array(
+                'type' => 'number',
+                'default' => 0
+            ),
+            'aosDuration' => array(
+                'type' => 'number',
+                'default' => 800
+            ),
+            'aosEasing' => array(
+                'type' => 'string',
+                'default' => 'ease-in-out-cubic'
+            ),
+            'aosOnce' => array(
+                'type' => 'boolean',
+                'default' => false
+            ),
+            'aosMirror' => array(
+                'type' => 'boolean',
+                'default' => true
+            ),
+            'aosAnchorPlacement' => array(
+                'type' => 'string',
+                'default' => 'top-bottom'
             )
         )
     ));

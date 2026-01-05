@@ -42,16 +42,20 @@ function bootstrap_theme_render_bs_modal_block($attributes, $content, $block) {
     if ($scrollable) {
         $dialog_classes[] = 'modal-dialog-scrollable';
     }
-    
+
+    // Get animation data attributes
+    $animation_attrs = '';
+    if (function_exists('bootstrap_theme_get_animation_attributes')) {
+        $animation_attrs = bootstrap_theme_get_animation_attributes($attributes, $block);
+    }
+
     // Trigger button
     $output = '<button type="button" class="btn ' . esc_attr($buttonVariant) . '" data-bs-toggle="modal" data-bs-target="#' . esc_attr($modalId) . '">';
     $output .= esc_html($buttonText);
     $output .= '</button>';
     
     // Modal structure
-    $output .= '<div class="' . esc_attr(implode(' ', array_unique($modal_classes))) . '" id="' . esc_attr($modalId) . '" tabindex="-1" aria-labelledby="' . esc_attr($modalId) . 'Label" aria-hidden="true"';
-    
-    if ($backdrop !== 'true') {
+    $output .= '<div class="' . esc_attr(implode(' ', array_unique($modal_classes))) . '" id="' . esc_attr($modalId) . '" tabindex="-1" aria-labelledby="' . esc_attr($modalId) . 'Label" aria-hidden="true"' . $animation_attrs;    if ($backdrop !== 'true') {
         $output .= ' data-bs-backdrop="' . esc_attr($backdrop) . '"';
     }
     
@@ -137,6 +141,34 @@ function bootstrap_theme_register_bs_modal_block() {
             'className' => array(
                 'type' => 'string',
                 'default' => ''
+            ),
+            'aosAnimation' => array(
+                'type' => 'string',
+                'default' => ''
+            ),
+            'aosDelay' => array(
+                'type' => 'number',
+                'default' => 0
+            ),
+            'aosDuration' => array(
+                'type' => 'number',
+                'default' => 800
+            ),
+            'aosEasing' => array(
+                'type' => 'string',
+                'default' => 'ease-in-out-cubic'
+            ),
+            'aosOnce' => array(
+                'type' => 'boolean',
+                'default' => false
+            ),
+            'aosMirror' => array(
+                'type' => 'boolean',
+                'default' => true
+            ),
+            'aosAnchorPlacement' => array(
+                'type' => 'string',
+                'default' => 'top-bottom'
             )
         )
     ));

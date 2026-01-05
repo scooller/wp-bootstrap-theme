@@ -156,9 +156,11 @@
             const blockProps = useBlockProps.save();
             
             const itemClasses = `carousel-item${attributes.active ? ' active' : ''}`;
-            
-            const itemStyle = attributes.backgroundImage ? {
-                backgroundImage: `url(${attributes.backgroundImage})`,
+
+            // Ensure backgroundImage is serialized to the URL, not [object Object]
+            const bgUrl = attributes.backgroundImage && attributes.backgroundImage.url ? attributes.backgroundImage.url : null;
+            const itemStyle = bgUrl ? {
+                backgroundImage: `url(${bgUrl})`,
                 backgroundSize: 'cover',
                 backgroundPosition: 'center',
                 minHeight: '400px'
@@ -173,8 +175,8 @@
                 createElement('div', {
                     className: 'd-flex align-items-center justify-content-center h-100',
                     style: { 
-                        backgroundColor: attributes.backgroundImage ? 'rgba(0,0,0,0.3)' : 'transparent',
-                        color: attributes.backgroundImage ? 'white' : 'inherit'
+                        backgroundColor: bgUrl ? 'rgba(0,0,0,0.3)' : 'transparent',
+                        color: bgUrl ? 'white' : 'inherit'
                     }
                 },
                     createElement('div', { className: 'carousel-caption' },

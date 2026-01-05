@@ -118,27 +118,23 @@ function bootstrap_theme_insert_custom_head_scripts() {
 	$custom_scripts = bootstrap_theme_get_extra_option('custom_head_scripts');
 	
 	if ( ! empty( $custom_scripts ) && ! is_admin() ) {
-		echo wp_kses( $custom_scripts, array(
-			'script' => array(
-				'type' => array(),
-				'src' => array(),
-				'async' => array(),
-				'defer' => array(),
-			),
-			'style' => array(
-				'type' => array(),
-			),
-			'meta' => array(
-				'name' => array(),
-				'content' => array(),
-				'property' => array(),
-			),
-			'link' => array(
-				'rel' => array(),
-				'href' => array(),
-				'type' => array(),
-			),
+		// Decodificar entidades para permitir < y > dentro de bloques (maneja casos doble-encoded)
+		$custom_scripts_decoded = wp_specialchars_decode( $custom_scripts, ENT_QUOTES );
+		$custom_scripts_decoded = html_entity_decode( $custom_scripts_decoded, ENT_QUOTES, 'UTF-8' );
+		$custom_scripts_decoded = strtr( $custom_scripts_decoded, array(
+			'&amp;lt;' => '<',
+			'&amp;gt;' => '>',
+			'&amp;amp;' => '&',
 		) );
+		// Imprimir directamente el contenido decodificado para evitar que '>' se convierta en &gt;
+		// Si el usuario no incluye etiquetas, envolver en <script> para que se ejecute como JS
+		$has_tags = ( strpos( $custom_scripts_decoded, '<script' ) !== false ) || ( strpos( $custom_scripts_decoded, '<style' ) !== false );
+		if ( $has_tags ) {
+			echo $custom_scripts_decoded;
+		} else {
+			// Por defecto, tratarlo como JavaScript en el head
+			echo '<script>' . $custom_scripts_decoded . '</script>';
+		}
 	}
 }
 add_action( 'wp_head', 'bootstrap_theme_insert_custom_head_scripts', 99 );
@@ -150,14 +146,23 @@ function bootstrap_theme_insert_custom_footer_scripts() {
 	$custom_scripts = bootstrap_theme_get_extra_option('custom_footer_scripts');
 	
 	if ( ! empty( $custom_scripts ) && ! is_admin() ) {
-		echo wp_kses( $custom_scripts, array(
-			'script' => array(
-				'type' => array(),
-				'src' => array(),
-				'async' => array(),
-				'defer' => array(),
-			),
+		// Decodificar entidades para permitir < y > dentro de bloques (maneja casos doble-encoded)
+		$custom_scripts_decoded = wp_specialchars_decode( $custom_scripts, ENT_QUOTES );
+		$custom_scripts_decoded = html_entity_decode( $custom_scripts_decoded, ENT_QUOTES, 'UTF-8' );
+		$custom_scripts_decoded = strtr( $custom_scripts_decoded, array(
+			'&amp;lt;' => '<',
+			'&amp;gt;' => '>',
+			'&amp;amp;' => '&',
 		) );
+		// Imprimir directamente el contenido decodificado para evitar que '>' se convierta en &gt;
+		// Si el usuario no incluye etiquetas, envolver en <script> para que se ejecute como JS
+		$has_tags = ( strpos( $custom_scripts_decoded, '<script' ) !== false ) || ( strpos( $custom_scripts_decoded, '<style' ) !== false );
+		if ( $has_tags ) {
+			echo $custom_scripts_decoded;
+		} else {
+			// Por defecto, tratarlo como JavaScript en el footer
+			echo '<script>' . $custom_scripts_decoded . '</script>';
+		}
 	}
 }
 add_action( 'wp_footer', 'bootstrap_theme_insert_custom_footer_scripts', 99 );

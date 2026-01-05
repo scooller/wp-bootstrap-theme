@@ -55,6 +55,9 @@ function bootstrap_theme_render_maintenance_page() {
 			case 'fix_downloadable_files':
 				bootstrap_theme_fix_downloadable_files();
 				break;
+			case 'normalize_downloadables':
+				bootstrap_theme_normalize_downloadables();
+				break;
 		}
 	}
 
@@ -144,6 +147,27 @@ function bootstrap_theme_render_maintenance_page() {
 				<p>
 					<button type="submit" class="button button-primary" onclick="return confirm('<?php esc_attr_e('¿Estás seguro de que deseas reparar los archivos descargables?', 'bootstrap-theme'); ?>')">
 						<?php esc_html_e('Reparar Archivos Descargables', 'bootstrap-theme'); ?>
+					</button>
+				</p>
+			</form>
+		</div>
+
+		<div class="card" style="max-width: 800px; margin-top: 20px; padding: 20px;">
+			<h2 class="title"><?php esc_html_e('Normalizar Productos Descargables', 'bootstrap-theme'); ?></h2>
+			<p><?php esc_html_e('Convierte productos descargables en virtuales y establece el límite de descargas como ilimitado.', 'bootstrap-theme'); ?></p>
+			<p><strong><?php esc_html_e('¿Qué hace esta herramienta?', 'bootstrap-theme'); ?></strong></p>
+			<ul>
+				<li>✅ Marca como "Virtual" todo producto con "Descargable" que no lo sea</li>
+				<li>✅ Ajusta el "Límite de descargas" a ilimitado</li>
+				<li>✅ Quita expiración de descarga (sin límite de días)</li>
+				<li>✅ Incluye variaciones descargables</li>
+			</ul>
+			<form method="post">
+				<?php wp_nonce_field('bootstrap_theme_maintenance_nonce'); ?>
+				<input type="hidden" name="bootstrap_theme_maintenance_action" value="normalize_downloadables">
+				<p>
+					<button type="submit" class="button button-primary" onclick="return confirm('<?php esc_attr_e('¿Confirmas que deseas normalizar los productos descargables (virtual + ilimitado)?', 'bootstrap-theme'); ?>')">
+						<?php esc_html_e('Normalizar Descargables', 'bootstrap-theme'); ?>
 					</button>
 				</p>
 			</form>
@@ -609,4 +633,86 @@ function bootstrap_theme_fix_downloadable_files() {
 	}
 	
 	settings_errors('bootstrap_theme_maintenance_messages');
+}
+
+function bootstrap_theme_normalize_downloadables() {
+    $changed_virtual = 0;
+    $changed_limit = 0;
+    $changed_expiry = 0;
+    $processed = 0;
+    $processed_variations = 0;
+    $products = wc_get_products(array(
+        'limit' => -1,
+        'downloadable' => true,
+        'return' => 'ids'
+    ));
+    foreach ($products as $product_id) {
+        $product = wc_get_product($product_id);
+        if (!$product) { continue; }
+        $processed++;
+        $changed = false;
+        if (! $product->get_virtual()) {
+            $product->set_virtual(true);
+            $changed_virtual++;
+            $changed = true;
+        }
+        $limit = $product->get_download_limit();
+        if ($limit !== -1) {
+            $product->set_download_limit(-1);
+            $changed_limit++;
+            $changed = true;
+        }
+        $expiry = $product->get_download_expiry();
+        if (!empty($expiry) && intval($expiry) !== 0) {
+            $product->set_download_expiry(0);
+            $changed_expiry++;
+            $changed = true;
+        }
+        if ($changed) { $product->save(); }
+    }
+    $variation_ids = wc_get_products(array(
+        'type' => 'variation',
+        'limit' => -1,
+        'downloadable' => true,
+        'return' => 'ids'
+    ));
+    foreach ($variation_ids as $vid) {
+        $variation = wc_get_product($vid);
+        if (! $variation) { continue; }
+        $processed_variations++;
+        $changed = false;
+        if (! $variation->get_virtual()) {
+            $variation->set_virtual(true);
+            $changed_virtual++;
+            $changed = true;
+        }
+        $vlimit = $variation->get_download_limit();
+        if ($vlimit !== -1) {
+            $variation->set_download_limit(-1);
+            $changed_limit++;
+            $changed = true;
+        }
+        $vexpiry = $variation->get_download_expiry();
+        if (!empty($vexpiry) && intval($vexpiry) !== 0) {
+            $variation->set_download_expiry(0);
+            $changed_expiry++;
+            $changed = true;
+        }
+        if ($changed) { $variation->save(); }
+    }
+    $total = $processed + $processed_variations;
+    $message = sprintf(
+        __('Normalización completada. Productos procesados: %d. Marcados como virtual: %d. Límite de descargas ilimitado aplicado: %d. Expiración removida: %d.', 'bootstrap-theme'),
+        $total,
+        $changed_virtual,
+        $changed_limit,
+        $changed_expiry
+    );
+    add_settings_error(
+        'bootstrap_theme_maintenance_messages',
+        'bootstrap_theme_normalize_downloadables',
+        $message,
+        'success'
+    );
+    settings_errors('bootstrap_theme_maintenance_messages');
 }

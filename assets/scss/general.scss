@@ -46,6 +46,42 @@ ul.nav li.menu-item .btn{
 .float-shadow{
     box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
 }
+.dvh-100{
+    height: 100dvh !important;
+}
+.vh-100{
+    height: 100vh !important;
+}
+.bg-white-fade{
+    position: relative;
+    z-index: 1;
+    &::after{
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        // --bs-light gradient background
+        background: linear-gradient(rgba(var(--bs-light-rgb), 0.8), rgba(var(--bs-light-rgb), 0.15));
+        z-index: -1;
+    }
+}
+.bg-black-fade{
+    position: relative;
+    z-index: 1;
+    &::after{
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        // --bs-dark gradient background
+        background: linear-gradient(rgba(var(--bs-dark-rgb), 0.8), rgba(var(--bs-dark-rgb), 0.15));
+        z-index: -1;
+    }
+}
 
 .shadow-effect2{
     display: inline-block;

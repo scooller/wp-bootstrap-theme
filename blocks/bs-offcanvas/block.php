@@ -37,10 +37,17 @@ function bootstrap_theme_render_bs_offcanvas_block($attributes, $content, $block
         $offcanvas_data['data-bs-scroll'] = 'true';
     }
     
+    // Get animation data attributes
+    $animation_attrs = '';
+    if (function_exists('bootstrap_theme_get_animation_attributes')) {
+        $animation_attrs = bootstrap_theme_get_animation_attributes($attributes, $block);
+    }
+    
     $data_attrs = '';
     foreach ($offcanvas_data as $key => $value) {
         $data_attrs .= ' ' . esc_attr($key) . '="' . esc_attr($value) . '"';
     }
+    $data_attrs .= $animation_attrs;
     
     $output = '';
     
@@ -108,6 +115,34 @@ function bootstrap_theme_register_bs_offcanvas_block() {
             'className' => array(
                 'type' => 'string',
                 'default' => ''
+            ),
+            'aosAnimation' => array(
+                'type' => 'string',
+                'default' => ''
+            ),
+            'aosDelay' => array(
+                'type' => 'number',
+                'default' => 0
+            ),
+            'aosDuration' => array(
+                'type' => 'number',
+                'default' => 800
+            ),
+            'aosEasing' => array(
+                'type' => 'string',
+                'default' => 'ease-in-out-cubic'
+            ),
+            'aosOnce' => array(
+                'type' => 'boolean',
+                'default' => false
+            ),
+            'aosMirror' => array(
+                'type' => 'boolean',
+                'default' => true
+            ),
+            'aosAnchorPlacement' => array(
+                'type' => 'string',
+                'default' => 'top-bottom'
             )
         )
     ));

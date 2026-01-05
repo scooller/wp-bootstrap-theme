@@ -49,7 +49,7 @@ bootstrap_theme_check_acf_pro();
 // Bootstrap version in the theme from Composer
 define( 'BOOTSTRAP_THEME_VERSION', '5.3.x' );
 // Theme version for cache busting
-define( 'BOOTSTRAP_THEME_BUILD_VERSION', '1.6.4' );
+define( 'BOOTSTRAP_THEME_BUILD_VERSION', '1.7.2' );
 
 /**
  * Temporary ACF Sync Force (Remove after sync)
@@ -253,26 +253,41 @@ function bootstrap_theme_scripts() {
 		);
 	}
 
-	// Detectar uso probable de animaciones WOW/Animate independientemente del Lazy Loading
-	$has_wow_in_content = false;
+	// Detectar uso probable de animaciones AOS (Animate On Scroll)
+	// Se carga siempre en frontend porque:
+	// 1. Los bloques pueden tener atributos AOS registrados
+	// 2. Los templates pueden usar data-aos
+	// 3. Es un archivo muy pequeño (2.3KB comprimido)
+	$has_aos_in_content = false;
 	if ( function_exists( 'is_singular' ) && is_singular() ) {
 		$post_id = get_the_ID();
 		if ( $post_id ) {
 			$content = (string) get_post_field( 'post_content', $post_id );
-			// Buscar clases típicas de WOW/Animate
-			if ( strpos( $content, 'wow' ) !== false || strpos( $content, 'animate__' ) !== false ) {
-				$has_wow_in_content = true;
+			// Buscar atributos típicos de AOS
+			if ( strpos( $content, 'data-aos' ) !== false ) {
+				$has_aos_in_content = true;
 			}
 		}
 	}
 
-	// Cargar animaciones si:
-	// - Hay clases WOW/Animate en el contenido
-	// - O hay bloques del tema (que pueden usarlas)
-	// - O algunas páginas de WooCommerce donde el tema aplica animaciones por defecto
+	// Cargar AOS siempre en el frontend (archivo pequeño, máximo impacto)
+	// Se descargará automáticamente si no hay data-aos en la página
 	$should_load_animations = (
-		$has_wow_in_content ||
-		has_block( 'bootstrap-theme/' ) ||
+		$has_aos_in_content ||
+		has_block( 'bootstrap-theme/bs-card' ) ||
+		has_block( 'bootstrap-theme/bs-cart' ) ||
+		has_block( 'bootstrap-theme/bs-container' ) ||
+		has_block( 'bootstrap-theme/bs-row' ) ||
+		has_block( 'bootstrap-theme/bs-column' ) ||
+		has_block( 'bootstrap-theme/bs-accordion' ) ||
+		has_block( 'bootstrap-theme/bs-alert' ) ||
+		has_block( 'bootstrap-theme/bs-button-group' ) ||
+		has_block( 'bootstrap-theme/bs-dropdown' ) ||
+		has_block( 'bootstrap-theme/bs-list-group' ) ||
+		has_block( 'bootstrap-theme/bs-modal' ) ||
+		has_block( 'bootstrap-theme/bs-offcanvas' ) ||
+		has_block( 'bootstrap-theme/bs-tabs' ) ||
+		has_block( 'bootstrap-theme/bs-wc-products' ) ||
 		( function_exists( 'is_shop' ) && is_shop() ) ||
 		( function_exists( 'is_product' ) && is_product() ) ||
 		( function_exists( 'is_product_category' ) && is_product_category() ) ||
@@ -280,20 +295,20 @@ function bootstrap_theme_scripts() {
 	);
 	
 	if ( $should_load_animations ) {
-		// Animate.css (CDN)
+		// AOS (Animate On Scroll) CSS
 		wp_enqueue_style(
-			'animate-css',
-			'https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css',
+			'aos-css',
+			'https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css',
 			array(),
-			'4.1.1'
+			'2.3.4'
 		);
 		
-		// WOW.js (CDN) - Inicializado en loader.js
+		// AOS (Animate On Scroll) JS - Inicializado en loader.js
 		wp_enqueue_script(
-			'wowjs',
-			'https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js',
+			'aos-js',
+			'https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js',
 			array(),
-			'1.1.2',
+			'2.3.4',
 			true
 		);
 	}
@@ -306,12 +321,30 @@ function bootstrap_theme_scripts() {
 		rand(), // Forzar recarga en cada carga para desarrollo; cambiar a BOOTSTRAP_THEME_VERSION para producción 
 	);
 
-	// Fancybox CSS/JS - Solo cargar donde hay galerías o productos con imágenes
-	$should_load_fancybox = has_block( 'gallery' ) || 
-	                        has_block( 'core/gallery' ) || 
-	                        ( function_exists( 'is_singular' ) && is_singular( 'product' ) ) ||
-	                        ( function_exists( 'is_shop' ) && is_shop() ) ||
-	                        ( function_exists( 'is_product_category' ) && is_product_category() );
+	// Fancybox CSS/JS - Cargar si está habilitado y (hay galerías/productos O autodetección está activada)
+	$fancybox_enabled = true;
+	$fancybox_auto_images = true;
+	
+	if ( function_exists( 'get_field' ) ) {
+		$fb_enable_option = get_field( 'extras_fancybox_enable', 'option' );
+		if ( $fb_enable_option !== null ) {
+			$fancybox_enabled = (bool) $fb_enable_option;
+		}
+		
+		$fb_auto_option = get_field( 'extras_fancybox_auto_images', 'option' );
+		if ( $fb_auto_option !== null ) {
+			$fancybox_auto_images = (bool) $fb_auto_option;
+		}
+	}
+
+	$should_load_fancybox = $fancybox_enabled && (
+		$fancybox_auto_images || // Si autodetección está activa, cargar en todas partes
+		has_block( 'gallery' ) || 
+		has_block( 'core/gallery' ) || 
+		( function_exists( 'is_singular' ) && is_singular( 'product' ) ) ||
+		( function_exists( 'is_shop' ) && is_shop() ) ||
+		( function_exists( 'is_product_category' ) && is_product_category() )
+	);
 	
 	if ( $should_load_fancybox ) {
 		wp_enqueue_style(
@@ -334,6 +367,34 @@ function bootstrap_theme_scripts() {
 			BOOTSTRAP_THEME_VERSION,
 			true
 		);
+
+		// Localizar configuración de Fancybox desde Opciones > Extras
+		$fancybox_options = array(
+			'enable'      => true,
+			'autoImages'  => true,
+			'animation'   => 'zoom',
+			'toolbar'     => true,
+			'thumbnails'  => false,
+			'loop'        => true
+		);
+
+		if ( function_exists( 'get_field' ) ) {
+			$fb_enable     = get_field( 'extras_fancybox_enable', 'option' );
+			$fb_auto       = get_field( 'extras_fancybox_auto_images', 'option' );
+			$fb_animation  = get_field( 'extras_fancybox_animation', 'option' );
+			$fb_toolbar    = get_field( 'extras_fancybox_toolbar', 'option' );
+			$fb_thumbnails = get_field( 'extras_fancybox_thumbnails', 'option' );
+			$fb_loop       = get_field( 'extras_fancybox_loop', 'option' );
+
+			if ( $fb_enable !== null )     { $fancybox_options['enable']     = (bool) $fb_enable; }
+			if ( $fb_auto !== null )       { $fancybox_options['autoImages'] = (bool) $fb_auto; }
+			if ( !empty( $fb_animation ) ) { $fancybox_options['animation']  = (string) $fb_animation; }
+			if ( $fb_toolbar !== null )    { $fancybox_options['toolbar']    = (bool) $fb_toolbar; }
+			if ( $fb_thumbnails !== null ) { $fancybox_options['thumbnails'] = (bool) $fb_thumbnails; }
+			if ( $fb_loop !== null )       { $fancybox_options['loop']       = (bool) $fb_loop; }
+		}
+
+		wp_localize_script( 'fancybox-init', 'bootstrapThemeFancybox', $fancybox_options );
 	}
 
 	// Enqueue Bootstrap JavaScript (local bundle from Composer install)
@@ -354,14 +415,45 @@ function bootstrap_theme_scripts() {
 		true 
 	);
 	
-	// Loader script - Maneja el overlay y opcionalmente inicializa WOW si está presente
+	// Loader script - Maneja el overlay e inicializa AOS si está disponible
 	wp_enqueue_script(
 		'bootstrap-theme-loader',
 		get_template_directory_uri() . '/assets/js/loader.js',
-		array(), // No depender de WOW: el script detecta si existe
+		array(), // AOS se detecta automáticamente si está disponible
 		BOOTSTRAP_THEME_VERSION,
 		true
 	);
+
+	// Pasar configuración global de AOS desde Opciones > Extras
+	$aos_options = array(
+		'enable'   => true,
+		'duration' => 800,
+		'easing'   => 'ease-in-out-cubic',
+		'once'     => false,
+		'mirror'   => true,
+		'offset'   => 100,
+		'disable'  => ''
+	);
+
+	if ( function_exists( 'get_field' ) ) {
+		$enable  = get_field( 'extras_aos_enable', 'option' );
+		$once    = get_field( 'extras_aos_once', 'option' );
+		$mirror  = get_field( 'extras_aos_mirror', 'option' );
+		$duration= get_field( 'extras_aos_duration', 'option' );
+		$offset  = get_field( 'extras_aos_offset', 'option' );
+		$easing  = get_field( 'extras_aos_easing', 'option' );
+		$disable = get_field( 'extras_aos_disable', 'option' );
+
+		if ( $enable !== null )  { $aos_options['enable']   = (bool) $enable; }
+		if ( $once !== null )    { $aos_options['once']     = (bool) $once; }
+		if ( $mirror !== null )  { $aos_options['mirror']   = (bool) $mirror; }
+		if ( $duration !== null && $duration !== '' ) { $aos_options['duration'] = (int) $duration; }
+		if ( $offset !== null && $offset !== '' )    { $aos_options['offset']   = (int) $offset; }
+		if ( !empty( $easing ) ) { $aos_options['easing']   = (string) $easing; }
+		if ( $disable !== null ) { $aos_options['disable']  = (string) $disable; }
+	}
+
+	wp_localize_script( 'bootstrap-theme-loader', 'bootstrapThemeAOS', $aos_options );
 
 	// Cart block update handler (only on checkout page)
 	if ( function_exists( 'is_checkout' ) && is_checkout() ) {

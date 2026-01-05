@@ -8,7 +8,7 @@
 ?>
 <header class="d-flex flex-wrap align-items-center h-100 justify-content-center justify-content-md-between py-3 border-bottom">
     <div class="col-md-3 mb-2 mb-md-0">
-        <a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="d-inline-flex link-body-emphasis text-decoration-none wow animate__fadeIn">
+        <a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="d-inline-flex link-body-emphasis text-decoration-none" data-aos="fade-in">
             <?php echo bootstrap_theme_get_responsive_logo(''); ?>
         </a>
     </div>

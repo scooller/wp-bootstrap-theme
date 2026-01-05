@@ -19,9 +19,10 @@ if ( ! defined( 'ABSPATH' ) ) {
  * Output the floating switcher HTML
  */
 function bootstrap_theme_render_color_scheme_switcher() {
-    // Simple opt-out hook if needed
+    // Permite mostrar/ocultar el widget según la opción ACF
     $show = apply_filters( 'bootstrap_theme_show_color_scheme_switcher', true );
-    if ( ! $show ) {
+    $acf_show = function_exists('get_field') ? get_field('customization_show_color_scheme_widget', 'option') : true;
+    if ( !$show || !$acf_show ) {
         return;
     }
 

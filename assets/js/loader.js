@@ -4,19 +4,35 @@ window.addEventListener('DOMContentLoaded', function() {
   if (!loader) return;
 
   var hidden = false;
-  var wowInited = false;
-  function initWOWOnce(){
-    if (wowInited) return;
-    wowInited = true;
+  var aosInited = false;
+  function initAOSOnce(){
+    if (aosInited) return;
+    aosInited = true;
     try {
-      if (typeof WOW === 'function') {
-        new WOW({
-          boxClass: 'wow',
-          animateClass: 'animate__animated',
-          offset: 0,
-          mobile: true,
-          live: true
-        }).init();
+      if (typeof AOS === 'object' && typeof AOS.init === 'function') {
+        var globalAos = (typeof window.bootstrapThemeAOS === 'object' && window.bootstrapThemeAOS) ? window.bootstrapThemeAOS : {};
+        var enabled = (typeof globalAos.enable === 'boolean') ? globalAos.enable : true;
+        if (!enabled) return;
+
+        var config = {
+          duration: 800,
+          easing: 'ease-in-out-cubic',
+          once: false,
+          mirror: true,
+          offset: 100,
+          disable: false
+        };
+
+        if (typeof globalAos.duration === 'number') { config.duration = globalAos.duration; }
+        if (typeof globalAos.easing === 'string' && globalAos.easing) { config.easing = globalAos.easing; }
+        if (typeof globalAos.once === 'boolean') { config.once = globalAos.once; }
+        if (typeof globalAos.mirror === 'boolean') { config.mirror = globalAos.mirror; }
+        if (typeof globalAos.offset === 'number') { config.offset = globalAos.offset; }
+
+        var disable = (globalAos.disable === true || globalAos.disable === 'true') ? true : globalAos.disable;
+        if (disable) { config.disable = disable; }
+
+        AOS.init(config);
       }
     } catch (e) { /* silent */ }
   }
@@ -25,7 +41,7 @@ window.addEventListener('DOMContentLoaded', function() {
     hidden = true;
     loader.classList.add('loaded');
     loader.style.display = 'none';
-    initWOWOnce();
+    initAOSOnce();
   }
 
   // Always hide on window load
@@ -34,5 +50,5 @@ window.addEventListener('DOMContentLoaded', function() {
   window.addEventListener('pageshow', function(e){ if (e && e.persisted) hideLoader(); });
   // Fallback timer: if load never fires or a dependency stalls
   setTimeout(hideLoader, 2500);
-  // WOW se inicializa en hideLoader para asegurar que el overlay ya no esté visible
+  // AOS se inicializa en hideLoader para asegurar que el overlay ya no esté visible
 });

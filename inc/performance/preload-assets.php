@@ -54,9 +54,9 @@ function bootstrap_theme_dns_prefetch_preconnect() {
 		);
 	}
 	
-	// Animate.css + WOW.js CDN: preconnect siempre (bajo costo y frecuente)
+	// AOS (Animate On Scroll) CDN: preconnect siempre (bajo costo y frecuente)
 	$resources[] = array(
-		'href' => 'https://cdnjs.cloudflare.com',
+		'href' => 'https://cdn.jsdelivr.net',
 		'crossorigin' => false,
 	);
 	
@@ -199,7 +199,6 @@ add_filter( 'wp_resource_hints', 'bootstrap_theme_fancybox_resource_hints', 10, 
 function bootstrap_theme_defer_non_critical_scripts( $tag, $handle ) {
 	// Lista de scripts que pueden diferirse
 	$defer_scripts = array(
-		'wowjs',
 		'fancybox',
 		'fancybox-init',
 		'bootstrap-theme-script',
@@ -267,26 +266,26 @@ function bootstrap_theme_bootstrap_js_resource_hints( $urls, $relation_type ) {
 add_filter( 'wp_resource_hints', 'bootstrap_theme_bootstrap_js_resource_hints', 10, 2 );
 
 /**
- * Animations (Animate.css + WOW.js): agregar resource hints (prefetch) cuando se usarán.
- * Detecta uso de clases 'wow' o 'animate__' en el contenido, bloques del tema o páginas WC relevantes.
+ * Animations (AOS - Animate On Scroll): agregar resource hints (prefetch) cuando se usarán.
+ * Detecta uso de atributo 'data-aos' en el contenido, bloques del tema o páginas WC relevantes.
  */
 function bootstrap_theme_animations_resource_hints( $urls, $relation_type ) {
 	if ( 'prefetch' !== $relation_type ) return $urls;
 
 	// Heurística similar a functions.php
-	$has_wow_in_content = false;
+	$has_aos_in_content = false;
 	if ( function_exists( 'is_singular' ) && is_singular() ) {
 		$post_id = get_the_ID();
 		if ( $post_id ) {
 			$content = (string) get_post_field( 'post_content', $post_id );
-			if ( strpos( $content, 'wow' ) !== false || strpos( $content, 'animate__' ) !== false ) {
-				$has_wow_in_content = true;
+			if ( strpos( $content, 'data-aos' ) !== false ) {
+				$has_aos_in_content = true;
 			}
 		}
 	}
 
 	$should_load_animations = (
-		$has_wow_in_content ||
+		$has_aos_in_content ||
 		has_block( 'bootstrap-theme/' ) ||
 		( function_exists( 'is_shop' ) && is_shop() ) ||
 		( function_exists( 'is_product' ) && is_product() ) ||
@@ -295,9 +294,9 @@ function bootstrap_theme_animations_resource_hints( $urls, $relation_type ) {
 	);
 
 	if ( $should_load_animations ) {
-		// Hints para los assets de animación desde cdnjs
-		$urls[] = 'https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css';
-		$urls[] = 'https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js';
+		// Hints para los assets de AOS desde jsDelivr
+		$urls[] = 'https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css';
+		$urls[] = 'https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js';
 	}
 
 	return $urls;

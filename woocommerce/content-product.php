@@ -49,7 +49,7 @@ if ( isset( $product ) && is_a( $product, 'WC_Product' ) ) {
 	}
 }
 ?>
-<div class="item-product <?php echo esc_attr($mobile_class . ' ' . $md_class . ' ' . $desktop_class); ?><?php echo esc_attr( $product_type_class ); ?> wow animate__flipInX" data-wow-delay="<?php echo $delay_seconds; ?>s">
+<div class="item-product <?php echo esc_attr($mobile_class . ' ' . $md_class . ' ' . $desktop_class); ?><?php echo esc_attr( $product_type_class ); ?>" data-aos="flip-left" data-aos-delay="<?php echo esc_attr( intval( $delay_seconds * 100 ) ); ?>">
 <div <?php wc_product_class( 'card h-100 text-center smooth-shadow', $product ); ?>>
 	<?php
 	/**

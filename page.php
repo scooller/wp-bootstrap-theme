@@ -46,9 +46,11 @@ get_header(); ?>
         }
     ?>
     
-    <div class="<?php echo esc_attr($container_class); ?>" <?php  if (has_post_thumbnail()) ?>>
-        <div class="row">
-            <div class="<?php echo $show_sidebar ? 'col-lg-8' : 'col-12'; ?>">
+    <div id="page-content" class="<?php echo esc_attr($container_class); ?> g-0" <?php  if (has_post_thumbnail()) ?>>
+        <?php if($show_sidebar): ?>
+            <div class="row">
+                <div class="col-lg-8">
+        <?php endif; ?>
                 <article id="post-<?php the_ID(); ?>" <?php post_class('page-content'); ?>>
                     
                     <?php 
@@ -113,16 +115,15 @@ get_header(); ?>
                         </footer>
                     <?php endif; ?>
                     
-                </article>
-            </div>
-            
-            <?php if ($show_sidebar) : ?>
+                </article>            
+        <?php if ($show_sidebar) : ?>
+                </div>
                 <div class="col-lg-4">
                     <?php get_sidebar(); ?>
                 </div>
-            <?php endif; ?>
-        </div>
-    </div>
+            </div>
+        <?php endif; ?>
+        
     
     <?php endwhile; ?>
 </main>

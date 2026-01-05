@@ -100,20 +100,29 @@ function bootstrap_theme_block_editor_assets() {
         BOOTSTRAP_THEME_VERSION
     );
 
-    // Animate.css in editor for preview of animations
+    // AOS in editor for preview of animations
     wp_enqueue_style(
-        'animate-css-editor',
-        'https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css',
+        'aos-css-editor',
+        'https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css',
         array(),
-        '4.1.1'
+        '2.3.4'
     );
 
-    // Animation controls for all blocks (Inspector panel)
+    // AOS JavaScript in editor for preview
     wp_enqueue_script(
-        'bootstrap-theme-block-animations',
-        get_template_directory_uri() . '/assets/js/block-animations.js',
-        array( 'wp-blocks', 'wp-element', 'wp-components', 'wp-edit-post', 'wp-hooks', 'wp-data', 'wp-compose', 'wp-i18n', 'wp-block-editor' ),
-        BOOTSTRAP_THEME_VERSION,
+        'aos-js-editor',
+        'https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js',
+        array(),
+        '2.3.4',
+        true
+    );
+
+    // AOS controls for core paragraph/heading blocks
+    wp_enqueue_script(
+        'bootstrap-theme-aos-core-blocks',
+        get_template_directory_uri() . '/blocks/aos-core-blocks.js',
+        array('wp-blocks', 'wp-element', 'wp-block-editor', 'wp-components', 'wp-i18n', 'wp-hooks', 'wp-compose', 'wp-dom-ready'),
+        BOOTSTRAP_THEME_BUILD_VERSION,
         true
     );
 }

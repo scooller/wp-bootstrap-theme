@@ -326,7 +326,7 @@
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "50",
+                "width": "33",
                 "class": "",
                 "id": ""
             },
@@ -345,7 +345,26 @@
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "50",
+                "width": "33",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 1,
+            "ui": 1,
+            "ui_on_text": "Mostrar",
+            "ui_off_text": "Ocultar"
+        },
+        {
+            "key": "field_show_footer",
+            "label": "Mostrar Footer",
+            "name": "show_footer",
+            "type": "true_false",
+            "instructions": "Mostrar el footer en todas las páginas",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "33",
                 "class": "",
                 "id": ""
             },

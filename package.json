@@ -1,7 +1,7 @@
 {
-  "name": "bootstrap-theme",
-  "version": "1.0.0",
-  "description": "Un tema moderno de WordPress construido con Bootstrap 5.3, totalmente compatible con WooCommerce, con sistema de configuración ACF Pro y 28 bloques Gutenberg personalizados.",
+  "name": "bootstrap-theme-scooller",
+  "version": "1.7.0",
+  "description": "Un tema moderno de WordPress construido con Bootstrap 5.3, totalmente compatible con WooCommerce, con sistema de configuración ACF Pro y 29 bloques Gutenberg personalizados.",
   "main": "index.js",
   "directories": {
     "doc": "docs"
@@ -13,8 +13,8 @@
   "dev-css": "sass assets/scss/general.scss assets/css/theme.css --style=expanded --source-map"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "scooller",
+  "license": "GPL-2.0-or-later",
   "devDependencies": {
     "sass": "^1.93.2"
   }

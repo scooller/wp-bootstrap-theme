@@ -45,6 +45,22 @@
             "placeholder": ""
         },
         {
+            "key": "field_customization_show_color_scheme_widget",
+            "label": "Mostrar widget flotante de esquema de colores",
+            "name": "customization_show_color_scheme_widget",
+            "type": "true_false",
+            "instructions": "Permite mostrar u ocultar el widget flotante para cambiar el esquema de colores en el frontend.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": 1,
+            "ui": 1
+        },
+        {
             "key": "field_customization_primary_color",
             "label": "Color Primario",
             "name": "customization_primary_color",
@@ -676,9 +692,36 @@
                 "class": "",
                 "id": ""
             },
-            "default_value": "#000000",
+            "default_value": "#232323",
             "enable_opacity": 0,
             "return_format": "string"
+        },
+        {
+            "key": "field_customization_header_position",
+            "label": "Posición del Header",
+            "name": "customization_header_position",
+            "type": "select",
+            "instructions": "Selecciona la posición del header (Bootstrap position helpers)",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "": "Normal (static)",
+                "sticky-top": "Sticky Top",
+                "fixed-top": "Fixed Top",
+                "fixed-bottom": "Fixed Bottom"
+            },
+            "default_value": "",
+            "allow_null": 0,
+            "multiple": 0,
+            "ui": 0,
+            "return_format": "value",
+            "ajax": 0,
+            "placeholder": ""
         },
         {
             "key": "field_customization_breadcrumb_style",
@@ -808,7 +851,34 @@
             "default_value": "#6c757d",
             "enable_opacity": 0,
             "return_format": "string"
-        }        
+        },
+        {
+            "key": "field_customization_footer_position",
+            "label": "Posición del Footer",
+            "name": "customization_footer_position",
+            "type": "select",
+            "instructions": "Selecciona la posición del footer (Bootstrap position helpers)",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "": "Normal (static)",
+                "sticky-top": "Sticky Top",
+                "fixed-top": "Fixed Top",
+                "fixed-bottom": "Fixed Bottom"
+            },
+            "default_value": "",
+            "allow_null": 0,
+            "multiple": 0,
+            "ui": 0,
+            "return_format": "value",
+            "ajax": 0,
+            "placeholder": ""
+        }   
     ],
     "location": [
         [

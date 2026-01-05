@@ -26,7 +26,7 @@ global $product;
                     $img_alt = get_the_title();
                 ?>
                     <a href="<?php echo esc_url($img_url); ?>" 
-                       class="product-image-fancybox wow animate__fadeIn shadow-effect2" 
+                       class="product-image-fancybox shadow-effect2" data-aos="fade-in" 
                        data-fancybox="product-gallery" 
                        data-caption="<?php echo esc_attr($img_alt); ?>" 
                        id="product-main-image-link">
@@ -51,7 +51,7 @@ global $product;
                             $gallery_caption = get_the_title();
                     ?>
                         <a href="<?php echo esc_url($gallery_url); ?>" 
-                           class="product-image-fancybox wow animate__fadeIn" 
+                           class="product-image-fancybox" data-aos="fade-in" 
                            data-fancybox="product-gallery" 
                            data-caption="<?php echo esc_attr($gallery_caption); ?>">
                             <?php 
@@ -151,7 +151,7 @@ global $product;
                                 </div>
                                 <?php endif; ?>
                                 <div class="mb-2 col-md col-12">
-                                    <button type="submit" name="add-to-cart" value="<?php echo esc_attr($product->get_id()); ?>" class="single_add_to_cart_button btn btn-success btn-lg w-100 rounded-pill wow animate__bounceIn" style="font-weight:600;" disabled aria-disabled="true" title="<?php echo esc_attr__('Deshabilitado hasta comprobar disponibilidad', 'bootstrap-theme'); ?>">
+                                    <button type="submit" name="add-to-cart" value="<?php echo esc_attr($product->get_id()); ?>" class="single_add_to_cart_button btn btn-success btn-lg w-100 rounded-pill" style="font-weight:600;" disabled aria-disabled="true" title="<?php echo esc_attr__('Deshabilitado hasta comprobar disponibilidad', 'bootstrap-theme'); ?>" data-aos="bounce-in">
                                         <span><?php echo esc_html($product->single_add_to_cart_text()); ?></span>
                                         <svg class="icon ms-2"><use xlink:href="#fa-cart-plus"></use></svg>
                                     </button>

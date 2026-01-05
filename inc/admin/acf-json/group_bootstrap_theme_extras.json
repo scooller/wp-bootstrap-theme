@@ -525,6 +525,325 @@
                 "ui_on_text": "",
                 "ui_off_text": ""
             }
+            ,
+            {
+                "key": "field_extras_aos_tab",
+                "label": "Configuración Animación",
+                "name": "",
+                "type": "tab",
+                "instructions": "Configura los valores globales de AOS (Animate On Scroll)",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "placement": "top",
+                "endpoint": 0
+            },
+            {
+                "key": "field_extras_aos_enable",
+                "label": "Habilitar AOS global",
+                "name": "extras_aos_enable",
+                "type": "true_false",
+                "instructions": "Activa o desactiva AOS en todo el sitio (si hay elementos con data-aos)",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "33",
+                    "class": "",
+                    "id": ""
+                },
+                "message": "",
+                "default_value": 1,
+                "ui": 1,
+                "ui_on_text": "Activado",
+                "ui_off_text": "Desactivado"
+            },
+            {
+                "key": "field_extras_aos_once",
+                "label": "Animar una sola vez",
+                "name": "extras_aos_once",
+                "type": "true_false",
+                "instructions": "Si está activo, cada elemento se anima solo la primera vez que entra al viewport",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "33",
+                    "class": "",
+                    "id": ""
+                },
+                "message": "",
+                "default_value": 0,
+                "ui": 1,
+                "ui_on_text": "Sí",
+                "ui_off_text": "No"
+            },
+            {
+                "key": "field_extras_aos_mirror",
+                "label": "Repetir al subir (mirror)",
+                "name": "extras_aos_mirror",
+                "type": "true_false",
+                "instructions": "Si está activo, la animación se repite al hacer scroll hacia arriba",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "34",
+                    "class": "",
+                    "id": ""
+                },
+                "message": "",
+                "default_value": 1,
+                "ui": 1,
+                "ui_on_text": "Sí",
+                "ui_off_text": "No"
+            },
+            {
+                "key": "field_extras_aos_duration",
+                "label": "Duración (ms)",
+                "name": "extras_aos_duration",
+                "type": "number",
+                "instructions": "Duración global de las animaciones AOS (milisegundos)",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "33",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": 800,
+                "placeholder": 800,
+                "prepend": "",
+                "append": "ms",
+                "min": 100,
+                "max": 3000,
+                "step": 50
+            },
+            {
+                "key": "field_extras_aos_offset",
+                "label": "Offset (px)",
+                "name": "extras_aos_offset",
+                "type": "number",
+                "instructions": "Distancia en píxeles antes de activar la animación",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "33",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": 100,
+                "placeholder": 100,
+                "prepend": "",
+                "append": "px",
+                "min": 0,
+                "max": 500,
+                "step": 10
+            },
+            {
+                "key": "field_extras_aos_easing",
+                "label": "Easing",
+                "name": "extras_aos_easing",
+                "type": "select",
+                "instructions": "Función de aceleración para todas las animaciones",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "34",
+                    "class": "",
+                    "id": ""
+                },
+                "choices": {
+                    "ease-in-out-cubic": "ease-in-out-cubic (por defecto)",
+                    "linear": "linear",
+                    "ease-in-quad": "ease-in-quad",
+                    "ease-out-quad": "ease-out-quad",
+                    "ease-in-out-quad": "ease-in-out-quad",
+                    "ease-in-cubic": "ease-in-cubic",
+                    "ease-out-cubic": "ease-out-cubic",
+                    "ease-in-out-cubic": "ease-in-out-cubic",
+                    "ease-in-quart": "ease-in-quart",
+                    "ease-out-quart": "ease-out-quart",
+                    "ease-in-out-quart": "ease-in-out-quart"
+                },
+                "default_value": "ease-in-out-cubic",
+                "allow_null": 0,
+                "multiple": 0,
+                "ui": 1,
+                "ajax": 0,
+                "return_format": "value",
+                "placeholder": ""
+            },
+            {
+                "key": "field_extras_aos_disable",
+                "label": "Desactivar en",
+                "name": "extras_aos_disable",
+                "type": "select",
+                "instructions": "Opcional: desactiva AOS para ciertos dispositivos",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "33",
+                    "class": "",
+                    "id": ""
+                },
+                "choices": {
+                    "": "Ninguno (activar en todos)",
+                    "mobile": "Móviles (phone + tablet)",
+                    "phone": "Solo teléfonos",
+                    "tablet": "Solo tablets",
+                    "desktop": "Solo desktop"
+                },
+                "default_value": "",
+                "allow_null": 0,
+                "multiple": 0,
+                "ui": 1,
+                "ajax": 0,
+                "return_format": "value",
+                "placeholder": ""
+            },
+            {
+                "key": "field_extras_fancybox_tab",
+                "label": "Configuración Fancybox",
+                "name": "",
+                "type": "tab",
+                "instructions": "Configura Fancybox para galerías e imágenes",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "placement": "top",
+                "endpoint": 0
+            },
+            {
+                "key": "field_extras_fancybox_enable",
+                "label": "Habilitar Fancybox",
+                "name": "extras_fancybox_enable",
+                "type": "true_false",
+                "instructions": "Activa o desactiva Fancybox en todo el sitio",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "33",
+                    "class": "",
+                    "id": ""
+                },
+                "message": "",
+                "default_value": 1,
+                "ui": 1,
+                "ui_on_text": "Activado",
+                "ui_off_text": "Desactivado"
+            },
+            {
+                "key": "field_extras_fancybox_auto_images",
+                "label": "Autodetectar imágenes",
+                "name": "extras_fancybox_auto_images",
+                "type": "true_false",
+                "instructions": "Aplica Fancybox automáticamente a todos los enlaces que apuntan a imágenes (jpg, jpeg, png, gif, webp)",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "33",
+                    "class": "",
+                    "id": ""
+                },
+                "message": "",
+                "default_value": 1,
+                "ui": 1,
+                "ui_on_text": "Sí",
+                "ui_off_text": "No"
+            },
+            {
+                "key": "field_extras_fancybox_animation",
+                "label": "Tipo de animación",
+                "name": "extras_fancybox_animation",
+                "type": "select",
+                "instructions": "Animación al abrir/cerrar Fancybox",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "34",
+                    "class": "",
+                    "id": ""
+                },
+                "choices": {
+                    "fade": "Fade (desvanecimiento)",
+                    "zoom": "Zoom",
+                    "zoom-in-out": "Zoom in/out",
+                    "rotate": "Rotate (rotación)",
+                    "circular": "Circular",
+                    "tube": "Tube",
+                    "": "Sin animación"
+                },
+                "default_value": "zoom",
+                "allow_null": 0,
+                "multiple": 0,
+                "ui": 1,
+                "ajax": 0,
+                "return_format": "value",
+                "placeholder": ""
+            },
+            {
+                "key": "field_extras_fancybox_toolbar",
+                "label": "Mostrar barra de herramientas",
+                "name": "extras_fancybox_toolbar",
+                "type": "true_false",
+                "instructions": "Muestra la barra con botones de zoom, cerrar, etc.",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "33",
+                    "class": "",
+                    "id": ""
+                },
+                "message": "",
+                "default_value": 1,
+                "ui": 1,
+                "ui_on_text": "Sí",
+                "ui_off_text": "No"
+            },
+            {
+                "key": "field_extras_fancybox_thumbnails",
+                "label": "Mostrar miniaturas",
+                "name": "extras_fancybox_thumbnails",
+                "type": "true_false",
+                "instructions": "Muestra miniaturas en galerías",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "33",
+                    "class": "",
+                    "id": ""
+                },
+                "message": "",
+                "default_value": 0,
+                "ui": 1,
+                "ui_on_text": "Sí",
+                "ui_off_text": "No"
+            },
+            {
+                "key": "field_extras_fancybox_loop",
+                "label": "Loop (repetir galería)",
+                "name": "extras_fancybox_loop",
+                "type": "true_false",
+                "instructions": "Al llegar a la última imagen, vuelve a la primera",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "34",
+                    "class": "",
+                    "id": ""
+                },
+                "message": "",
+                "default_value": 1,
+                "ui": 1,
+                "ui_on_text": "Sí",
+                "ui_off_text": "No"
+            }
     ],
     "location": [
         [

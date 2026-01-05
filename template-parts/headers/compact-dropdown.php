@@ -7,7 +7,7 @@
 <header class="py-3 border-bottom">
     <div class="container-fluid d-grid gap-3 align-items-center" style="grid-template-columns: 1fr 2fr;">
         <div class="dropdown">
-            <a href="#" class="d-flex align-items-center h-100 col-lg-4 mb-2 mb-lg-0 link-body-emphasis text-decoration-none dropdown-toggle wow animate__fadeIn" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Bootstrap menu">
+            <a href="#" class="d-flex align-items-center h-100 col-lg-4 mb-2 mb-lg-0 link-body-emphasis text-decoration-none dropdown-toggle" data-aos="fade-in" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Bootstrap menu">
                     <?php echo bootstrap_theme_get_responsive_logo(''); ?>
             </a>
             <?php if ( has_nav_menu( 'primary' ) ) : ?>

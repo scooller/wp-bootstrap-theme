@@ -45,6 +45,12 @@ function bootstrap_theme_render_bs_button_block($attributes, $content, $block) {
     $classes = bootstrap_theme_add_custom_classes($classes, $attributes, $block);
     
     $class_string = implode(' ', array_unique($classes));
+
+    // Build animation attrs
+    $animation_attrs = '';
+    if (function_exists('bootstrap_theme_get_animation_attributes')) {
+        $animation_attrs = bootstrap_theme_get_animation_attributes($attributes, $block);
+    }
     
     // Helper: sanitizar clases de Font Awesome y aplicar espaciado
     $button_content = '';
@@ -69,18 +75,20 @@ function bootstrap_theme_render_bs_button_block($attributes, $content, $block) {
     // Render button
     if (!empty($link)) {
         $output = sprintf(
-            '<a href="%s" class="%s" target="%s"%s>%s</a>',
+            '<a href="%s" class="%s" target="%s"%s%s>%s</a>',
             esc_url($link),
             esc_attr($class_string),
             esc_attr($target),
             $disabled ? ' aria-disabled="true"' : '',
+            $animation_attrs,
             $button_content
         );
     } else {
         $output = sprintf(
-            '<button type="button" class="%s"%s>%s</button>',
+            '<button type="button" class="%s"%s%s>%s</button>',
             esc_attr($class_string),
             $disabled ? ' disabled' : '',
+            $animation_attrs,
             $button_content
         );
     }
@@ -139,6 +147,34 @@ function bootstrap_theme_register_bs_button_block() {
             'className' => array(
                 'type' => 'string',
                 'default' => ''
+            ),
+            'aosAnimation' => array(
+                'type' => 'string',
+                'default' => ''
+            ),
+            'aosDelay' => array(
+                'type' => 'number',
+                'default' => 0
+            ),
+            'aosDuration' => array(
+                'type' => 'number',
+                'default' => 800
+            ),
+            'aosEasing' => array(
+                'type' => 'string',
+                'default' => 'ease-in-out-cubic'
+            ),
+            'aosOnce' => array(
+                'type' => 'boolean',
+                'default' => false
+            ),
+            'aosMirror' => array(
+                'type' => 'boolean',
+                'default' => true
+            ),
+            'aosAnchorPlacement' => array(
+                'type' => 'string',
+                'default' => 'top-bottom'
             )
         )
     ));

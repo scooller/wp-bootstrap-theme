@@ -7,7 +7,7 @@
 <header class="p-3 text-bg-dark">
     <div class="container">
         <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
-            <a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="d-flex align-items-center h-100 mb-2 mb-lg-0 text-white text-decoration-none wow animate__fadeIn">
+            <a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="d-flex align-items-center h-100 mb-2 mb-lg-0 text-white text-decoration-none" data-aos="fade-in">
                 <?php echo bootstrap_theme_get_responsive_logo(); ?>                
             </a>
 

@@ -1,8 +1,8 @@
-# Bootstrap Theme
+# Bootstrap Theme Scooller
 
 Tema moderno de WordPress basado en Bootstrap 5.3, con integración completa de WooCommerce, configuración avanzada con ACF Pro y un set de bloques Gutenberg para construir sitios accesibles y de alto rendimiento.
 
-Versión: 1.6.4 · Estado: Estable · Última actualización: 2025-12-01
+Versión: 1.7.2 · Estado: Estable · Última actualización: 2025-12-10
 
 Documentación integrada: `Herramientas > Documentación del Tema`.
 
@@ -21,6 +21,7 @@ Documentación integrada: `Herramientas > Documentación del Tema`.
 - [Uso](#uso)
 - [Estructura del proyecto](#estructura-del-proyecto)
 - [Scripts de desarrollo](#scripts-de-desarrollo)
+- [AOS Animation Guide](#aos-animation-guide)
 - [Contribución](#contribución)
 - [Licencia](#licencia)
 - [Estado](#estado)
@@ -76,6 +77,14 @@ Ejemplos:
 - Carrito: insertar `bs-cart`; el checkout se sincroniza al cambiar cantidades.
 - Checkout: gestionar campos y validaciones desde ACF (incluye autoformato y regex).
 
+## Integraciones
+
+- Plugin `sorteo-sco` (WooCommerce): mejora la UX de selects múltiples en el admin con `SelectWoo/Select2`.
+  - Búsqueda integrada visible y eliminación con “x” en el propio campo.
+  - Inicialización global aplicada a todos los `.wc-enhanced-select` con `data-placeholder`.
+  - Assets `selectWoo` y `select2.css` se cargan con fallback si WooCommerce no los registró.
+  - Ver guía detallada en `wp-content/plugins/sorteo-sco/README.md`.
+
 ## Estructura del proyecto
 
 ```
@@ -127,10 +136,113 @@ bootstrap-theme/
 
 ## Estado
 
-- Versión: `1.6.4` (ver `style.css`).
+- Versión: `1.7.2` (ver `style.css`).
 - Bootstrap: `^5.3.2` local via Composer.
 - Sass: `^1.93.x`.
 - Idiomas: `es_CL`, `pt_BR`.
+
+## AOS Animation Guide
+
+### Overview
+AOS (Animate On Scroll) es la librería de animación utilizada en el tema desde v1.7.0. Los siguientes bloques incluyen controles de animación AOS en el editor de Gutenberg:
+
+**Bloques con soporte completo:** bs-card, bs-cart, bs-container, bs-row, bs-column, bs-accordion, bs-alert
+**Bloques con atributos:** bs-button-group, bs-dropdown, bs-list-group, bs-modal, bs-offcanvas, bs-tabs, bs-wc-products
+
+### Opciones disponibles
+
+| Opción | Tipo | Rango | Defecto |
+|--------|------|-------|---------|
+| Animation Type | select | 14 tipos* | - |
+| Delay | range | 0-3000ms | 0 |
+| Duration | range | 100-3000ms | 800 |
+| Easing | select | 10 funciones** | ease-in-out-cubic |
+| Animate Once | boolean | true/false | false |
+| Mirror Animation | boolean | true/false | true |
+| Anchor Placement | select | 9 posiciones*** | top-bottom |
+
+**Tipos de animación disponibles (14):**
+fade-in, fade-up, fade-down, fade-left, fade-right, flip-up, flip-down, flip-left, flip-right, zoom-in, zoom-out, slide-up, slide-down, bounce-in
+
+**Funciones easing (10):**
+linear, ease-in-quad, ease-out-quad, ease-in-out-quad, ease-in-cubic, ease-out-cubic, ease-in-out-cubic, ease-in-quart, ease-out-quart, ease-in-out-quart
+
+**Anchor Placement (9):**
+top-bottom, top-center, top-top, center-bottom, center-center, center-top, bottom-bottom, bottom-center, bottom-top
+
+### Descripción de opciones
+
+**Animation Type:** Tipo de efecto visual. Selecciona el que mejor se adapte a tu contenido (fade-up para aparecer desde abajo, flip-left para volteo, zoom-in para crecimiento, etc).
+
+**Delay (ms):** Espera antes de que la animación comience. Útil para escalonar animaciones cuando hay múltiples elementos.
+- 0ms = inmediata
+- 500ms = 0.5 segundos de espera
+- 1000ms = 1 segundo de espera
+
+**Duration (ms):** Cuánto tiempo toma la animación en completarse.
+- 100-300ms = muy rápida
+- 800ms = normal (recomendado)
+- 1500-2000ms = lenta y suave
+
+**Easing:** Función que controla la aceleración/desaceleración. `ease-in-out-cubic` es la más suave y natural.
+
+**Animate Once:** Si está activado, la animación ocurre una sola vez. Si está desactivado, se repite cada vez que el elemento entra/sale del viewport.
+
+**Mirror Animation:** Si está activado, la animación se repite cuando se scrollea hacia arriba. Si está desactivado, ocurre solo una vez hacia abajo.
+
+**Anchor Placement:** Define en qué posición del viewport ocurre la animación:
+- `top-bottom` = cuando la parte superior del elemento llega al fondo de la pantalla (estándar)
+- `center-center` = cuando el elemento está centrado en pantalla (más visible)
+- `bottom-bottom` = cuando la parte inferior está visible (más tarde)
+
+### Ejemplos de uso
+
+**Cards de producto (impactante):**
+Animation: flip-left | Delay: 0-200ms (escalonado) | Duration: 800ms | Once: true | Mirror: false
+
+**Carrito de compras:**
+Animation: slide-up | Delay: 100ms | Duration: 600ms | Once: true | Mirror: false
+
+**Listas o galerías:**
+Animation: fade-up | Delay: escalonado (0, 100, 200...) | Duration: 800ms | Mirror: true
+
+### Implementación en bloques
+
+Cuando configuras una animación AOS en un bloque, se genera automáticamente en el HTML frontend:
+
+```html
+<div class="bs-card" 
+     data-aos="fade-up"
+     data-aos-delay="200"
+     data-aos-duration="1000"
+     data-aos-easing="ease-in-out-cubic"
+     data-aos-once="true"
+     data-aos-mirror="false"
+     data-aos-anchor-placement="top-center">
+    <!-- Contenido -->
+</div>
+```
+
+AOS detecta estos atributos automáticamente al cargar la página.
+
+### Troubleshooting AOS
+
+**Las animaciones no se ejecutan:**
+- Verifica que AOS.js esté cargado en DevTools → Network
+- Asegúrate de que el elemento tenga el atributo `data-aos`
+- Revisa la consola (DevTools → Console) por errores
+
+**Las animaciones son muy rápidas/lentas:**
+- Ajusta `Duration` en milisegundos
+- Recuerda que > 1000ms puede parecer lento
+
+**Los elementos se animan fuera de tiempo:**
+- Usa `Delay` para escalonar animaciones
+- Ajusta `Anchor Placement` para cambiar cuándo comienzan
+
+**Las animaciones se repiten cuando no quiero:**
+- Activa `Animate Once` para una sola ejecución
+- O desactiva `Mirror Animation` para evitar repeticiones al scroll up
 
 ## Solución de problemas
 
@@ -142,12 +254,148 @@ bootstrap-theme/
 
 ## Changelog resumido
 
-- 1.5.8 (2025-11-06): Validación y autoformato de campos de checkout (regex, pattern, JS/PH P), ejemplos y funciones nuevas.
+- 1.7.2 (2025-12-11): Configuración global de AOS en Extras, opciones Fancybox (enable/autodetección de imágenes/animación/toolbar/thumbnails/loop), actualización de animaciones AOS a lista completa oficial (28 animaciones + 20 easings).
+- 1.7.1 (2025-12-10): Implementación completa de data-aos attributes en 14 bloques (bs-accordion, bs-alert, bs-button-group, bs-card, bs-cart, bs-column, bs-container, bs-dropdown, bs-list-group, bs-modal, bs-navbar, bs-offcanvas, bs-row, bs-tabs, bs-wc-products). AOS animations ahora se renderizan correctamente en frontend.
+- 1.7.0 (2025-12-10): Mejoras en bloques (carousel indicators, container background image), opciones de header/footer position, widget flotante configurable, footer toggleable, container anchor, migración de WOW Animate a AOS.
+- 1.5.8 (2025-11-06): Validación y autoformato de campos de checkout (regex, pattern, JS/PHP), ejemplos y funciones nuevas.
 - 1.5.7 (2025-10-30): Fix galería de productos variables (eventos WooCommerce, mantiene Fancybox y estilos).
 - 1.5.6 (2025-10-27): Hook prioritario y validación de stock por variación en carrito.
 
 Para detalles completos del changelog y documentación avanzada (cache, optimización, controles de stock), usa la documentación integrada en el admin o revisa las secciones técnicas del código.
 
+### 1.7.2 — 2025-12-11
+- **Configuración global de AOS desde Extras.** Nuevo tab "Configuración Animación" en Opciones > Extras con toggles de enable/once/mirror, rango de duración y offset, easing y modo disable (bool o string).
+- **Inicialización AOS basada en opciones del tema.** `functions.php` localiza `bootstrapThemeAOS` y `assets/js/loader.js` toma los valores para `AOS.init`, respetando el toggle de habilitar y modos de disable.
+- **Soporte AOS para bloques core.** `blocks/aos-core-blocks.js` añade controles AOS a Párrafo y Encabezado en el editor y persiste los data attributes al guardar.
+- **Persistencia en bloques propios.** bs-button y bs-list-group-item guardan y renderizan los atributos AOS configurados en el editor.
+- **Lista completa de animaciones AOS (28 animaciones).** Actualizado desde docs oficiales: fade (9 variantes), flip (4), slide (4), zoom (10). Removido `bounce-in` (no oficial).
+- **Lista completa de easings AOS (20 funciones).** Agregados: ease, ease-in, ease-out, ease-in-out, ease-in/out/in-out-back, ease-in/out/in-out-sine.
+- **Configuración de Fancybox desde Extras.** Nuevo tab "Configuración Fancybox" con opciones: habilitar/deshabilitar, autodetección de enlaces a imágenes, tipo de animación, toolbar, miniaturas, loop.
+- **Autodetección de enlaces a imágenes para Fancybox.** Si está habilitado, todos los enlaces a archivos `.jpg`, `.png`, `.gif`, `.webp` se abren automáticamente en Fancybox sin necesidad de agregar `data-fancybox` manualmente.
+- **Opciones localizadas a JS.** `bootstrapThemeFancybox` en `fancybox-init.js` recibe configuración desde ACF y aplica animation, toolbar, thumbnails, loop según preferencias.
+- Resultado: las animaciones AOS usan la configuración global y se respetan en bloques core y en los bloques propios mencionados; Fancybox se configura centralmente y aplica automáticamente a imágenes.
+
+### 1.7.1 — 2025-12-10
+- **Implementación completa de AOS data-aos attributes en todos los bloques con soporte de animación**.
+  - Problema: Los 14 bloques con atributos AOS registrados en el editor no estaban renderizando los data-aos attributes en el HTML frontend.
+  - Solución: Agregada llamada a `bootstrap_theme_get_animation_attributes($attributes, $block)` en la función de renderizado de cada bloque.
+  - Bloques actualizados con data-aos rendering: bs-accordion, bs-alert, bs-button-group, bs-card, bs-cart, bs-column, bs-container, bs-dropdown, bs-list-group, bs-modal, bs-navbar, bs-offcanvas, bs-row, bs-tabs, bs-wc-products.
+  - Atributos generados: `data-aos`, `data-aos-delay`, `data-aos-duration`, `data-aos-easing`, `data-aos-once`, `data-aos-mirror`, `data-aos-anchor-placement`.
+  - Validación completada: Todos los 32 archivos `block.php` y 32 archivos `editor.js` sin errores de sintaxis.
+  - Resultado: Cuando se configura una animación AOS en un bloque desde el editor de Gutenberg, ahora se genera correctamente el atributo `data-aos` en el HTML frontend, permitiendo que AOS las detecte y ejecute.
+
+Archivos modificados:
+- `blocks/bs-accordion/block.php` - Agregada generación de data-aos attributes.
+- `blocks/bs-alert/block.php` - Agregada generación de data-aos attributes.
+- `blocks/bs-button-group/block.php` - Agregada generación de data-aos attributes.
+- `blocks/bs-card/block.php` - Ya tenía implementado (confirmado).
+- `blocks/bs-cart/block.php` - Ya tenía implementado (confirmado).
+- `blocks/bs-column/block.php` - Ya tenía implementado (confirmado).
+- `blocks/bs-container/block.php` - Agregada generación de data-aos attributes.
+- `blocks/bs-dropdown/block.php` - Agregada generación de data-aos attributes.
+- `blocks/bs-list-group/block.php` - Agregada generación de data-aos attributes.
+- `blocks/bs-modal/block.php` - Agregada generación de data-aos attributes.
+- `blocks/bs-navbar/block.php` - Agregada generación de data-aos attributes.
+- `blocks/bs-offcanvas/block.php` - Agregada generación de data-aos attributes.
+- `blocks/bs-row/block.php` - Ya tenía implementado (confirmado).
+- `blocks/bs-tabs/block.php` - Ya tenía implementado (confirmado).
+- `blocks/bs-wc-products/block.php` - Agregada generación de data-aos attributes.
+
+### 1.7.0 — 2025-12-10
+- **Migración de animaciones: WOW Animate → AOS (Animate On Scroll)**.
+  - Reemplazo de librería de animaciones WOW.js + Animate.css por AOS 2.3.4 desde jsDelivr.
+  - AOS es más ligera, moderno y mejor soportada para animaciones al scroll.
+  - Cambio de clases a atributos: `wow animate__fadeIn` → `data-aos="fade-in"`.
+  - Animaciones soportadas: `fade-in`, `fade-up`, `fade-down`, `bounce-in`, `flip-left`, `flip-right`, `zoom-in`, `slide-up`, etc.
+  - Configuración AOS: duración 800ms, offset 100px, easing ease-in-out-cubic, mirror enabled.
+  - Detección automática: Si hay elementos con `data-aos`, carga la librería AOS.
+  - Archivos modificados: `functions.php` (enqueue), `blocks/blocks.php` (editor CSS), todos los headers, single-product template, bs-wc-products block.
+  - Archivo removido: `assets/js/wow-init.js` (reemplazado por `assets/js/aos-init.js`).
+  - **Controles de animación AOS en bloques**: Bloques `bs-card` y `bs-cart` ahora incluyen opciones completas de AOS:
+    - Tipo de animación (fade-up, flip-left, zoom-in, bounce-in, etc)
+    - Delay (0-3000ms)
+    - Duration (100-3000ms)
+    - Easing (linear, ease-in-quad, ease-out-cubic, etc)
+    - Once (animar solo una vez)
+    - Mirror (repetir en scroll hacia arriba)
+    - Anchor Placement (posición del anclaje para activar animación)
+  - Función actualizada: `bootstrap_theme_get_animation_attributes()` para soportar AOS data attributes.
+
+- **Bloque Carousel: Fix de errores JavaScript y mejora de indicadores**.
+  - Problema: Error `can't access property "classList", e is null` al cambiar slides.
+  - Solución: Generación segura de indicadores con detección de slides activas y sincronización automática.
+  - Atributos alineados: `controls`, `indicators`, `ride`, `wrap`, `touch`.
+  - Indicadores renderizados como botones con `data-bs-slide-to` correctamente vinculados.
+
+- **Bloque Carousel Item: Fix de imagen de fondo**.
+  - Problema: Renderizado de `[object Object]` en `background-image`.
+  - Solución: Serialización correcta de URL en el atributo `backgroundImage`.
+
+- **Bloque Container: Opciones de imagen de fondo y posicionamiento**.
+  - Nuevas opciones de tipo de fondo: `image` (además de `solid` y `gradient`).
+  - Controles para imagen: `bgSize` (cover/contain/auto), `bgPosition`, `bgRepeat` (no-repeat/repeat/repeat-x/repeat-y).
+  - Nuevo atributo `bgAttachment` con opciones: `scroll` (default), `fixed` (parallax), `local`.
+  - Nuevos atributos: ID de anclaje (`anchor`) para links internos.
+  - MediaUpload integrado en el editor para seleccionar imágenes desde la biblioteca.
+
+- **Headers y Footers: Opciones de posicionamiento**.
+  - Nueva opción ACF `customization_header_position` con valores: Normal, Sticky Top, Fixed Top, Fixed Bottom.
+  - Nueva opción ACF `customization_footer_position` con valores: Normal, Sticky Bottom, Fixed Bottom.
+  - Clases de Bootstrap position aplicadas automáticamente (sticky-top, fixed-top, fixed-bottom, sticky-bottom).
+
+- **Color Scheme Switcher: Opción configurable**.
+  - Nueva opción ACF `customization_show_color_scheme_widget` (booleano) en Esquema de Colores.
+  - Permite mostrar/ocultar el widget flotante de cambio de esquema sin modificar código.
+
+- **Layout Configuration: Footer toggleable**.
+  - Nueva opción ACF `show_footer` en Configuración del Layout (booleano).
+  - Permite activar/desactivar el footer desde el admin sin editar templates.
+
+Archivos modificados/creados:
+- `functions.php` - Enqueue AOS library, detección de data-aos.
+- `assets/js/aos-init.js` - Inicialización de AOS (nuevo).
+- `blocks/bs-card/editor.js` + `block.php` - Controles AOS animation completos agregados.
+- `blocks/bs-cart/editor.js` + `block.php` - Controles AOS animation completos agregados.
+- `blocks/bs-carousel/block.php` - Fix indicadores y sincronización.
+- `blocks/bs-carousel-item/editor.js` - Fix serialización de imagen.
+- `blocks/bs-container/editor.js` + `block.php` - Controles AOS animation, imagen de fondo, attachment, anchor.
+- `blocks/bs-row/editor.js` + `block.php` - Controles AOS animation agregados.
+- `blocks/bs-column/editor.js` + `block.php` - Controles AOS animation agregados.
+- `blocks/bs-accordion/editor.js` + `block.php` - Controles AOS animation agregados.
+- `blocks/bs-alert/editor.js` + `block.php` - Controles AOS animation agregados.
+- `blocks/bs-button-group/editor.js` + `block.php` - Controles AOS animation agregados (atributos solo).
+- `blocks/bs-dropdown/editor.js` + `block.php` - Controles AOS animation agregados (atributos solo).
+- `blocks/bs-list-group/editor.js` + `block.php` - Controles AOS animation agregados (atributos solo).
+- `blocks/bs-modal/editor.js` + `block.php` - Controles AOS animation agregados (atributos solo).
+- `blocks/bs-offcanvas/editor.js` + `block.php` - Controles AOS animation agregados (atributos solo).
+- `blocks/bs-tabs/editor.js` - Controles AOS animation agregados (solo editor).
+- `blocks/bs-wc-products/editor.js` + `block.php` - Controles AOS animation agregados (atributos solo), actualización de estilos para AOS.
+- `blocks/blocks.php` - Cambio a AOS CSS en editor.
+- `header.php` - Lectura de opción position del header.
+- `footer.php` - Lectura de opciones position y show_footer.
+- `inc/admin/blocks-className-fix.php` - Función `bootstrap_theme_get_animation_attributes()` actualizada para soportar todos los parámetros AOS.
+- `inc/frontend/color-scheme-switcher.php` - Lectura de opción ACF para visibilidad.
+- `inc/admin/acf-json/group_bootstrap_theme_customization.json` - Nuevos campos ACF.
+- `inc/admin/acf-json/group_bootstrap_theme_general_options.json` - Campo show_footer.
+- `template-parts/woocommerce/single-product.php` - Migración a AOS.
+- `template-parts/headers/*.php` - Migración a AOS en todos los headers (7 archivos).
+- **Removido**: `assets/js/wow-init.js`
+
+**Bloques con soporte AOS completo (14 bloques):**
+1. ✅ bs-card - Editor + Render + Animación
+2. ✅ bs-cart - Editor + Render + Animación
+3. ✅ bs-container - Editor + Render + Animación
+4. ✅ bs-row - Editor + Render + Animación
+5. ✅ bs-column - Editor + Render + Animación
+6. ✅ bs-accordion - Editor + Render + Animación
+7. ✅ bs-alert - Editor + Render + Animación
+8. ✅ bs-button-group - Editor + Atributos (render próxima)
+9. ✅ bs-dropdown - Editor + Atributos (render próxima)
+10. ✅ bs-list-group - Editor + Atributos (render próxima)
+11. ✅ bs-modal - Editor + Atributos (render próxima)
+12. ✅ bs-offcanvas - Editor + Atributos (render próxima)
+13. ✅ bs-tabs - Editor solamente (no tiene render PHP)
+14. ✅ bs-wc-products - Editor + Atributos (render próxima)
 
 ### 1.5.8 — 2025-11-06
 - **WooCommerce: Sistema de validación y auto-formato para campos personalizados del checkout**.

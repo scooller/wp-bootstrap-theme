@@ -21,11 +21,17 @@ function bootstrap_theme_render_bs_container_block($attributes, $content, $block
     $padding = $attributes['padding'] ?? '';
     $margin = $attributes['margin'] ?? '';
     // New background options
-    $bgType = $attributes['bgType'] ?? 'none'; // none|solid|gradient
+    $bgType = $attributes['bgType'] ?? 'none'; // none|solid|gradient|image
     $bgColor = $attributes['bgColor'] ?? '';
     $bgGradientFrom = $attributes['bgGradientFrom'] ?? '';
     $bgGradientTo = $attributes['bgGradientTo'] ?? '';
     $bgGradientDirection = $attributes['bgGradientDirection'] ?? 'to right';
+    $backgroundImage = $attributes['backgroundImage'] ?? '';
+    $bgSize = $attributes['bgSize'] ?? 'cover';
+    $bgPosition = $attributes['bgPosition'] ?? 'center';
+    $bgRepeat = $attributes['bgRepeat'] ?? 'no-repeat';
+    $bgAttachment = $attributes['bgAttachment'] ?? 'scroll';
+    $anchor = $attributes['anchor'] ?? '';
     
     // Build container classes
     $classes = array();
@@ -93,6 +99,12 @@ function bootstrap_theme_render_bs_container_block($attributes, $content, $block
         if ($from && $to) {
             $styles['background-image'] = 'linear-gradient(' . $dir . ', ' . $from . ', ' . $to . ')';
         }
+    } elseif ($bgType === 'image' && !empty($backgroundImage)) {
+        $styles['background-image'] = 'url(' . esc_url($backgroundImage) . ')';
+        $styles['background-size'] = in_array($bgSize, array('cover','contain','auto'), true) ? $bgSize : 'cover';
+        $styles['background-position'] = esc_attr($bgPosition);
+        $styles['background-repeat'] = in_array($bgRepeat, array('no-repeat','repeat','repeat-x','repeat-y'), true) ? $bgRepeat : 'no-repeat';
+        $styles['background-attachment'] = in_array($bgAttachment, array('scroll','fixed','local'), true) ? $bgAttachment : 'scroll';
     }
 
     $style_string = '';
@@ -104,7 +116,15 @@ function bootstrap_theme_render_bs_container_block($attributes, $content, $block
         $style_string = ' style="' . esc_attr(implode(';', $pairs)) . '"';
     }
 
-    $output = '<div class="' . esc_attr($class_string) . '"' . $style_string . '>';
+    $id_attr = '';
+    if (!empty($anchor)) {
+        $id_attr = ' id="' . esc_attr($anchor) . '"';
+    }
+
+    // Get AOS animation attributes
+    $aos_attrs = bootstrap_theme_get_animation_attributes($attributes, $block);
+
+    $output = '<div class="' . esc_attr($class_string) . '"' . $id_attr . $style_string . $aos_attrs . '>';
     
     // Add content from InnerBlocks
     if (!empty($content)) {
@@ -173,6 +193,58 @@ function bootstrap_theme_register_bs_container_block() {
             'bgGradientDirection' => array(
                 'type' => 'string',
                 'default' => 'to right'
+            ),
+            'backgroundImage' => array(
+                'type' => 'string',
+                'default' => ''
+            ),
+            'bgSize' => array(
+                'type' => 'string',
+                'default' => 'cover'
+            ),
+            'bgPosition' => array(
+                'type' => 'string',
+                'default' => 'center'
+            ),
+            'bgRepeat' => array(
+                'type' => 'string',
+                'default' => 'no-repeat'
+            ),
+            'bgAttachment' => array(
+                'type' => 'string',
+                'default' => 'scroll'
+            ),
+            'anchor' => array(
+                'type' => 'string',
+                'default' => ''
+            ),
+            'aosAnimation' => array(
+                'type' => 'string',
+                'default' => ''
+            ),
+            'aosDelay' => array(
+                'type' => 'number',
+                'default' => 0
+            ),
+            'aosDuration' => array(
+                'type' => 'number',
+                'default' => 800
+            ),
+            'aosEasing' => array(
+                'type' => 'string',
+                'default' => 'ease-in-out-cubic'
+            ),
+            'aosOnce' => array(
+                'type' => 'boolean',
+                'default' => false
+            ),
+            'aosMirror' => array(
+                'type' => 'boolean',
+                'default' => true
+            ),
+            'aosAnchorPlacement' => array(
+                'type' => 'string',
+                'default' => 'top-bottom'
             ),
             'className' => array(
                 'type' => 'string',
